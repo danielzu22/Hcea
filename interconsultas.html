@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>SCELEST</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+    <!-- Icon Font -->
+    <link href="icons/css/iconos.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container header__container">
+            <!-- Logo a la Izquierda con título -->
+            <div class="header__brand">
+                <a href="index.php" class="header__logo" aria-label="Logo - Ir a la página de inicio">
+                    <img src="images/logo.svg" alt="Logo">
+                </a>
+                <div class="header__divider"></div>
+                <span class="header__brand-text">Consulta</span>
+            </div>
+
+            <!-- Botón Hamburguesa (Móvil) -->
+            <button class="header__toggle" id="button_mobile"
+                onclick="toggleClass('menu','button_mobile','header__nav--open')">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Links a la Derecha -->
+            <nav class="header__nav" id="menu">
+                <a href="#" class="header__link header__link--active" aria-current="page">Inicio</a>
+                <a href="seccion.php" class="header__link">Burgueño Fernando</a>
+                <a href="listas.php" class="header__link"><i class="icon-exit"></i></a>
+            </nav>
+        </div>
+    </header>
+
+<div class="patient-banner">
+    <div class="container">
+        <div class="patient-banner__inner">
+            <div class="patient-banner__info">
+                <img src="images/iconos/Usuario.svg" alt="Usuario" class="patient-banner__icon">
+                <span class="patient-banner__name">LUIS IGNACION TESTING TESTING</span>
+                <span class="patient-banner__data">CI: 3.007.488-9</span>
+                <span class="patient-banner__data">70 años</span>
+                <span class="patient-banner__data">Masculino</span>
+            </div>
+            <div class="patient-banner__actions">
+                <a href="#" class="patient-banner__action"><img src="images/iconos/Nota.svg" alt="Nota"></a>
+                <a href="#" class="patient-banner__action"><img src="images/iconos/Campana.svg" alt="Campana"></a>
+                <a href="#" class="patient-banner__action"><img src="images/iconos/Carpeta-usuario.svg"
+                        alt="Carpeta usuario"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="main-section">
+    <div class="container">
+        <div class="main-layout">
+                        <aside class="vertical-menu">
+                            <nav class="vertical-menu__nav">
+                                <a href="#" class="vertical-menu__link">
+                                    <img src="images/iconos/Consulta.svg" alt="Consulta" class="vertical-menu__icon">
+                                    <span>Consulta</span>
+                                </a>
+                                <a href="#" class="vertical-menu__link">
+                                    <img src="images/iconos/Procedimientos.svg" alt="Procedimientos" class="vertical-menu__icon">
+                                    <span>Procedimientos</span>
+                                </a>
+                                <a href="#" class="vertical-menu__link">
+                                    <img src="images/iconos/Persona mayor.svg" alt="Persona mayor" class="vertical-menu__icon">
+                                    <span>Persona mayor</span>
+                                </a>
+                                <a href="#" class="vertical-menu__link">
+                                    <img src="images/iconos/Resumen del paciente.svg" alt="Resumen del paciente"
+                                        class="vertical-menu__icon">
+                                    <span>Resumen del paciente</span>
+                                </a>
+                                <a href="#" class="vertical-menu__link vertical-menu__link--active">
+                                    <img src="images/iconos/Prescripciones.svg" alt="Prescripciones" class="vertical-menu__icon">
+                                    <span>Prescripciones</span>
+                                </a>
+                                <a href="#" class="vertical-menu__link">
+                                    <img src="images/iconos/Historia Clínica.svg" alt="Historia Clínica"
+                                        class="vertical-menu__icon">
+                                    <span>Historia Clínica</span>
+                                </a>
+                                <a href="#" class="vertical-menu__link vertical-menu__link--firmar">
+                                    <img src="images/iconos/Firmar.svg" alt="Firmar" class="vertical-menu__icon">
+                                    <span>Firmar</span>
+                                </a>
+                            </nav>
+                        </aside>
+
+            <div class="main-content">
+                <div class="tabs">
+                    <a href="index.html" class="tabs__tab">HISTÓRICO INTERCONSULTAS</a>
+                    <a href="interconsultas.html" class="tabs__tab tabs__tab--active">INTERCONSULTAS</a>
+                </div>
+                <div class="content-card">
+                    <!-- Buscador de Agregar Interconsulta -->
+                    <div class="add-interconsulta">
+                        <div class="add-interconsulta__left">
+                            <div class="add-interconsulta__icon-box">
+                                <img src="images/iconos/Lupa.svg" alt="Buscar">
+                            </div>
+                            <span class="add-interconsulta__title">AGREGAR INTERCONSULTA:</span>
+                        </div>
+                        
+                        <div class="add-interconsulta__search" id="interconsulta-search-container">
+                            <div class="add-interconsulta__input-wrapper">
+                                <img src="images/iconos/Lupa.svg" alt="Buscar" class="add-interconsulta__input-icon add-interconsulta__input-icon--left">
+                                <input type="text" class="add-interconsulta__input" id="interconsulta-input" placeholder="Buscar especialidad..." value="">
+                                <img src="images/iconos/Circulo-cerrar.svg" alt="Borrar" class="add-interconsulta__input-icon add-interconsulta__input-icon--right" id="interconsulta-clear" style="display:none;">
+                            </div>
+                            
+                            <!-- Dropdown con resultados dinámicos -->
+                            <div class="add-interconsulta__dropdown" id="interconsulta-dropdown">
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn--primary add-interconsulta__btn" id="btn-add-interconsulta">
+                            <img src="images/iconos/Circulo-plus.svg" alt="Agregar" class="add-interconsulta__btn-icon"> Agregar
+                        </button>
+                    </div>
+
+                    <!-- Contenedor donde se inyectan las pestañas dinámicas y formularios -->
+                    <div class="dynamic-layout" id="dynamic-layout" style="display: none;">
+                        <div class="dynamic-layout__sidebar" id="dynamic-tabs-container">
+                            <!-- Pestañas generadas por JS -->
+                        </div>
+                        <div class="dynamic-layout__content" id="dynamic-forms-container">
+                            <!-- Formularios generados por JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal Criterio de Derivación -->
+<div class="modal-backdrop" id="modal-criterios" style="display: none;">
+    <div class="modal-criterios">
+        <div class="modal-criterios__header">
+            <div class="modal-criterios__title">
+                <img src="images/iconos/Notepad-check.svg" alt="Notepad" class="modal-criterios__title-icon">
+                <span>Criterio de derivación</span>
+            </div>
+            <button class="modal-criterios__close" id="modal-close-btn">
+                <img src="images/iconos/Cerrar_bold.svg" alt="Cerrar">
+            </button>
+        </div>
+        
+        <div class="modal-criterios__body">
+            <div class="modal-criterios__grid" id="modal-cards-container">
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">HTA No controlada</span>
+                </div>
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">HTA con refractariedad al tratamiento (3 fármacos)</span>
+                </div>
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">HTA severa Cifras > 160/100</span>
+                </div>
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">HTA Sospecha de HTA Secundaria</span>
+                </div>
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">HTA con lesión de órgano blanco. Cardiopatía isquémica con criterio clínico</span>
+                </div>
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">Alto riesgo de enfermedad CV</span>
+                </div>
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">Sincopes reiterados, dolor torácico atípico *, ECG patológico</span>
+                </div>
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">Arritmias Cardiacas</span>
+                </div>
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">HTA Pulmonar con diagnóstico confirmado para seguimiento y tratamiento</span>
+                </div>
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">Cardiooncología?</span>
+                </div>
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">Otras causas específicas</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-criterios__footer">
+            <div class="modal-criterios__status">
+                <span class="modal-criterios__status-label">Estado de criterio:</span>
+                <span class="modal-criterios__badge" id="modal-badge-status">Sin selección</span>
+            </div>
+            <div class="modal-criterios__actions">
+                <button class="modal-criterios__btn modal-criterios__btn--cancel" id="modal-cancel-btn">Cancelar</button>
+                <button class="modal-criterios__btn modal-criterios__btn--confirm" id="modal-confirm-btn">Confirmar selección</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <footer>
+    <div class="container">
+    </div>
+</footer> -->
+
+<script src="js/funciones.js"></script>
+
+</body>
+
+</html>
