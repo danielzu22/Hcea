@@ -9,7 +9,7 @@
     width: 100%;
     background-color: #ffffff;
     padding: 2rem 0; // Hacer la franja más alta
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     margin-bottom: var.$gp-m;
 
     &__inner {
@@ -26,6 +26,8 @@
 
     &__info {
         display: flex;
+        flex-grow: 1; // Ocupar todo el espacio restante hasta los iconos
+        justify-content: center; // Centrar el contenido horizontalmente
         align-items: center; // Centrado vertical estricto
         gap: var.$gp-m;
         flex-wrap: wrap;
