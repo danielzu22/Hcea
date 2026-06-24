@@ -41,8 +41,7 @@
     gap: 1rem;
     padding: 1rem 1.5rem;
     border-radius: 8px 0 0 8px; // Sin redondeo a la derecha
-    background-color: #F2F6F9; // Fondo gris tenue para inactivas
-    color: #6B7280; // Texto en gris
+    background-color: #F5F6F7; // Fondo inactivo según especificación
     cursor: pointer;
     border: 1px solid transparent; // Inactivas sin borde
     margin-right: -1px; // Para tapar el borde izquierdo del formulario
@@ -50,25 +49,27 @@
     z-index: 0;
     transition: all 0.2s ease;
 
-    img {
-        filter: grayscale(100%) opacity(50%); // Icono gris claro
-        transition: filter 0.2s ease;
-    }
-
     &:hover {
         background-color: #E5E7EB; // Hover un poco más oscuro
     }
 
     &.active {
         background-color: #ffffff; // Fondo blanco
-        color: #05267D; // Azul muy oscuro para el texto (según la imagen)
-        font-weight: var.$fw-bold;
         border-color: #E5E7EB; // Activa con borde
         border-right-color: #ffffff; // Borde derecho blanco para "borrar" la línea de unión
         z-index: 2; // Para quedar por encima del borde del formulario
         
-        img {
-            filter: none; // Restaura el icono a su estado original a color
+        .vertical-tab__text {
+            color: #05267D; // Azul en activa
+        }
+
+        .vertical-tab__icon-box {
+            background-color: #DBE5F1; // Círculo azul claro en activa
+            
+            img {
+                // Filtro azul original
+                filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(2250%) hue-rotate(205deg) brightness(96%) contrast(106%);
+            }
         }
     }
 
@@ -76,23 +77,27 @@
         width: 24px;
         height: 24px;
         border-radius: 50%;
-        background-color: #E8F0FE; // Celeste claro
+        background-color: #DEDEDF; // Círculo gris en inactiva
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: all 0.2s ease;
 
         img {
             width: 14px;
             height: 14px;
-            filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(2250%) hue-rotate(205deg) brightness(96%) contrast(106%);
+            // Filtro para generar un gris #646C79 en inactiva
+            filter: brightness(0) invert(44%) sepia(12%) saturate(468%) hue-rotate(182deg) brightness(91%) contrast(86%);
+            transition: all 0.2s ease;
         }
     }
 
     &__text {
         font-family: var.$font-main;
         font-weight: var.$fw-bold;
-        color: var.$color-brand-blue;
+        color: #646C79; // Gris en inactiva
         font-size: 1.4rem;
+        transition: color 0.2s ease;
     }
 }
 
