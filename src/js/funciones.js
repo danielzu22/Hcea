@@ -290,7 +290,7 @@ function initDynamicForms() {
                     <label>Tipo de consulta:</label>
                     <div class="specialty-form__radio-group">
                         <label class="specialty-form__radio-label">
-                            <input type="radio" name="tipo_consulta_${currentId}" value="primera" checked>
+                            <input type="radio" name="tipo_consulta_${currentId}" value="primera">
                             <span class="radio-custom"></span>
                             Primera vez
                         </label>
