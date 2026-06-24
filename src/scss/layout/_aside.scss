@@ -10,12 +10,10 @@
     flex-shrink: 0; // Previene que el menú se encoja
     background-color: #159FDB;
     border-radius: 12px; // Bordes redondeados
-    padding: var.$gp-m 0;
     
     &__nav {
         display: flex;
         flex-direction: column;
-        gap: var.$gp-s;
     }
 
     &__link {
@@ -25,16 +23,34 @@
         justify-content: center;
         color: white;
         text-decoration: none;
-        padding: var.$gp-m;
+        padding: 1.5rem 0.5rem;
         text-align: center;
         transition: background-color 0.3s ease;
         font-family: var.$font-main;
         gap: 8px; // Separación entre icono y texto
 
+        &:first-child {
+            border-radius: 12px 12px 0 0;
+        }
+
+        &:last-child {
+            border-radius: 0 0 12px 12px;
+        }
+
         &:hover {
             background-color: rgba(255, 255, 255, 0.15); // Efecto sutil al pasar el mouse
-            border-radius: 8px;
-            margin: 0 var.$gp-s;
+        }
+
+        &--active {
+            background-color: #808080 !important;
+        }
+
+        &--firmar {
+            background-color: #F18A04 !important;
+            
+            &:hover {
+                background-color: lighten(#F18A04, 10%) !important;
+            }
         }
 
         .vertical-menu__icon {
