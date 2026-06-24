@@ -50,7 +50,7 @@
         font-family: var.$font-main;
         font-weight: var.$fw-regular;
         color: var.$color-secondary;
-        font-size: 1.3rem; // Fuente más grande
+        font-size: 1.8rem; // Mismo tamaño que el nombre
 
         &::before {
             content: "•";
