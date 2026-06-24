@@ -1,2 +1,159 @@
 @use "../abstracts/variables" as var;
 @use "../abstracts/mixins" as mix;
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: var.$gp-l;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var.$font-main;
+    font-size: 0.95rem;
+
+    th {
+        color: var.$color-brand-blue; // El azul pedido
+        font-weight: var.$fw-bold;
+        text-align: left;
+        padding: var.$gp-m;
+        border-bottom: 2px solid #F0F0F0;
+        white-space: nowrap; // Para que el titulo no se rompa si es posible
+    }
+
+    td {
+        padding: var.$gp-m;
+        border-bottom: 1px solid #F0F0F0;
+        vertical-align: middle;
+        color: var.$color-text;
+    }
+
+    tbody tr {
+        transition: background-color 0.2s ease;
+        &:hover {
+            background-color: var.$gray-100;
+        }
+    }
+}
+
+// Botones de acción en tabla
+.action-btn {
+    background-color: #ffffff;
+    border: 1px solid #C9DBF7; // Borde celeste
+    border-radius: 8px; // Bordes redondeados
+    padding: 0.4rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+
+    img {
+        width: 18px;
+        height: auto;
+        // Filtro CSS para volver el icono a azul oscuro (#003CA5)
+        filter: invert(16%) sepia(87%) saturate(2250%) hue-rotate(205deg) brightness(96%) contrast(106%);
+    }
+
+    &:hover {
+        background-color: #f1f5fa;
+    }
+    
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+// Píldoras de estado (Status Pills)
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px; // Todas con esquina redondeada
+    font-weight: var.$fw-bold;
+    font-size: 0.85rem;
+    gap: 0.4rem;
+    white-space: nowrap;
+
+    img {
+        width: 16px;
+        height: auto;
+    }
+
+    &--pendiente {
+        background-color: #FEF3DC;
+        color: #E48834;
+        img {
+            // Convierte el SVG negro a #E48834
+            filter: invert(61%) sepia(84%) saturate(408%) hue-rotate(345deg) brightness(91%) contrast(92%); 
+        }
+    }
+
+    &--cancelado {
+        background-color: #DCDCDC;
+        color: #6B6B6B;
+        img {
+            // Convierte el SVG a #6B6B6B
+            filter: invert(41%) sepia(2%) saturate(0%) hue-rotate(31deg) brightness(98%) contrast(85%); 
+        }
+    }
+
+    &--inasistencia {
+        background-color: #FFEBEB;
+        color: #E14A4A;
+        img {
+            // Convierte el SVG a #E14A4A
+            filter: invert(36%) sepia(91%) saturate(1112%) hue-rotate(320deg) brightness(93%) contrast(98%); 
+        }
+    }
+
+    &--cumplido {
+        background-color: #2CA95C;
+        color: #ffffff;
+        img {
+            // Convierte el SVG a blanco
+            filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(185deg) brightness(105%) contrast(105%); 
+        }
+    }
+
+    &--coordinada {
+        background-color: #E8F9EC;
+        color: #2CA95C;
+        img {
+            // Convierte el SVG a #2CA95C
+            filter: invert(53%) sepia(81%) saturate(399%) hue-rotate(97deg) brightness(87%) contrast(83%); 
+        }
+    }
+}
+
+// Paginación
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: var.$gp-l;
+    gap: 0.5rem;
+
+    &__btn {
+        background: transparent;
+        border: 1px solid var.$color-brand-blue;
+        color: var.$color-brand-blue;
+        border-radius: var.$br-sm;
+        padding: 0.5rem 0.8rem;
+        cursor: pointer;
+        font-family: var.$font-main;
+        font-weight: var.$fw-bold;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background-color: var.$color-brand-blue;
+            color: #ffffff;
+        }
+
+        &--active {
+            background-color: var.$color-brand-blue;
+            color: #ffffff;
+        }
+    }
+}
