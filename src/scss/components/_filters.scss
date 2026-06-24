@@ -28,7 +28,7 @@
 
     &__label {
         font-family: var.$font-main;
-        font-size: 0.9rem;
+        font-size: 1.1rem; // Fuente más grande
         font-weight: var.$fw-bold;
         color: var.$color-text;
         margin-bottom: 0.5rem;
@@ -38,10 +38,10 @@
     input.filters-box__input,
     select.filters-box__select {
         font-family: var.$font-main;
-        font-size: 1rem;
-        padding: 0.6rem 0.8rem;
+        font-size: 1.1rem; // Fuente más grande
+        padding: 0.8rem 1.2rem; // Más padding
         border: 1px solid #ced4da;
-        border-radius: var.$br-sm;
+        border-radius: 30px; // Bordes bien redondeados
         color: var.$color-text;
         width: 100%;
         background-color: #fff;
