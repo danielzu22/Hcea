@@ -80,6 +80,7 @@
             padding: 0.8rem 1.2rem; // Mismo padding que los inputs
             font-size: 1.1rem; // Misma fuente que los inputs
             height: 100%; // Asegurar que ocupe el mismo alto
+            border-radius: 5px; // Mismo redondeo que los campos
             
             &:hover {
                 filter: brightness(1.1);
