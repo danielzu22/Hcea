@@ -6,7 +6,7 @@
 
 .dynamic-layout {
     display: flex;
-    gap: 2rem;
+    gap: 0; // Quitado para que las pestañas se peguen al formulario
     align-items: flex-start;
     margin-top: 2rem;
 
@@ -16,7 +16,7 @@
         flex-shrink: 0;
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.5rem; // Espacio vertical entre pestañas
     }
 
     // Columna derecha (Contenido/Formulario)
@@ -24,9 +24,11 @@
         flex: 1;
         min-width: 0; // Evitar overflow en flex
         border: 1px solid #E5E7EB;
-        border-radius: 8px;
+        border-radius: 0 8px 8px 8px; // Esquina superior izquierda recta para fusionar mejor
         padding: 2rem;
         background-color: #ffffff;
+        position: relative;
+        z-index: 1;
     }
 }
 
@@ -38,21 +40,23 @@
     align-items: center;
     gap: 1rem;
     padding: 1rem 1.5rem;
-    border-radius: 8px;
-    background-color: transparent;
+    border-radius: 8px 0 0 8px; // Sin redondeo a la derecha
+    background-color: #F2F6F9; // Fondo de las inactivas
     cursor: pointer;
-    border: 1px solid transparent;
+    border: 1px solid #E5E7EB;
+    margin-right: -1px; // Para tapar el borde izquierdo del formulario
+    position: relative;
+    z-index: 0;
     transition: all 0.2s ease;
 
     &:hover {
-        background-color: #F8F9FA;
+        background-color: #e8eef3;
     }
 
     &.active {
-        background-color: #F8F9FA;
-        border: 1px solid #E5E7EB;
-        // Borde derecho abierto para "fusionarse" con el contenedor, si es necesario, 
-        // pero en el diseño no se fusionan, están separados y el contenedor no los envuelve así.
+        background-color: #ffffff; // Mismo color que el formulario
+        border-right-color: #ffffff; // Borde derecho blanco para "borrar" la línea de unión
+        z-index: 2; // Para quedar por encima del borde del formulario
     }
 
     &__icon-box {
@@ -75,7 +79,7 @@
         font-family: var.$font-main;
         font-weight: var.$fw-bold;
         color: var.$color-brand-blue;
-        font-size: 1.1rem;
+        font-size: 1.4rem;
     }
 }
 
@@ -84,15 +88,22 @@
    ========================================================================== */
 .specialty-form {
     display: none; // Solo se muestra cuando tiene clase .active
-    
+
     &.active {
         display: block;
         animation: fadeIn 0.3s ease;
     }
 
     @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(5px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+            opacity: 0;
+            transform: translateY(5px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     &__grid {
@@ -139,22 +150,27 @@
                 border-color: var.$color-brand-blue;
             }
         }
-        
+
         // Sobrescribir tamaños de custom-select cuando están dentro de este form
         .custom-select__trigger {
             font-size: 1.3rem;
-            padding: 0.8rem 1.2rem;
+            padding: 1.2rem 1.6rem;
         }
-        
+
         .custom-select__option {
             font-size: 1.3rem;
         }
     }
 
     // Configuración de celdas que ocupan múltiples columnas
-    .span-2 { grid-column: span 2; }
-    .span-4 { grid-column: span 4; }
-    
+    .span-2 {
+        grid-column: span 2;
+    }
+
+    .span-4 {
+        grid-column: span 4;
+    }
+
     &__textarea-group {
         grid-column: 3 / 5; // Ocupa las ultimas 2 columnas
     }
@@ -171,7 +187,7 @@
         gap: 0.8rem;
         border: 1px solid #ced4da;
         border-radius: 5px;
-        padding: 0.8rem 1rem;
+        padding: 1.2rem 1.6rem;
         flex: 1;
         cursor: pointer;
         font-family: var.$font-main;
@@ -191,7 +207,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            
+
             &::after {
                 content: "";
                 display: block;
@@ -202,8 +218,9 @@
             }
         }
 
-        input[type="radio"]:checked + .radio-custom {
+        input[type="radio"]:checked+.radio-custom {
             background-color: var.$color-brand-blue;
+
             // Dibujar checkmark usando CSS borders si es necesario
             &::after {
                 width: 5px;
@@ -233,8 +250,8 @@
         color: var.$color-brand-blue;
         font-family: var.$font-main;
         font-weight: var.$fw-bold;
-        border-radius: 5px;
-        padding: 0.6rem 1.5rem;
+        border-radius: 8px;
+        padding: 1.3rem 1.5rem;
         cursor: pointer;
         transition: background-color 0.2s;
 
