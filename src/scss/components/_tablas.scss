@@ -9,24 +9,37 @@
 
 .data-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate; // Cambiado para permitir border-radius
+    border-spacing: 0; // Sin espacio entre celdas
     font-family: var.$font-main;
-    font-size: 0.95rem;
+    font-size: 1.25rem; // ~30% más grande que 0.95rem
 
     th {
-        color: var.$color-brand-blue; // El azul pedido
+        background-color: var.$color-brand-blue; // Fondo azul
+        color: #ffffff; // Texto blanco
         font-weight: var.$fw-bold;
         text-align: left;
         padding: var.$gp-m;
-        border-bottom: 2px solid #F0F0F0;
         white-space: nowrap; // Para que el titulo no se rompa si es posible
+
+        // Border radius a la izquierda para la primera columna
+        &:first-child {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        // Border radius a la derecha para la última columna
+        &:last-child {
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
     }
 
     td {
         padding: var.$gp-m;
         border-bottom: 1px solid #F0F0F0;
         vertical-align: middle;
-        color: var.$color-text;
+        color: var.$color-brand-blue; // Todo el texto del body en azul
     }
 
     tbody tr {
