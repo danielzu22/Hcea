@@ -177,8 +177,9 @@
             }
 
             &.selected {
-                background-color: var.$color-brand-blue;
-                color: #ffffff;
+                background-color: #ffffff;
+                color: #000000;
+                font-weight: bold; // Lo ponemos en negrita para distinguirlo un poco
             }
             
             // Para mantener redondeo del último elemento
