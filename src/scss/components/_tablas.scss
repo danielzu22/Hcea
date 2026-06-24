@@ -101,10 +101,10 @@
 
     &--pendiente {
         background-color: #FEF3DC;
-        color: #E48834;
+        color: #C36817; // Naranja más oscuro para mejor contraste
         img {
-            // Convierte el SVG negro a #E48834
-            filter: invert(61%) sepia(84%) saturate(408%) hue-rotate(345deg) brightness(91%) contrast(92%); 
+            // Convierte el SVG negro a #C36817
+            filter: invert(47%) sepia(87%) saturate(1837%) hue-rotate(354deg) brightness(94%) contrast(92%); 
         }
     }
 
