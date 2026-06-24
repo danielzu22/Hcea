@@ -1,0 +1,66 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+/* ==========================================================================
+   BLOCK: Filters Box
+   ========================================================================== */
+
+.filters-box {
+    border: 1px solid #F0F0F0;
+    border-radius: 12px;
+    padding: var.$gp-l;
+    background-color: #ffffff;
+    margin-bottom: var.$gp-l;
+
+    &__grid {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end; // Para alinear la parte inferior de los inputs con el botón
+        gap: var.$gp-m;
+    }
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 150px;
+    }
+
+    &__label {
+        font-family: var.$font-main;
+        font-size: 0.9rem;
+        font-weight: var.$fw-bold;
+        color: var.$color-text;
+        margin-bottom: 0.5rem;
+    }
+
+    // Usamos selectores específicos para sobrescribir _formularios.scss si es necesario
+    input.filters-box__input,
+    select.filters-box__select {
+        font-family: var.$font-main;
+        font-size: 1rem;
+        padding: 0.6rem 0.8rem;
+        border: 1px solid #ced4da;
+        border-radius: var.$br-sm;
+        color: var.$color-text;
+        width: 100%;
+        background-color: #fff;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+            outline: none;
+            border-color: var.$color-primary;
+        }
+    }
+
+    &__action {
+        display: flex;
+        align-items: center;
+        // Pequeño ajuste en desktop para alinear bien la altura del botón con los inputs
+        margin-bottom: 2px;
+        
+        .btn {
+            white-space: nowrap; // Evita que el texto del botón se parta
+        }
+    }
+}
