@@ -2,8 +2,20 @@
 @use "../abstracts/mixins" as mix;
 
 
-section {
+.main-section {
+    padding: var.$gp-l 0; // Separación del header y footer
+
     .container{
         height: inherit;
     }
+}
+
+.main-layout {
+    display: flex;
+    gap: var.$gp-l; // Separación entre menú y contenido
+    align-items: flex-start;
+}
+
+.main-content {
+    flex-grow: 1;
 }

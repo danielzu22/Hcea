@@ -6,6 +6,8 @@
    ========================================================================== */
 
 .vertical-menu {
+    width: 120px;
+    flex-shrink: 0; // Evita que se haga más pequeño
     background-color: #159FDB;
     border-radius: 12px; // Bordes redondeados
     padding: var.$gp-m 0;
