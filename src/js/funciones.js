@@ -441,14 +441,14 @@ function initModalCriterios() {
             badgeStatus.textContent = "Sin selección";
             badgeStatus.classList.add('badge-none');
         } else if (selectedCount <= 1) {
-            badgeStatus.textContent = "Derivación leve";
-            badgeStatus.classList.add('badge-leve');
+            badgeStatus.textContent = "Baja";
+            badgeStatus.classList.add('badge-leve'); // Color verde
         } else if (selectedCount <= 3) {
-            badgeStatus.textContent = "Derivación moderada";
-            badgeStatus.classList.add('badge-moderada');
+            badgeStatus.textContent = "Media";
+            badgeStatus.classList.add('badge-moderada'); // Color amarillo
         } else {
-            badgeStatus.textContent = "Derivación urgente";
-            badgeStatus.classList.add('badge-grave');
+            badgeStatus.textContent = "Alta";
+            badgeStatus.classList.add('badge-grave'); // Color rojo
         }
     }
     
