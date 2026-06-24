@@ -38,12 +38,12 @@
         }
 
         .vertical-menu__icon {
-            width: 32px; // Tamaño del icono ajustado para SVG
+            width: 42px; // Icono más grande
             height: auto;
         }
 
         span {
-            font-size: 0.9rem;
+            font-size: 1rem; // Texto más grande
             font-weight: var.$fw-medium;
         }
     }
