@@ -42,8 +42,7 @@
     padding: 1rem 1.5rem;
     border-radius: 8px 0 0 8px; // Sin redondeo a la derecha
     background-color: #ffffff; // Fondo blanco en vez de grisáceo
-    color: #6B7280; // Texto en gris
-    opacity: 0.6; // Opacidad reducida
+    color: #4B5563; // Texto en gris oscuro
     cursor: pointer;
     border: 1px solid transparent; // Inactivas sin borde
     margin-right: -1px; // Para tapar el borde izquierdo del formulario
@@ -52,25 +51,23 @@
     transition: all 0.2s ease;
 
     img {
-        filter: grayscale(100%); // Icono en escala de grises
+        filter: grayscale(100%) contrast(0.5) brightness(1.2); // Icono gris oscuro
         transition: filter 0.2s ease;
     }
 
     &:hover {
-        background-color: #f9fafb;
-        opacity: 0.8;
+        background-color: #F3F4F6; // Hover gris muy tenue
     }
 
     &.active {
         background-color: #ffffff; // Mismo color que el formulario
-        color: inherit; // Restaura el color del texto
-        opacity: 1; // Restaura la opacidad completa
+        color: inherit; // Restaura el color original del texto
         border-color: #E5E7EB; // Activa con borde
         border-right-color: #ffffff; // Borde derecho blanco para "borrar" la línea de unión
         z-index: 2; // Para quedar por encima del borde del formulario
         
         img {
-            filter: none; // Restaura los colores del icono
+            filter: none; // Restaura el icono a su estado original a color
         }
     }
 
