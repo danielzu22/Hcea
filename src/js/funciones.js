@@ -311,6 +311,9 @@ function initDynamicForms() {
                     </select>
                 </div>
 
+                <!-- Contenedor dinámico para el banner del Criterio -->
+                <div class="criterio-result-container span-4" id="criterio-banner-${currentId}"></div>
+
                 <!-- Fila 3 y 4 -->
                 <div class="specialty-form__group span-2">
                     <label>Motivo Interconsulta:</label>
@@ -365,7 +368,7 @@ function initDynamicForms() {
         radioBtns.forEach(radio => {
             radio.addEventListener('change', function() {
                 if(this.checked) {
-                    openModalCriterios();
+                    openModalCriterios(currentId);
                 }
             });
         });
@@ -398,9 +401,25 @@ function initDynamicForms() {
 // Modal de Criterios de Derivación
 // ==========================================
 
-function openModalCriterios() {
+let modalStates = {};
+let currentEditingFormId = null;
+
+function openModalCriterios(formId) {
     const modal = document.getElementById('modal-criterios');
     if (modal) {
+        currentEditingFormId = formId;
+        const cards = document.querySelectorAll('.criterio-card');
+        
+        // Restaurar estado guardado para este formulario
+        cards.forEach((card, index) => {
+            card.classList.remove('selected');
+            if (modalStates[formId] && modalStates[formId].includes(index)) {
+                card.classList.add('selected');
+            }
+        });
+
+        // Disparar evento para actualizar el badge inicial
+        modal.dispatchEvent(new Event('modalOpened'));
         modal.style.display = 'flex';
     }
 }
@@ -417,11 +436,30 @@ function initModalCriterios() {
 
     function closeModal() {
         modal.style.display = 'none';
+        currentEditingFormId = null;
     }
 
     if(btnClose) btnClose.addEventListener('click', closeModal);
     if(btnCancel) btnCancel.addEventListener('click', closeModal);
-    if(btnConfirm) btnConfirm.addEventListener('click', closeModal);
+    
+    if(btnConfirm) {
+        btnConfirm.addEventListener('click', function() {
+            if(currentEditingFormId) {
+                // Guardar estado actual
+                const selectedIndexes = [];
+                cards.forEach((card, index) => {
+                    if (card.classList.contains('selected')) {
+                        selectedIndexes.push(index);
+                    }
+                });
+                modalStates[currentEditingFormId] = selectedIndexes;
+                
+                // Inyectar o actualizar el banner en el formulario
+                renderCriterioBanner(currentEditingFormId);
+            }
+            closeModal();
+        });
+    }
 
     // Seleccion múltiple
     cards.forEach(card => {
@@ -452,6 +490,71 @@ function initModalCriterios() {
         }
     }
     
-    // Inicializar estado por defecto
-    updateModalStatus();
+    // Escuchar cuando se abre para actualizar estado
+    modal.addEventListener('modalOpened', updateModalStatus);
 }
+
+// Función para renderizar el banner de resultado en el formulario
+function renderCriterioBanner(formId) {
+    const container = document.getElementById(`criterio-banner-${formId}`);
+    if (!container) return;
+    
+    const selectedIndexes = modalStates[formId] || [];
+    if (selectedIndexes.length === 0) {
+        // Si no hay nada seleccionado, quitar el banner
+        container.innerHTML = '';
+        return;
+    }
+    
+    let estadoTexto = "Alta";
+    let estadoClase = "status-alta";
+    
+    if (selectedIndexes.length <= 1) {
+        estadoTexto = "Baja";
+        estadoClase = "status-baja";
+    } else if (selectedIndexes.length <= 3) {
+        estadoTexto = "Media";
+        estadoClase = "status-media";
+    }
+    
+    container.innerHTML = `
+        <div class="criterio-banner">
+            <div class="criterio-banner__info">
+                <div class="criterio-banner__icon">
+                    <img src="images/iconos/Chequeado.svg" alt="Check">
+                </div>
+                <div class="criterio-banner__text">
+                    Criterio de derivación: <span class="${estadoClase}">${estadoTexto}</span>
+                </div>
+            </div>
+            <div class="criterio-banner__actions">
+                <button type="button" class="criterio-banner__btn criterio-banner__btn--edit" onclick="openModalCriterios('${formId}')">
+                    <img src="images/iconos/Lapiz.svg" alt="Editar"> Editar
+                </button>
+                <button type="button" class="criterio-banner__btn criterio-banner__btn--delete" onclick="deleteCriterioBanner('${formId}')">
+                    <img src="images/iconos/Papelera.svg" alt="Eliminar"> Eliminar
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+// Función global para eliminar el banner
+window.deleteCriterioBanner = function(formId) {
+    const container = document.getElementById(`criterio-banner-${formId}`);
+    if (container) {
+        container.innerHTML = '';
+    }
+    
+    // Limpiar estado
+    if (modalStates[formId]) {
+        delete modalStates[formId];
+    }
+    
+    // Desmarcar radio buttons
+    const form = document.getElementById(formId);
+    if (form) {
+        const radios = form.querySelectorAll('input[type="radio"]');
+        radios.forEach(radio => radio.checked = false);
+    }
+};

@@ -266,3 +266,106 @@
         }
     }
 }
+
+/* ==========================================================================
+   BLOCK: Criterio Banner
+   ========================================================================== */
+.criterio-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F0F6FD;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    padding: 1.2rem 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    &__info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: #E8F0FE;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 16px;
+            height: 16px;
+            filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(2250%) hue-rotate(205deg) brightness(96%) contrast(106%);
+        }
+    }
+
+    &__text {
+        font-family: var.$font-main;
+        font-size: 1.3rem;
+        color: var.$color-brand-blue;
+        font-weight: var.$fw-bold;
+
+        span {
+            font-weight: var.$fw-bold;
+        }
+
+        .status-baja { color: #155724; } // Verde
+        .status-media { color: #856404; } // Amarillo/Naranja
+        .status-alta { color: #721c24; } // Rojo
+    }
+
+    &__actions {
+        display: flex;
+        gap: 1rem;
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1.2rem;
+        font-family: var.$font-main;
+        font-size: 1.1rem;
+        font-weight: var.$fw-bold;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        img {
+            width: 16px;
+            height: 16px;
+        }
+
+        &--edit {
+            background-color: #E8F0FE;
+            color: var.$color-brand-blue;
+
+            img {
+                filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(2250%) hue-rotate(205deg) brightness(96%) contrast(106%);
+            }
+
+            &:hover {
+                background-color: #d1e1fa;
+            }
+        }
+
+        &--delete {
+            background-color: #f8d7da;
+            color: #721c24;
+
+            img {
+                // Filtro rojo oscuro approx
+                filter: invert(16%) sepia(91%) saturate(2372%) hue-rotate(345deg) brightness(85%) contrast(98%);
+            }
+
+            &:hover {
+                background-color: #f5c6cb;
+            }
+        }
+    }
+}
