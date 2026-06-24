@@ -1,0 +1,158 @@
+@use "../abstracts/variables" as var;
+
+.add-interconsulta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.2rem 1.5rem;
+    border: 1px solid #F0F0F0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    margin-bottom: var.$gp-l;
+    flex-wrap: wrap; // Responsive
+
+    &__left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__icon-box {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #E8F0FE; // Celeste suave
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 20px;
+            height: 20px;
+            // Forzar svg a negro y luego aplicar el color azul #003CA5
+            filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(2250%) hue-rotate(205deg) brightness(96%) contrast(106%);
+        }
+    }
+
+    &__title {
+        font-family: var.$font-main;
+        font-weight: var.$fw-bold;
+        font-size: 1.3rem;
+        color: var.$color-brand-blue;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    &__search {
+        flex: 1;
+        min-width: 300px;
+        position: relative;
+    }
+
+    &__input-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        border: 1px solid var.$color-brand-blue;
+        border-radius: 5px;
+        background-color: #ffffff;
+        padding: 0.6rem 1rem;
+        transition: border-color 0.2s ease;
+    }
+
+    // Borde inferior recto cuando se abre el menú
+    &.open &__input-wrapper,
+    .open &__input-wrapper {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    &__input {
+        flex: 1;
+        border: none;
+        outline: none;
+        font-family: var.$font-main;
+        font-size: 1.1rem;
+        color: #000000;
+        padding: 0 0.8rem;
+        background: transparent;
+        
+        &::placeholder {
+            color: #999999;
+        }
+    }
+
+    &__input-icon {
+        width: 18px;
+        height: 18px;
+        
+        &--left {
+            // Lupa grisácea claro
+            filter: brightness(0) saturate(100%) invert(60%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(90%);
+        }
+
+        &--right {
+            // Cruz en color azul corporativo
+            filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(2250%) hue-rotate(205deg) brightness(96%) contrast(106%);
+            cursor: pointer;
+        }
+    }
+
+    &__dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+        border: 1px solid var.$color-brand-blue;
+        border-top: none;
+        border-radius: 0 0 5px 5px;
+        z-index: 10;
+        display: none; // Controlado por JS o clase
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    // Mostrar menú al ponerle la clase .open al contenedor __search
+    &.open &__dropdown,
+    .open &__dropdown {
+        display: block;
+    }
+
+    &__dropdown-item {
+        padding: 0.8rem 1rem;
+        font-family: var.$font-main;
+        font-size: 1.1rem;
+        font-weight: var.$fw-bold;
+        color: var.$color-brand-blue;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: #F0F6FD;
+        }
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: var.$color-brand-blue;
+        border-color: var.$color-brand-blue;
+        border-radius: 5px;
+        padding: 0.6rem 1.5rem;
+        font-size: 1.1rem;
+        height: 100%;
+        align-self: stretch;
+
+        &:hover {
+            filter: brightness(1.1);
+        }
+    }
+
+    &__btn-icon {
+        width: 16px;
+        height: 16px;
+        // Blanco puro para ícono dentro del botón azul
+        filter: brightness(0) invert(100%);
+    }
+}
