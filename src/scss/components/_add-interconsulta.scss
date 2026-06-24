@@ -51,47 +51,49 @@
 
     &__input-wrapper {
         position: relative;
-        display: flex;
-        align-items: center;
-        border: 1px solid var.$color-brand-blue;
-        border-radius: 5px;
-        background-color: #ffffff;
-        padding: 0.6rem 1rem;
-        transition: border-color 0.2s ease;
-    }
-
-    // Borde inferior recto cuando se abre el menú
-    &.open &__input-wrapper,
-    .open &__input-wrapper {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+        width: 100%;
     }
 
     &__input {
-        flex: 1;
-        border: none;
+        width: 100%;
+        border: 1px solid var.$color-brand-blue;
+        border-radius: 5px;
         outline: none;
         font-family: var.$font-main;
         font-size: 1.1rem;
         color: #000000;
-        padding: 0 0.8rem;
-        background: transparent;
+        padding: 0.6rem 2.2rem; // Espacio extra a los lados para los iconos
+        background: #ffffff;
+        transition: border-color 0.2s ease;
         
         &::placeholder {
             color: #999999;
         }
     }
 
+    // Borde inferior recto cuando se abre el menú
+    &.open &__input,
+    .open &__input {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
     &__input-icon {
         width: 18px;
         height: 18px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
         
         &--left {
+            left: 0.8rem;
             // Lupa grisácea claro
             filter: brightness(0) saturate(100%) invert(60%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(90%);
         }
 
         &--right {
+            right: 0.8rem;
             // Cruz en color azul corporativo
             filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(2250%) hue-rotate(205deg) brightness(96%) contrast(106%);
             cursor: pointer;
@@ -104,7 +106,7 @@
         left: 0;
         right: 0;
         background-color: #ffffff;
-        border: 1px solid var.$color-brand-blue;
+        border: 1px solid #ced4da; // Borde gris claro en lugar de azul
         border-top: none;
         border-radius: 0 0 5px 5px;
         z-index: 10;
