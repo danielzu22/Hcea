@@ -41,7 +41,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 1.5rem 2rem;
+        padding: 2rem 2.5rem; // Más padding
         border-bottom: 1px solid #E5E7EB;
     }
 
@@ -50,7 +50,7 @@
         align-items: center;
         gap: 1rem;
         font-family: var.$font-main;
-        font-size: 1.5rem;
+        font-size: 1.8rem; // Textos más grandes
         font-weight: var.$fw-bold;
         color: var.$color-brand-blue;
 
@@ -87,7 +87,7 @@
     }
 
     &__body {
-        padding: 2rem;
+        padding: 2.5rem; // Más padding
         max-height: 60vh;
         overflow-y: auto;
     }
@@ -95,14 +95,14 @@
     &__grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
+        gap: 1.5rem; // Más separación
     }
 
     &__footer {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 1.5rem 2rem;
+        padding: 2rem 2.5rem; // Más padding
         border-top: 1px solid #E5E7EB;
         background-color: #ffffff;
         border-radius: 0 0 12px 12px;
@@ -115,17 +115,17 @@
 
         &-label {
             font-family: var.$font-main;
-            font-size: 1.2rem;
+            font-size: 1.5rem; // Textos más grandes
             font-weight: var.$fw-bold;
             color: var.$color-brand-blue;
         }
     }
 
     &__badge {
-        padding: 0.6rem 1.2rem;
+        padding: 0.8rem 1.5rem; // Más padding en el badge
         border-radius: 8px;
         font-family: var.$font-main;
-        font-size: 1.1rem;
+        font-size: 1.4rem; // Textos más grandes
         font-weight: var.$fw-bold;
         transition: all 0.3s ease;
         
@@ -156,9 +156,9 @@
     }
 
     &__btn {
-        padding: 0.8rem 1.5rem;
+        padding: 1rem 2rem; // Más padding en botones
         font-family: var.$font-main;
-        font-size: 1.1rem;
+        font-size: 1.4rem; // Textos más grandes
         font-weight: var.$fw-bold;
         border-radius: 8px;
         cursor: pointer;
@@ -191,7 +191,7 @@
     display: flex;
     align-items: flex-start;
     gap: 1rem;
-    padding: 1.2rem;
+    padding: 1.5rem; // Más padding
     border: 1px solid #ced4da;
     border-radius: 8px;
     cursor: pointer;
@@ -205,8 +205,8 @@
 
     &__checkbox {
         flex-shrink: 0;
-        width: 22px;
-        height: 22px;
+        width: 18px; // Checkboxes más chicos
+        height: 18px; // Checkboxes más chicos
         border: 2px solid var.$color-brand-blue;
         border-radius: 4px;
         display: flex;
@@ -214,13 +214,13 @@
         justify-content: center;
         transition: all 0.2s ease;
         background-color: transparent;
-        margin-top: 2px; // Alinear visualmente con la primera línea de texto
+        margin-top: 4px; // Alinear visualmente con la primera línea de texto aumentada
 
         &::after {
             content: "";
             display: none;
-            width: 6px;
-            height: 12px;
+            width: 5px; // Ajustado proporcional al contenedor más chico
+            height: 10px; // Ajustado proporcional
             border: solid white;
             border-width: 0 2px 2px 0;
             transform: rotate(45deg);
@@ -230,7 +230,7 @@
 
     &__text {
         font-family: var.$font-main;
-        font-size: 1.05rem;
+        font-size: 1.4rem; // Textos más grandes
         color: var.$color-text;
         line-height: 1.4;
     }
