@@ -22,16 +22,14 @@
         padding: var.$gp-m;
         white-space: nowrap; // Para que el titulo no se rompa si es posible
 
-        // Border radius a la izquierda para la primera columna
+        // Border radius a la izquierda (solo arriba) para la primera columna
         &:first-child {
             border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
         }
 
-        // Border radius a la derecha para la última columna
+        // Border radius a la derecha (solo arriba) para la última columna
         &:last-child {
             border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
         }
     }
 
@@ -44,8 +42,14 @@
 
     tbody tr {
         transition: background-color 0.2s ease;
+        
+        // Color para filas pares
+        &:nth-child(even) {
+            background-color: #F0F6FD;
+        }
+
         &:hover {
-            background-color: var.$gray-100;
+            background-color: var.$gray-200; // Oscurecer un poco más en hover
         }
     }
 }

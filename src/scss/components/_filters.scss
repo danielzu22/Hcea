@@ -51,18 +51,35 @@
             outline: none;
             border-color: var.$color-primary;
         }
+
+        // Estilos para el menú desplegable nativo
+        option {
+            background-color: #ffffff;
+            color: #000000;
+        }
+    }
+
+    &__select {
+        // En algunos navegadores se puede añadir sombra al select si se abre, pero normalmente es manejado por el SO
+        // Agregamos un box-shadow al focus para simular el requerimiento si el OS lo permite
+        &:focus {
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
     }
 
     &__action {
         display: flex;
         align-items: center;
         // Pequeño ajuste en desktop para alinear bien la altura del botón con los inputs
-        margin-bottom: 2px;
+        margin-bottom: 0; // Removido para igualar estricamente la altura
         
         .btn {
             white-space: nowrap; // Evita que el texto del botón se parta
             background-color: #003CA5;
             border-color: #003CA5;
+            padding: 0.8rem 1.2rem; // Mismo padding que los inputs
+            font-size: 1.1rem; // Misma fuente que los inputs
+            height: 100%; // Asegurar que ocupe el mismo alto
             
             &:hover {
                 filter: brightness(1.1);
