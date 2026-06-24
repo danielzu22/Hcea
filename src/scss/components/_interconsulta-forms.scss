@@ -111,7 +111,7 @@
             font-family: var.$font-main;
             font-weight: var.$fw-bold;
             color: var.$color-brand-blue;
-            font-size: 0.95rem;
+            font-size: 1.25rem; // Aumentado 30%
         }
 
         // Para inputs tipo text o custom selects creados antes
@@ -119,7 +119,7 @@
             border-radius: 5px;
             border: 1px solid var.$color-brand-blue;
             padding: 0.6rem 1rem;
-            font-size: 1rem;
+            font-size: 1.3rem; // Aumentado 30%
             outline: none;
             font-family: var.$font-main;
         }
@@ -131,13 +131,23 @@
             border: 1px solid #ced4da;
             padding: 1rem;
             font-family: var.$font-main;
-            font-size: 1rem;
+            font-size: 1.3rem; // Aumentado 30%
             resize: vertical;
             outline: none;
 
             &:focus {
                 border-color: var.$color-brand-blue;
             }
+        }
+        
+        // Sobrescribir tamaños de custom-select cuando están dentro de este form
+        .custom-select__trigger {
+            font-size: 1.3rem;
+            padding: 0.8rem 1.2rem;
+        }
+        
+        .custom-select__option {
+            font-size: 1.3rem;
         }
     }
 
@@ -165,7 +175,7 @@
         flex: 1;
         cursor: pointer;
         font-family: var.$font-main;
-        font-size: 1rem;
+        font-size: 1.3rem; // Aumentado 30%
         color: var.$color-text;
         transition: all 0.2s ease;
 
