@@ -1210,7 +1210,9 @@ input[type=checkbox] + label {
   gap: 1rem;
   padding: 1rem 1.5rem;
   border-radius: 8px 0 0 8px;
-  background-color: #F2F6F9;
+  background-color: #ffffff;
+  color: #6B7280;
+  opacity: 0.6;
   cursor: pointer;
   border: 1px solid transparent;
   margin-right: -1px;
@@ -1218,14 +1220,24 @@ input[type=checkbox] + label {
   z-index: 0;
   transition: all 0.2s ease;
 }
+.vertical-tab img {
+  filter: grayscale(100%);
+  transition: filter 0.2s ease;
+}
 .vertical-tab:hover {
-  background-color: #e8eef3;
+  background-color: #f9fafb;
+  opacity: 0.8;
 }
 .vertical-tab.active {
   background-color: #ffffff;
+  color: inherit;
+  opacity: 1;
   border-color: #E5E7EB;
   border-right-color: #ffffff;
   z-index: 2;
+}
+.vertical-tab.active img {
+  filter: none;
 }
 .vertical-tab__icon-box {
   width: 24px;
