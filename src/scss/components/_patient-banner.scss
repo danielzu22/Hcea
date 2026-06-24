@@ -49,7 +49,7 @@
     &__data {
         font-family: var.$font-main;
         font-weight: var.$fw-regular;
-        color: var.$color-secondary;
+        color: var.$color-text; // Color principal (negro)
         font-size: 1.8rem; // Mismo tamaño que el nombre
 
         &::before {
