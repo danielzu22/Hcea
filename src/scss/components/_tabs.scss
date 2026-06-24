@@ -1,0 +1,50 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+/* ==========================================================================
+   BLOCK: Tabs & Content Card
+   ========================================================================== */
+
+.tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 0; // Eliminamos el margen para que se unan a la tarjeta
+}
+
+.tabs__tab {
+    background-color: rgba(255, 255, 255, 0.3); // Blanca con opacidad 30%
+    color: #003CA5;
+    border: none;
+    padding: var.$gp-m var.$gp-l;
+    border-radius: 12px 12px 0 0; // Bordes redondeados solo arriba
+    font-family: var.$font-main;
+    font-weight: var.$fw-bold;
+    font-size: 1.1rem;
+    text-transform: uppercase; // Fuerzo mayúsculas siempre
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+    // Para que la pestaña activa se fusione con la tarjeta
+    position: relative;
+    top: 1px; 
+    z-index: 1;
+
+    &:hover:not(.tabs__tab--active) {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &--active {
+        background-color: #ffffff;
+        z-index: 3; // Por encima de la tarjeta
+    }
+}
+
+.content-card {
+    background-color: #ffffff;
+    border-radius: 0 12px 12px 12px; // El primer borde (top-left) es 0 para unirse a la pestaña activa
+    padding: 2rem;
+    min-height: 500px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    position: relative;
+    z-index: 2;
+}
