@@ -61,6 +61,12 @@
         
         .btn {
             white-space: nowrap; // Evita que el texto del botón se parta
+            background-color: #003CA5;
+            border-color: #003CA5;
+            
+            &:hover {
+                filter: brightness(1.1);
+            }
         }
     }
 }
