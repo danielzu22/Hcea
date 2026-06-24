@@ -104,4 +104,79 @@
     </div>
 </section>
 
+<!-- Modal Criterio de Derivación -->
+<div class="modal-backdrop" id="modal-criterios" style="display: none;">
+    <div class="modal-criterios">
+        <div class="modal-criterios__header">
+            <div class="modal-criterios__title">
+                <img src="images/iconos/Notepad-check.svg" alt="Notepad" class="modal-criterios__title-icon">
+                <span>Criterio de derivación</span>
+            </div>
+            <button class="modal-criterios__close" id="modal-close-btn">
+                <img src="images/iconos/Cerrar_bold.svg" alt="Cerrar">
+            </button>
+        </div>
+        
+        <div class="modal-criterios__body">
+            <div class="modal-criterios__grid" id="modal-cards-container">
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">HTA No controlada</span>
+                </div>
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">HTA con refractariedad al tratamiento (3 fármacos)</span>
+                </div>
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">HTA severa Cifras > 160/100</span>
+                </div>
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">HTA Sospecha de HTA Secundaria</span>
+                </div>
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">HTA con lesión de órgano blanco. Cardiopatía isquémica con criterio clínico</span>
+                </div>
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">Alto riesgo de enfermedad CV</span>
+                </div>
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">Sincopes reiterados, dolor torácico atípico *, ECG patológico</span>
+                </div>
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">Arritmias Cardiacas</span>
+                </div>
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">HTA Pulmonar con diagnóstico confirmado para seguimiento y tratamiento</span>
+                </div>
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">Cardiooncología?</span>
+                </div>
+                <div class="criterio-card">
+                    <div class="criterio-card__checkbox"></div>
+                    <span class="criterio-card__text">Otras causas específicas</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-criterios__footer">
+            <div class="modal-criterios__status">
+                <span class="modal-criterios__status-label">Estado de criterio:</span>
+                <span class="modal-criterios__badge" id="modal-badge-status">Sin selección</span>
+            </div>
+            <div class="modal-criterios__actions">
+                <button class="modal-criterios__btn modal-criterios__btn--cancel" id="modal-cancel-btn">Cancelar</button>
+                <button class="modal-criterios__btn modal-criterios__btn--confirm" id="modal-confirm-btn">Confirmar selección</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--(bake _footer.html)-->

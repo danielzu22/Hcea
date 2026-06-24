@@ -107,11 +107,13 @@ if (document.readyState === "loading") {
         initCustomSelects();
         initAutocomplete();
         initDynamicForms();
+        initModalCriterios();
     });
 } else {
     initCustomSelects();
     initAutocomplete();
     initDynamicForms();
+    initModalCriterios();
 }
 
 // Función para el buscador simulado de interconsultas
@@ -358,6 +360,16 @@ function initDynamicForms() {
         // pero como es HTML nuevo, es seguro llamarlo.
         initCustomSelects();
 
+        // Escuchar radios de "Primera vez" y "Seguimiento" para abrir el modal
+        const radioBtns = form.querySelectorAll('input[type="radio"]');
+        radioBtns.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if(this.checked) {
+                    openModalCriterios();
+                }
+            });
+        });
+
         // 6. Lógica de eliminar
         const deleteBtn = form.querySelector('.specialty-form__btn-delete');
         deleteBtn.addEventListener('click', function() {
@@ -380,4 +392,66 @@ function initDynamicForms() {
         const clearBtn = document.getElementById('interconsulta-clear');
         if (clearBtn) clearBtn.style.display = 'none';
     });
+}
+
+// ==========================================
+// Modal de Criterios de Derivación
+// ==========================================
+
+function openModalCriterios() {
+    const modal = document.getElementById('modal-criterios');
+    if (modal) {
+        modal.style.display = 'flex';
+    }
+}
+
+function initModalCriterios() {
+    const modal = document.getElementById('modal-criterios');
+    const btnClose = document.getElementById('modal-close-btn');
+    const btnCancel = document.getElementById('modal-cancel-btn');
+    const btnConfirm = document.getElementById('modal-confirm-btn');
+    const cards = document.querySelectorAll('.criterio-card');
+    const badgeStatus = document.getElementById('modal-badge-status');
+
+    if (!modal) return;
+
+    function closeModal() {
+        modal.style.display = 'none';
+    }
+
+    if(btnClose) btnClose.addEventListener('click', closeModal);
+    if(btnCancel) btnCancel.addEventListener('click', closeModal);
+    if(btnConfirm) btnConfirm.addEventListener('click', closeModal);
+
+    // Seleccion múltiple
+    cards.forEach(card => {
+        card.addEventListener('click', function() {
+            this.classList.toggle('selected');
+            updateModalStatus();
+        });
+    });
+
+    function updateModalStatus() {
+        const selectedCount = document.querySelectorAll('.criterio-card.selected').length;
+        
+        // Limpiar clases
+        badgeStatus.className = 'modal-criterios__badge';
+
+        if (selectedCount === 0) {
+            badgeStatus.textContent = "Sin selección";
+            badgeStatus.classList.add('badge-none');
+        } else if (selectedCount <= 1) {
+            badgeStatus.textContent = "Derivación leve";
+            badgeStatus.classList.add('badge-leve');
+        } else if (selectedCount <= 3) {
+            badgeStatus.textContent = "Derivación moderada";
+            badgeStatus.classList.add('badge-moderada');
+        } else {
+            badgeStatus.textContent = "Derivación urgente";
+            badgeStatus.classList.add('badge-grave');
+        }
+    }
+    
+    // Inicializar estado por defecto
+    updateModalStatus();
 }

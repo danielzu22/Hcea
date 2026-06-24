@@ -1,0 +1,254 @@
+@use "../abstracts/variables" as var;
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+    
+    // Animación de entrada
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-criterios {
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    animation: slideUp 0.3s ease;
+    
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid #E5E7EB;
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-family: var.$font-main;
+        font-size: 1.5rem;
+        font-weight: var.$fw-bold;
+        color: var.$color-brand-blue;
+
+        &-icon {
+            width: 32px;
+            height: 32px;
+            // Forzar a azul corporativo
+            filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(2250%) hue-rotate(205deg) brightness(96%) contrast(106%);
+        }
+    }
+
+    &__close {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: #E8F0FE;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: #d1e1fa;
+        }
+
+        img {
+            width: 16px;
+            height: 16px;
+            // Azul corporativo oscuro
+            filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(2250%) hue-rotate(205deg) brightness(96%) contrast(106%);
+        }
+    }
+
+    &__body {
+        padding: 2rem;
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.5rem 2rem;
+        border-top: 1px solid #E5E7EB;
+        background-color: #ffffff;
+        border-radius: 0 0 12px 12px;
+    }
+
+    &__status {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        &-label {
+            font-family: var.$font-main;
+            font-size: 1.2rem;
+            font-weight: var.$fw-bold;
+            color: var.$color-brand-blue;
+        }
+    }
+
+    &__badge {
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        font-family: var.$font-main;
+        font-size: 1.1rem;
+        font-weight: var.$fw-bold;
+        transition: all 0.3s ease;
+        
+        &.badge-none {
+            background-color: #F8F9FA;
+            color: #6c757d;
+        }
+        
+        &.badge-leve {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        &.badge-moderada {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        &.badge-grave {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        gap: 1rem;
+    }
+
+    &__btn {
+        padding: 0.8rem 1.5rem;
+        font-family: var.$font-main;
+        font-size: 1.1rem;
+        font-weight: var.$fw-bold;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &--cancel {
+            background-color: #ffffff;
+            border: 1px solid var.$color-brand-blue;
+            color: var.$color-brand-blue;
+
+            &:hover {
+                background-color: #F8F9FA;
+            }
+        }
+
+        &--confirm {
+            background-color: var.$color-brand-blue;
+            border: 1px solid var.$color-brand-blue;
+            color: #ffffff;
+
+            &:hover {
+                filter: brightness(1.1);
+            }
+        }
+    }
+}
+
+// Tarjetas de Criterio (Checkboxes)
+.criterio-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.2rem;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #ffffff;
+    transition: all 0.2s ease;
+    user-select: none; // Evitar que se seleccione el texto al hacer click rápido
+
+    &:hover {
+        border-color: var.$color-brand-blue;
+    }
+
+    &__checkbox {
+        flex-shrink: 0;
+        width: 22px;
+        height: 22px;
+        border: 2px solid var.$color-brand-blue;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        background-color: transparent;
+        margin-top: 2px; // Alinear visualmente con la primera línea de texto
+
+        &::after {
+            content: "";
+            display: none;
+            width: 6px;
+            height: 12px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            margin-bottom: 2px;
+        }
+    }
+
+    &__text {
+        font-family: var.$font-main;
+        font-size: 1.05rem;
+        color: var.$color-text;
+        line-height: 1.4;
+    }
+
+    // Estado seleccionado
+    &.selected {
+        background-color: #F0F6FD; // Azul muy claro
+        border-color: var.$color-brand-blue;
+
+        .criterio-card__checkbox {
+            background-color: var.$color-brand-blue;
+            &::after {
+                display: block; // Mostrar el tick blanco
+            }
+        }
+
+        .criterio-card__text {
+            font-weight: var.$fw-bold;
+        }
+    }
+}
