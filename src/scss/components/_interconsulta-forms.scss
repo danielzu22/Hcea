@@ -1,0 +1,241 @@
+@use "../abstracts/variables" as var;
+
+/* ==========================================================================
+   BLOCK: Dynamic Vertical Tabs Layout
+   ========================================================================== */
+
+.dynamic-layout {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-top: 2rem;
+
+    // Columna izquierda (Tabs Verticales)
+    &__sidebar {
+        width: 250px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    // Columna derecha (Contenido/Formulario)
+    &__content {
+        flex: 1;
+        min-width: 0; // Evitar overflow en flex
+        border: 1px solid #E5E7EB;
+        border-radius: 8px;
+        padding: 2rem;
+        background-color: #ffffff;
+    }
+}
+
+/* ==========================================================================
+   BLOCK: Vertical Tab Item
+   ========================================================================== */
+.vertical-tab {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background-color: #F8F9FA;
+    }
+
+    &.active {
+        background-color: #F8F9FA;
+        border: 1px solid #E5E7EB;
+        // Borde derecho abierto para "fusionarse" con el contenedor, si es necesario, 
+        // pero en el diseño no se fusionan, están separados y el contenedor no los envuelve así.
+    }
+
+    &__icon-box {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: #E8F0FE; // Celeste claro
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 14px;
+            height: 14px;
+            filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(2250%) hue-rotate(205deg) brightness(96%) contrast(106%);
+        }
+    }
+
+    &__text {
+        font-family: var.$font-main;
+        font-weight: var.$fw-bold;
+        color: var.$color-brand-blue;
+        font-size: 1.1rem;
+    }
+}
+
+/* ==========================================================================
+   BLOCK: Specialty Form Grid
+   ========================================================================== */
+.specialty-form {
+    display: none; // Solo se muestra cuando tiene clase .active
+    
+    &.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); // 4 columnas
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        label {
+            font-family: var.$font-main;
+            font-weight: var.$fw-bold;
+            color: var.$color-brand-blue;
+            font-size: 0.95rem;
+        }
+
+        // Para inputs tipo text o custom selects creados antes
+        input[type="text"] {
+            border-radius: 5px;
+            border: 1px solid var.$color-brand-blue;
+            padding: 0.6rem 1rem;
+            font-size: 1rem;
+            outline: none;
+            font-family: var.$font-main;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            padding: 1rem;
+            font-family: var.$font-main;
+            font-size: 1rem;
+            resize: vertical;
+            outline: none;
+
+            &:focus {
+                border-color: var.$color-brand-blue;
+            }
+        }
+    }
+
+    // Configuración de celdas que ocupan múltiples columnas
+    .span-2 { grid-column: span 2; }
+    .span-4 { grid-column: span 4; }
+    
+    &__textarea-group {
+        grid-column: 3 / 5; // Ocupa las ultimas 2 columnas
+    }
+
+    // Botones tipo Radio
+    &__radio-group {
+        display: flex;
+        gap: 1rem;
+    }
+
+    &__radio-label {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        padding: 0.8rem 1rem;
+        flex: 1;
+        cursor: pointer;
+        font-family: var.$font-main;
+        font-size: 1rem;
+        color: var.$color-text;
+        transition: all 0.2s ease;
+
+        input[type="radio"] {
+            display: none; // Ocultar radio nativo
+        }
+
+        .radio-custom {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px; // En el mockup parecen ser checkboxes o radios redondeados
+            border: 2px solid var.$color-brand-blue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            &::after {
+                content: "";
+                display: block;
+                width: 10px;
+                height: 10px;
+                background-color: transparent; // Para el tick mark u otro
+                border-radius: 2px;
+            }
+        }
+
+        input[type="radio"]:checked + .radio-custom {
+            background-color: var.$color-brand-blue;
+            // Dibujar checkmark usando CSS borders si es necesario
+            &::after {
+                width: 5px;
+                height: 10px;
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+                margin-bottom: 2px;
+            }
+        }
+    }
+
+    // Botón Eliminar
+    &__footer {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 1rem;
+        border-top: 1px solid #F0F0F0;
+    }
+
+    &__btn-delete {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: #F8F9FA;
+        border: 1px solid #E5E7EB;
+        color: var.$color-brand-blue;
+        font-family: var.$font-main;
+        font-weight: var.$fw-bold;
+        border-radius: 5px;
+        padding: 0.6rem 1.5rem;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: #E8F0FE;
+        }
+
+        img {
+            width: 16px;
+            height: 16px;
+            filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(2250%) hue-rotate(205deg) brightness(96%) contrast(106%);
+        }
+    }
+}

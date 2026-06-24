@@ -84,9 +84,19 @@
                             </div>
                         </div>
                         
-                        <button class="btn btn--primary add-interconsulta__btn">
+                        <button class="btn btn--primary add-interconsulta__btn" id="btn-add-interconsulta">
                             <img src="images/iconos/Circulo-plus.svg" alt="Agregar" class="add-interconsulta__btn-icon"> Agregar
                         </button>
+                    </div>
+
+                    <!-- Contenedor donde se inyectan las pestañas dinámicas y formularios -->
+                    <div class="dynamic-layout" id="dynamic-layout" style="display: none;">
+                        <div class="dynamic-layout__sidebar" id="dynamic-tabs-container">
+                            <!-- Pestañas generadas por JS -->
+                        </div>
+                        <div class="dynamic-layout__content" id="dynamic-forms-container">
+                            <!-- Formularios generados por JS -->
+                        </div>
                     </div>
                 </div>
             </div>

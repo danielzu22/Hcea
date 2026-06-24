@@ -106,10 +106,12 @@ if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function() {
         initCustomSelects();
         initAutocomplete();
+        initDynamicForms();
     });
 } else {
     initCustomSelects();
     initAutocomplete();
+    initDynamicForms();
 }
 
 // Función para el buscador simulado de interconsultas
@@ -198,5 +200,180 @@ function initAutocomplete() {
         if (!searchContainer.contains(e.target)) {
             searchContainer.classList.remove('open');
         }
+    });
+}
+
+// Función para manejar la inserción de formularios dinámicos
+function initDynamicForms() {
+    const btnAdd = document.getElementById('btn-add-interconsulta');
+    const inputSearch = document.getElementById('interconsulta-input');
+    const dynamicLayout = document.getElementById('dynamic-layout');
+    const tabsContainer = document.getElementById('dynamic-tabs-container');
+    const formsContainer = document.getElementById('dynamic-forms-container');
+
+    if (!btnAdd || !inputSearch || !dynamicLayout || !tabsContainer || !formsContainer) return;
+
+    let specialtyCounter = 0;
+
+    btnAdd.addEventListener('click', function(e) {
+        e.preventDefault();
+        const specialtyName = inputSearch.value.trim();
+        
+        if (!specialtyName) {
+            alert('Por favor, selecciona o escribe una especialidad primero.');
+            return;
+        }
+
+        specialtyCounter++;
+        const currentId = 'specialty-' + specialtyCounter;
+
+        // Mostrar el layout si estaba oculto
+        dynamicLayout.style.display = 'flex';
+
+        // 1. Crear el Tab
+        const tab = document.createElement('div');
+        tab.className = 'vertical-tab';
+        tab.setAttribute('data-target', currentId);
+        tab.innerHTML = `
+            <div class="vertical-tab__icon-box">
+                <img src="images/iconos/Chequeado.svg" alt="Check">
+            </div>
+            <span class="vertical-tab__text">${specialtyName}</span>
+        `;
+
+        // 2. Crear el Formulario
+        const form = document.createElement('div');
+        form.className = 'specialty-form';
+        form.id = currentId;
+        
+        // HTML del formulario igual al mockup
+        form.innerHTML = `
+            <div class="specialty-form__grid">
+                <!-- Fila 1 -->
+                <div class="specialty-form__group">
+                    <label>Modalidad:</label>
+                    <select class="filters-box__select dynamic-select">
+                        <option value="" disabled selected>Seleccionar modalidad</option>
+                        <option value="presencial">Presencial</option>
+                        <option value="telemedicina">Telemedicina</option>
+                    </select>
+                </div>
+                <div class="specialty-form__group">
+                    <label>Resolución en:</label>
+                    <input type="text" value="Otra">
+                </div>
+                <div class="specialty-form__group">
+                    <label>Seleccionar Depto:</label>
+                    <select class="filters-box__select dynamic-select">
+                        <option value="" disabled selected>Seleccionar departamento</option>
+                        <option value="montevideo">Montevideo</option>
+                        <option value="canelones">Canelones</option>
+                    </select>
+                </div>
+                <div class="specialty-form__group">
+                    <label>Seleccionar UA:</label>
+                    <select class="filters-box__select dynamic-select">
+                        <option value="" disabled selected>Seleccionar UA</option>
+                        <option value="ua1">Unidad Asistencial 1</option>
+                        <option value="ua2">Unidad Asistencial 2</option>
+                    </select>
+                </div>
+
+                <!-- Fila 2 -->
+                <div class="specialty-form__group span-2">
+                    <label>Tipo de consulta:</label>
+                    <div class="specialty-form__radio-group">
+                        <label class="specialty-form__radio-label">
+                            <input type="radio" name="tipo_consulta_${currentId}" value="primera" checked>
+                            <span class="radio-custom"></span>
+                            Primera vez
+                        </label>
+                        <label class="specialty-form__radio-label">
+                            <input type="radio" name="tipo_consulta_${currentId}" value="seguimiento">
+                            <span class="radio-custom"></span>
+                            Seguimiento
+                        </label>
+                    </div>
+                </div>
+                <div class="specialty-form__group">
+                    <label>Seguimiento cada:</label>
+                    <select class="filters-box__select dynamic-select">
+                        <option value="" disabled selected>Seleccionar días</option>
+                        <option value="15">15 días</option>
+                        <option value="30" selected>30 días</option>
+                        <option value="60">60 días</option>
+                    </select>
+                </div>
+
+                <!-- Fila 3 y 4 -->
+                <div class="specialty-form__group span-2">
+                    <label>Motivo Interconsulta:</label>
+                    <select class="filters-box__select dynamic-select">
+                        <option value="" disabled selected>Seleccionar motivo</option>
+                        <option value="derivacion">Derivación</option>
+                        <option value="interconsulta">Interconsulta</option>
+                    </select>
+                </div>
+                
+                <div class="specialty-form__group specialty-form__textarea-group">
+                    <label>Datos clínicos relevantes:</label>
+                    <textarea></textarea>
+                </div>
+            </div>
+
+            <!-- Botón Eliminar -->
+            <div class="specialty-form__footer">
+                <button type="button" class="specialty-form__btn-delete" data-target="${currentId}">
+                    <img src="images/iconos/Papelera.svg" alt="Eliminar"> Eliminar esta especialidad
+                </button>
+            </div>
+        `;
+
+        // 3. Añadir al DOM
+        tabsContainer.appendChild(tab);
+        formsContainer.appendChild(form);
+
+        // 4. Lógica de activación
+        function activateTab() {
+            // Desactivar todos
+            document.querySelectorAll('#dynamic-tabs-container .vertical-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('#dynamic-forms-container .specialty-form').forEach(f => f.classList.remove('active'));
+            
+            // Activar este
+            tab.classList.add('active');
+            form.classList.add('active');
+        }
+
+        tab.addEventListener('click', activateTab);
+
+        // Activar el nuevo tab recién creado
+        activateTab();
+
+        // 5. Inicializar Custom Selects en el nuevo formulario inyectado
+        // Esto asume que initCustomSelects no duplica los wrappers si ya existen, 
+        // pero como es HTML nuevo, es seguro llamarlo.
+        initCustomSelects();
+
+        // 6. Lógica de eliminar
+        const deleteBtn = form.querySelector('.specialty-form__btn-delete');
+        deleteBtn.addEventListener('click', function() {
+            // Eliminar del DOM
+            tab.remove();
+            form.remove();
+
+            // Si ya no quedan tabs, ocultar el layout completo
+            if (tabsContainer.children.length === 0) {
+                dynamicLayout.style.display = 'none';
+            } else {
+                // Activar el primer tab disponible
+                const firstTab = tabsContainer.querySelector('.vertical-tab');
+                if (firstTab) firstTab.click();
+            }
+        });
+
+        // 7. Limpiar el input de búsqueda después de agregar
+        inputSearch.value = '';
+        const clearBtn = document.getElementById('interconsulta-clear');
+        if (clearBtn) clearBtn.style.display = 'none';
     });
 }
