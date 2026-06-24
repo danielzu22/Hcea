@@ -12,7 +12,7 @@
 
 .main-layout {
     display: flex;
-    gap: var.$gp-l; // Separación entre menú y contenido
+    gap: 40px; // Separación exacta de 40px entre menú y contenido
     align-items: flex-start;
 }
 
