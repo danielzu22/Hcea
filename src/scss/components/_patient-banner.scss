@@ -34,7 +34,7 @@
     }
 
     &__icon {
-        width: 40px; // Icono de usuario más grande
+        width: 55px; // Icono de usuario más grande
         height: auto;
     }
 
@@ -43,14 +43,14 @@
         font-weight: var.$fw-bold;
         color: var.$color-text;
         text-transform: uppercase;
-        font-size: 1.4rem; // Fuente más grande
+        font-size: 1.8rem; // Fuente más grande
     }
 
     &__data {
         font-family: var.$font-main;
         font-weight: var.$fw-regular;
         color: var.$color-secondary;
-        font-size: 1.1rem; // Fuente más grande
+        font-size: 1.3rem; // Fuente más grande
 
         &::before {
             content: "•";
@@ -74,7 +74,7 @@
         transition: background-color 0.2s ease;
 
         img {
-            width: 24px;
+            width: 32px; // Iconos de acción más grandes
             height: auto;
         }
 
