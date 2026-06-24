@@ -94,12 +94,6 @@
             }
         }
 
-        &.open &__trigger {
-            border-color: var.$color-primary;
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-        }
-
         .arrow {
             position: relative;
             height: 10px;
@@ -126,16 +120,6 @@
             }
         }
 
-        &.open .arrow::before {
-            left: -3px;
-            transform: rotate(45deg);
-        }
-
-        &.open .arrow::after {
-            left: 3px;
-            transform: rotate(-45deg);
-        }
-
         &__options {
             position: absolute;
             display: block;
@@ -145,8 +129,8 @@
             background-color: #ffffff;
             border: 1px solid var.$color-primary;
             border-top: none;
-            border-radius: 0 0 5px 5px; // Esquinas redondeadas abajo
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); // Sombra requerida
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             transition: all 0.2s ease;
             opacity: 0;
             visibility: hidden;
@@ -154,10 +138,28 @@
             z-index: 10;
         }
 
-        &.open &__options {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: all;
+        &.open {
+            .custom-select__trigger {
+                border-color: var.$color-primary;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+            
+            .arrow::before {
+                left: -3px;
+                transform: rotate(45deg);
+            }
+
+            .arrow::after {
+                left: 3px;
+                transform: rotate(-45deg);
+            }
+
+            .custom-select__options {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: all;
+            }
         }
 
         &__option {
