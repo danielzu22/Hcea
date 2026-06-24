@@ -35,8 +35,9 @@
             margin: 0 var.$gp-s;
         }
 
-        i {
-            font-size: 1.8rem; // Tamaño del icono
+        .vertical-menu__icon {
+            width: 32px; // Tamaño del icono ajustado para SVG
+            height: auto;
         }
 
         span {
