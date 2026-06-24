@@ -1210,8 +1210,7 @@ input[type=checkbox] + label {
   gap: 1rem;
   padding: 1rem 1.5rem;
   border-radius: 8px 0 0 8px;
-  background-color: #F2F6F9;
-  color: #6B7280;
+  background-color: #F5F6F7;
   cursor: pointer;
   border: 1px solid transparent;
   margin-right: -1px;
@@ -1219,43 +1218,46 @@ input[type=checkbox] + label {
   z-index: 0;
   transition: all 0.2s ease;
 }
-.vertical-tab img {
-  filter: grayscale(100%) opacity(50%);
-  transition: filter 0.2s ease;
-}
 .vertical-tab:hover {
   background-color: #E5E7EB;
 }
 .vertical-tab.active {
   background-color: #ffffff;
-  color: #05267D;
-  font-weight: 700;
   border-color: #E5E7EB;
   border-right-color: #ffffff;
   z-index: 2;
 }
-.vertical-tab.active img {
-  filter: none;
+.vertical-tab.active .vertical-tab__text {
+  color: #05267D;
+}
+.vertical-tab.active .vertical-tab__icon-box {
+  background-color: #DBE5F1;
+}
+.vertical-tab.active .vertical-tab__icon-box img {
+  filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(2250%) hue-rotate(205deg) brightness(96%) contrast(106%);
 }
 .vertical-tab__icon-box {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: #E8F0FE;
+  background-color: #DEDEDF;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.2s ease;
 }
 .vertical-tab__icon-box img {
   width: 14px;
   height: 14px;
-  filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(2250%) hue-rotate(205deg) brightness(96%) contrast(106%);
+  filter: brightness(0) invert(44%) sepia(12%) saturate(468%) hue-rotate(182deg) brightness(91%) contrast(86%);
+  transition: all 0.2s ease;
 }
 .vertical-tab__text {
   font-family: "Inter", system-ui, sans-serif;
   font-weight: 700;
-  color: #003CA5;
+  color: #646C79;
   font-size: 1.4rem;
+  transition: color 0.2s ease;
 }
 
 /* ==========================================================================
