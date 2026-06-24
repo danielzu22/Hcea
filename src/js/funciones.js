@@ -101,9 +101,102 @@ function initCustomSelects() {
     });
 }
 
-// Ejecutar script asegurándose de que el DOM esté listo
+// Ejecutar scripts asegurándose de que el DOM esté listo
 if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initCustomSelects);
+    document.addEventListener("DOMContentLoaded", function() {
+        initCustomSelects();
+        initAutocomplete();
+    });
 } else {
     initCustomSelects();
+    initAutocomplete();
+}
+
+// Función para el buscador simulado de interconsultas
+function initAutocomplete() {
+    const searchContainer = document.getElementById('interconsulta-search-container');
+    const input = document.getElementById('interconsulta-input');
+    const dropdown = document.getElementById('interconsulta-dropdown');
+    const clearBtn = document.getElementById('interconsulta-clear');
+
+    if (!input || !dropdown || !searchContainer) return;
+
+    // Lista de muestra basada en las especialidades de la tabla
+    const disciplines = [
+        "Cardiología",
+        "Cardiología Pediátrica",
+        "Dermatología",
+        "Lic. en Enfermería",
+        "Medicina General",
+        "Psiquiatría",
+        "Traumatología",
+        "Neurología",
+        "Oftalmología",
+        "Ginecología"
+    ];
+
+    function renderOptions(matches) {
+        dropdown.innerHTML = '';
+        if (matches.length === 0) {
+            searchContainer.classList.remove('open');
+            return;
+        }
+
+        matches.forEach(match => {
+            const div = document.createElement('div');
+            div.className = 'add-interconsulta__dropdown-item';
+            div.textContent = match;
+            
+            // Al hacer click en una sugerencia
+            div.addEventListener('click', function(e) {
+                e.stopPropagation();
+                input.value = match;
+                searchContainer.classList.remove('open');
+                clearBtn.style.display = 'block';
+            });
+            
+            dropdown.appendChild(div);
+        });
+        
+        searchContainer.classList.add('open');
+    }
+
+    // Escuchar cuando el usuario escribe
+    input.addEventListener('input', function() {
+        const val = this.value.trim().toLowerCase();
+        
+        if (val.length > 0) {
+            clearBtn.style.display = 'block';
+            const matches = disciplines.filter(d => d.toLowerCase().includes(val));
+            renderOptions(matches);
+        } else {
+            clearBtn.style.display = 'none';
+            searchContainer.classList.remove('open');
+        }
+    });
+
+    // Limpiar el input con la crucecita
+    clearBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        input.value = '';
+        this.style.display = 'none';
+        searchContainer.classList.remove('open');
+        input.focus();
+    });
+
+    // Abrir dropdown si hay texto al hacer focus
+    input.addEventListener('focus', function() {
+        const val = this.value.trim().toLowerCase();
+        if (val.length > 0) {
+            const matches = disciplines.filter(d => d.toLowerCase().includes(val));
+            renderOptions(matches);
+        }
+    });
+
+    // Cerrar si se hace click fuera del buscador
+    document.addEventListener('click', function(e) {
+        if (!searchContainer.contains(e.target)) {
+            searchContainer.classList.remove('open');
+        }
+    });
 }

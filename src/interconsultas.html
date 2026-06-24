@@ -72,17 +72,15 @@
                             <span class="add-interconsulta__title">AGREGAR INTERCONSULTA:</span>
                         </div>
                         
-                        <div class="add-interconsulta__search open">
+                        <div class="add-interconsulta__search" id="interconsulta-search-container">
                             <div class="add-interconsulta__input-wrapper">
                                 <img src="images/iconos/Lupa.svg" alt="Buscar" class="add-interconsulta__input-icon add-interconsulta__input-icon--left">
-                                <input type="text" class="add-interconsulta__input" placeholder="Cardio" value="Cardio">
-                                <img src="images/iconos/Circulo-cerrar.svg" alt="Borrar" class="add-interconsulta__input-icon add-interconsulta__input-icon--right">
+                                <input type="text" class="add-interconsulta__input" id="interconsulta-input" placeholder="Buscar especialidad..." value="">
+                                <img src="images/iconos/Circulo-cerrar.svg" alt="Borrar" class="add-interconsulta__input-icon add-interconsulta__input-icon--right" id="interconsulta-clear" style="display:none;">
                             </div>
                             
-                            <!-- Dropdown con resultados simulados -->
-                            <div class="add-interconsulta__dropdown">
-                                <div class="add-interconsulta__dropdown-item">Cardiología</div>
-                                <div class="add-interconsulta__dropdown-item">Cardiología pediátrica</div>
+                            <!-- Dropdown con resultados dinámicos -->
+                            <div class="add-interconsulta__dropdown" id="interconsulta-dropdown">
                             </div>
                         </div>
                         
