@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "../abstracts/variables" as var;
 @use "../abstracts/mixins" as mix;
 
@@ -114,7 +115,7 @@
             &::after { display: none; } // Quitamos la raya en móvil
 
             &:hover {
-                background-color: darken(#0056b3, 10%); // primary-dark
+                background-color: color.adjust(#0056b3, $lightness: -10%); // primary-dark
                 color: white;
             }
 
