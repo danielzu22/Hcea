@@ -1,0 +1,84 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+/* ==========================================================================
+   BLOCK: Patient Banner
+   ========================================================================== */
+
+.patient-banner {
+    width: 100%;
+    background-color: #ffffff;
+    padding: var.$gp-m 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); // Sutil sombra
+    margin-bottom: var.$gp-m;
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include mix.responsive(var.$bp_sm) {
+            flex-direction: column;
+            gap: var.$gp-m;
+            align-items: flex-start;
+        }
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        gap: var.$gp-m;
+        flex-wrap: wrap; // Por si la pantalla es chica
+    }
+
+    &__icon {
+        width: 32px;
+        height: auto;
+    }
+
+    &__name {
+        font-family: var.$font-main;
+        font-weight: var.$fw-bold;
+        color: var.$color-text;
+        text-transform: uppercase;
+        font-size: 1.1rem;
+    }
+
+    &__data {
+        font-family: var.$font-main;
+        font-weight: var.$fw-regular;
+        color: var.$color-secondary;
+        font-size: 0.95rem;
+
+        // Agregar un puntito separador visual
+        &::before {
+            content: "•";
+            margin-right: var.$gp-s;
+            color: var.$gray-400;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: var.$gp-m;
+    }
+
+    &__action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var.$gp-s;
+        border-radius: var.$br-md;
+        transition: background-color 0.2s ease;
+
+        img {
+            width: 24px;
+            height: auto;
+        }
+
+        &:hover {
+            background-color: var.$gray-100;
+        }
+    }
+}

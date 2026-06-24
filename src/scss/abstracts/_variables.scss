@@ -7,7 +7,7 @@ $color-warning: #ffc107;
 $color-info: #17a2b8;
 $color-light: #f8f9fa;
 $color-dark: #343a40;
-$color-background: #ffffff;
+$color-background: #D1DEEF;
 $color-text: #333333;
 
 $gray-100: #f8f9fa;
@@ -21,7 +21,8 @@ $breakpoints: (
     'sm': 576px,
     'md': 768px,
     'lg': 992px,
-    'xl': 1200px
+    'xl': 1200px,
+    'xxl': 1500px
 );
 
 // Tipografía
