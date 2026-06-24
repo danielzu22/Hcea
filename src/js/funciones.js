@@ -260,7 +260,11 @@ function initDynamicForms() {
                 </div>
                 <div class="specialty-form__group">
                     <label>Resolución en:</label>
-                    <input type="text" value="Otra">
+                    <select class="filters-box__select dynamic-select">
+                        <option value="urgencia">Urgencia</option>
+                        <option value="policlinica">Policlínica</option>
+                        <option value="otra" selected>Otra</option>
+                    </select>
                 </div>
                 <div class="specialty-form__group">
                     <label>Seleccionar Depto:</label>
