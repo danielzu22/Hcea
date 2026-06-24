@@ -141,10 +141,9 @@
         background-color: var.$color-brand-blue;
         border-color: var.$color-brand-blue;
         border-radius: 5px;
-        padding: 0.6rem 1.5rem;
-        font-size: 1.1rem;
-        height: 100%;
-        align-self: stretch;
+        padding: 10px 1.5rem;
+        font-size: 1.2rem;
+        box-sizing: border-box;
 
         &:hover {
             filter: brightness(1.1);
