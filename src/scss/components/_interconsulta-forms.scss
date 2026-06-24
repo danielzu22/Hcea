@@ -43,7 +43,7 @@
     border-radius: 8px 0 0 8px; // Sin redondeo a la derecha
     background-color: #F2F6F9; // Fondo de las inactivas
     cursor: pointer;
-    border: 1px solid #E5E7EB;
+    border: 1px solid transparent; // Inactivas sin borde
     margin-right: -1px; // Para tapar el borde izquierdo del formulario
     position: relative;
     z-index: 0;
@@ -55,6 +55,7 @@
 
     &.active {
         background-color: #ffffff; // Mismo color que el formulario
+        border-color: #E5E7EB; // Activa con borde
         border-right-color: #ffffff; // Borde derecho blanco para "borrar" la línea de unión
         z-index: 2; // Para quedar por encima del borde del formulario
     }
@@ -274,8 +275,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #F0F6FD;
-    border: 1px solid #ced4da;
+    background-color: #F2F6F9;
+    border: 1px solid #C9DBF7;
     border-radius: 8px;
     padding: 1.2rem 2rem;
     margin-top: 1rem;
@@ -288,10 +289,10 @@
     }
 
     &__icon {
-        width: 32px;
-        height: 32px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
-        background-color: #E8F0FE;
+        background-color: #D1DEEF;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -305,7 +306,7 @@
 
     &__text {
         font-family: var.$font-main;
-        font-size: 1.3rem;
+        font-size: 1.6rem;
         color: var.$color-brand-blue;
         font-weight: var.$fw-bold;
 
@@ -313,9 +314,21 @@
             font-weight: var.$fw-bold;
         }
 
-        .status-baja { color: #155724; } // Verde
-        .status-media { color: #856404; } // Amarillo/Naranja
-        .status-alta { color: #721c24; } // Rojo
+        .status-baja {
+            color: #1e8a37;
+        }
+
+        // Verde
+        .status-media {
+            color: #a07b0b;
+        }
+
+        // Amarillo/Naranja
+        .status-alta {
+            color: #aa2432;
+        }
+
+        // Rojo
     }
 
     &__actions {
@@ -327,9 +340,9 @@
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        padding: 0.6rem 1.2rem;
+        padding: 1rem 1.4rem;
         font-family: var.$font-main;
-        font-size: 1.1rem;
+        font-size: 1.4rem;
         font-weight: var.$fw-bold;
         border-radius: 6px;
         border: none;
@@ -342,7 +355,7 @@
         }
 
         &--edit {
-            background-color: #E8F0FE;
+            background-color: #DBE5F1;
             color: var.$color-brand-blue;
 
             img {
@@ -356,11 +369,11 @@
 
         &--delete {
             background-color: #f8d7da;
-            color: #721c24;
+            color: #a52734;
 
             img {
                 // Filtro rojo oscuro approx
-                filter: invert(16%) sepia(91%) saturate(2372%) hue-rotate(345deg) brightness(85%) contrast(98%);
+                filter: invert(36%) sepia(91%) saturate(1112%) hue-rotate(320deg) brightness(93%) contrast(98%);
             }
 
             &:hover {
