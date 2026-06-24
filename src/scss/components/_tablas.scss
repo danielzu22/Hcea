@@ -95,7 +95,7 @@
     white-space: nowrap;
 
     img {
-        width: 11px; // Achicado ~30% respecto a 16px
+        width: 16px; // Tamaño original para la mayoría
         height: auto;
     }
 
@@ -112,6 +112,7 @@
         background-color: #DCDCDC;
         color: #6B6B6B;
         img {
+            width: 11px; // Achicado solo para Cerrar_bold
             // Convierte el SVG a #6B6B6B
             filter: invert(41%) sepia(2%) saturate(0%) hue-rotate(31deg) brightness(98%) contrast(85%); 
         }
