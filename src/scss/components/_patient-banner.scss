@@ -34,7 +34,7 @@
     }
 
     &__icon {
-        width: 55px; // Icono de usuario más grande
+        width: 45px; // Icono de usuario ligeramente más chico
         height: auto;
     }
 
@@ -74,7 +74,7 @@
         transition: background-color 0.2s ease;
 
         img {
-            width: 32px; // Iconos de acción más grandes
+            width: 45px; // Mismo tamaño que el icono de usuario
             height: auto;
         }
 
