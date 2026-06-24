@@ -24,7 +24,8 @@ module.exports = function (grunt) {
     bake: {
       dist: {
         files: {
-          'dist/index.html': 'src/index.html'
+          'dist/index.html': 'src/index.html',
+          'dist/interconsultas.html': 'src/interconsultas.html'
         }
       }
     },
