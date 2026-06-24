@@ -54,7 +54,7 @@
         width: 100%;
     }
 
-    &__input {
+    &__input[type="text"] {
         width: 100%;
         border: 1px solid var.$color-brand-blue;
         border-radius: 5px;

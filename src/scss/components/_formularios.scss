@@ -18,8 +18,9 @@ textarea {
     border: solid 1px var.$primary;
     padding: 10px;
     color: var.$primary;
-    font-family: "Regular";
+    font-family: var.$font-main;
     border-radius: var.$br_s;
+
     &:focus {
         outline: none;
     }
@@ -36,14 +37,17 @@ textarea {
 fieldset {
     padding: 20px;
     border: solid 1px var.$primary_light_2;
+
     legend {
         font-size: 14px;
         font-family: "Bold";
         text-align: left;
         color: var.$primary;
     }
+
     fieldset {
         padding: 10px;
+
         legend {
             font-family: "Regular";
             font-size: 13px;
@@ -61,6 +65,7 @@ label {
 input[type="checkbox"] {
     width: 20px;
     cursor: pointer;
+
     +label {
         cursor: pointer;
     }
