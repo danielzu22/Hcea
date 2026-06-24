@@ -15,7 +15,7 @@
     background-color: rgba(255, 255, 255, 0.3); // Blanca con opacidad 30%
     color: #003CA5;
     border: none;
-    padding: var.$gp-m var.$gp-l;
+    padding: 1.5rem 2rem; // Más padding para que las pestañas sean más espaciosas
     border-radius: 12px 12px 0 0; // Bordes redondeados solo arriba
     font-family: var.$font-main;
     font-weight: var.$fw-bold;
