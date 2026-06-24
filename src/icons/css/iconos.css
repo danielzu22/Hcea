@@ -1,0 +1,474 @@
+@font-face {
+  font-family: 'iconos';
+  src: url('../font/iconos.eot?55890919');
+  src: url('../font/iconos.eot?55890919#iefix') format('embedded-opentype'),
+       url('../font/iconos.woff2?55890919') format('woff2'),
+       url('../font/iconos.woff?55890919') format('woff'),
+       url('../font/iconos.ttf?55890919') format('truetype'),
+       url('../font/iconos.svg?55890919#iconos') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'iconos';
+    src: url('../font/iconos.svg?55890919#iconos') format('svg');
+  }
+}
+*/
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "iconos";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-ppt:before { content: '\e800'; } /* '' */
+.icon-list:before { content: '\e801'; } /* '' */
+.icon-list-s:before { content: '\e802'; } /* '' */
+.icon-xls-s:before { content: '\e803'; } /* '' */
+.icon-ppt-s:before { content: '\e804'; } /* '' */
+.icon-xls:before { content: '\e805'; } /* '' */
+.icon-sticky-note:before { content: '\e806'; } /* '' */
+.icon-sticky-note-s:before { content: '\e807'; } /* '' */
+.icon-thumbtack:before { content: '\e808'; } /* '' */
+.icon-coronavirus:before { content: '\e809'; } /* '' */
+.icon-termometro-full:before { content: '\e80a'; } /* '' */
+.icon-termometro-3:before { content: '\e80b'; } /* '' */
+.icon-termometro-2:before { content: '\e80c'; } /* '' */
+.icon-termometro-1:before { content: '\e80d'; } /* '' */
+.icon-termometro-0:before { content: '\e80e'; } /* '' */
+.icon-icon-apps-v:before { content: '\e80f'; } /* '' */
+.icon-dialog:before { content: '\e810'; } /* '' */
+.icon-versiones:before { content: '\e811'; } /* '' */
+.icon-arrow-b-right:before { content: '\e812'; } /* '' */
+.icon-arrow-b-left:before { content: '\e813'; } /* '' */
+.icon-arrow-b-up:before { content: '\e814'; } /* '' */
+.icon-arrow-b-down:before { content: '\e815'; } /* '' */
+.icon-salud-sexual-reproductiva:before { content: '\e816'; } /* '' */
+.icon-calidad:before { content: '\e817'; } /* '' */
+.icon-asistencial:before { content: '\e818'; } /* '' */
+.icon-ninos:before { content: '\e819'; } /* '' */
+.icon-papelera:before { content: '\e81a'; } /* '' */
+.icon-carrito:before { content: '\e81b'; } /* '' */
+.icon-carrito-svg:before { content: '\e81c'; } /* '' */
+.icon-linkedin-s:before { content: '\e81d'; } /* '' */
+.icon-linkedin:before { content: '\e81e'; } /* '' */
+.icon-facebook-s:before { content: '\e81f'; } /* '' */
+.icon-facebook:before { content: '\e820'; } /* '' */
+.icon-portero-video:before { content: '\e821'; } /* '' */
+.icon-redes:before { content: '\e822'; } /* '' */
+.icon-camara-seguridad:before { content: '\e823'; } /* '' */
+.icon-alarma-seguridad:before { content: '\e824'; } /* '' */
+.icon-folder-add:before { content: '\e825'; } /* '' */
+.icon-folder-add-s:before { content: '\e826'; } /* '' */
+.icon-laboratorio-microscopio:before { content: '\e827'; } /* '' */
+.icon-tele-consulta:before { content: '\e828'; } /* '' */
+.icon-concursos:before { content: '\e829'; } /* '' */
+.icon-procedimientos:before { content: '\e82a'; } /* '' */
+.icon-certificado:before { content: '\e82b'; } /* '' */
+.icon-salud-ocupacional:before { content: '\e82c'; } /* '' */
+.icon-acoso-laboral:before { content: '\e82d'; } /* '' */
+.icon-grp-compras:before { content: '\e82e'; } /* '' */
+.icon-capacitacion:before { content: '\e82f'; } /* '' */
+.icon-instagram-circle:before { content: '\e830'; } /* '' */
+.icon-youtube-circle:before { content: '\e831'; } /* '' */
+.icon-corte-servicios:before { content: '\e832'; } /* '' */
+.icon-comunicados:before { content: '\e833'; } /* '' */
+.icon-x:before { content: '\e834'; } /* '' */
+.icon-pdf-text-download:before { content: '\e835'; } /* '' */
+.icon-pdf-text:before { content: '\e836'; } /* '' */
+.icon-mosquito:before { content: '\e837'; } /* '' */
+.icon-icono-accesibilidad:before { content: '\e838'; } /* '' */
+.icon-light-support:before { content: '\e839'; } /* '' */
+.icon-light-time:before { content: '\e83a'; } /* '' */
+.icon-light-farmacia:before { content: '\e83b'; } /* '' */
+.icon-light-user:before { content: '\e83c'; } /* '' */
+.icon-light-docs:before { content: '\e83d'; } /* '' */
+.icon-light-hand:before { content: '\e83e'; } /* '' */
+.icon-light-doc-lapicera:before { content: '\e83f'; } /* '' */
+.icon-light-escritorio-clinico:before { content: '\e840'; } /* '' */
+.icon-light-checkbox:before { content: '\e841'; } /* '' */
+.icon-ojo-s:before { content: '\e842'; } /* '' */
+.icon-regular-checkbox:before { content: '\e843'; } /* '' */
+.icon-ojo:before { content: '\e844'; } /* '' */
+.icon-regular-time:before { content: '\e845'; } /* '' */
+.icon-regular-enmienda:before { content: '\e846'; } /* '' */
+.icon-light-enmienda:before { content: '\e847'; } /* '' */
+.icon-hcen:before { content: '\e848'; } /* '' */
+.icon-light-out-left:before { content: '\e849'; } /* '' */
+.icon-regular-out-left:before { content: '\e84a'; } /* '' */
+.icon-light-out-left-doc:before { content: '\e84b'; } /* '' */
+.icon-light-out-left-hospital:before { content: '\e84c'; } /* '' */
+.icon-regular-scanner:before { content: '\e84d'; } /* '' */
+.icon-tiempo-atras-light:before { content: '\e84e'; } /* '' */
+.icon-light-enmienda-time:before { content: '\e84f'; } /* '' */
+.icon-light-scanner:before { content: '\e850'; } /* '' */
+.icon-file-checked:before { content: '\e851'; } /* '' */
+.icon-tiempo-atras-bold:before { content: '\e852'; } /* '' */
+.icon-tiempo-atras-regular:before { content: '\e853'; } /* '' */
+.icon-radiografia:before { content: '\e854'; } /* '' */
+.icon-papelera-v-light:before { content: '\e855'; } /* '' */
+.icon-papelera-v-regular:before { content: '\e856'; } /* '' */
+.icon-share2:before { content: '\e857'; } /* '' */
+.icon-share1:before { content: '\e858'; } /* '' */
+.icon-x-v:before { content: '\e859'; } /* '' */
+.icon-menu:before { content: '\e890'; } /* '' */
+.icon-menu-s:before { content: '\e891'; } /* '' */
+.icon-minus-circle:before { content: '\e892'; } /* '' */
+.icon-minus-circle-s:before { content: '\e893'; } /* '' */
+.icon-phone:before { content: '\e894'; } /* '' */
+.icon-phone-s:before { content: '\e895'; } /* '' */
+.icon-plus:before { content: '\e896'; } /* '' */
+.icon-plus-circle:before { content: '\e897'; } /* '' */
+.icon-plus-circle-s:before { content: '\e898'; } /* '' */
+.icon-plus-s:before { content: '\e899'; } /* '' */
+.icon-preload:before { content: '\e89a'; } /* '' */
+.icon-preload-s:before { content: '\e89b'; } /* '' */
+.icon-puntos-suspensivos:before { content: '\e89c'; } /* '' */
+.icon-puntos-suspensivos-s:before { content: '\e89d'; } /* '' */
+.icon-receta:before { content: '\e89e'; } /* '' */
+.icon-receta-s:before { content: '\e89f'; } /* '' */
+.icon-search:before { content: '\e8a0'; } /* '' */
+.icon-search-s:before { content: '\e8a1'; } /* '' */
+.icon-user:before { content: '\e8a2'; } /* '' */
+.icon-user1:before { content: '\e8a3'; } /* '' */
+.icon-user1-s:before { content: '\e8a4'; } /* '' */
+.icon-user-clock:before { content: '\e8a6'; } /* '' */
+.icon-user-clock-s:before { content: '\e8c0'; } /* '' */
+.icon-user-portrait:before { content: '\e8e8'; } /* '' */
+.icon-user-portrait-s:before { content: '\e8e9'; } /* '' */
+.icon-users:before { content: '\e8f7'; } /* '' */
+.icon-user-s:before { content: '\e8f8'; } /* '' */
+.icon-users-s:before { content: '\e8f9'; } /* '' */
+.icon-angle-down:before { content: '\e8fa'; } /* '' */
+.icon-angle-down-s:before { content: '\e8fb'; } /* '' */
+.icon-angle-left:before { content: '\e8fc'; } /* '' */
+.icon-angle-left-s:before { content: '\e917'; } /* '' */
+.icon-angle-right:before { content: '\e918'; } /* '' */
+.icon-angle-right-s:before { content: '\e919'; } /* '' */
+.icon-angle-top:before { content: '\e91a'; } /* '' */
+.icon-angle-top-s:before { content: '\e91b'; } /* '' */
+.icon-apps:before { content: '\e91c'; } /* '' */
+.icon-apps-s:before { content: '\e91d'; } /* '' */
+.icon-arrow-down-circle:before { content: '\e91e'; } /* '' */
+.icon-arrow-down-circle-s:before { content: '\e91f'; } /* '' */
+.icon-arrow-left-circle:before { content: '\e920'; } /* '' */
+.icon-arrow-left-circle-s:before { content: '\e921'; } /* '' */
+.icon-arrow-left-menu:before { content: '\e922'; } /* '' */
+.icon-arrow-left-menu-s:before { content: '\e923'; } /* '' */
+.icon-arrow-right-circle:before { content: '\e924'; } /* '' */
+.icon-arrow-right-circle-s:before { content: '\e925'; } /* '' */
+.icon-arrow-top-circle:before { content: '\e926'; } /* '' */
+.icon-arrow-top-circle-s:before { content: '\e927'; } /* '' */
+.icon-asse:before { content: '\e92a'; } /* '' */
+.icon-asse-s:before { content: '\e92b'; } /* '' */
+.icon-button:before { content: '\e92c'; } /* '' */
+.icon-button-s:before { content: '\e92d'; } /* '' */
+.icon-calendar:before { content: '\e92e'; } /* '' */
+.icon-calendar-s:before { content: '\e92f'; } /* '' */
+.icon-cancel:before { content: '\e930'; } /* '' */
+.icon-cancel-b:before { content: '\e931'; } /* '' */
+.icon-cancel-s:before { content: '\e932'; } /* '' */
+.icon-candado:before { content: '\e933'; } /* '' */
+.icon-candado-open:before { content: '\e934'; } /* '' */
+.icon-candado-open-s:before { content: '\e935'; } /* '' */
+.icon-breadcrumb:before { content: '\e937'; } /* '' */
+.icon-candado-s:before { content: '\e938'; } /* '' */
+.icon-cellphone:before { content: '\e939'; } /* '' */
+.icon-cellphone-s:before { content: '\e93a'; } /* '' */
+.icon-checkbox:before { content: '\e93c'; } /* '' */
+.icon-checkbox-box:before { content: '\e93d'; } /* '' */
+.icon-checkbox-box-s:before { content: '\e93e'; } /* '' */
+.icon-checkbox-circle:before { content: '\e942'; } /* '' */
+.icon-checkbox-circle-s:before { content: '\e943'; } /* '' */
+.icon-checkbox-s:before { content: '\e944'; } /* '' */
+.icon-circle:before { content: '\e945'; } /* '' */
+.icon-circle-s:before { content: '\e946'; } /* '' */
+.icon-clock:before { content: '\e947'; } /* '' */
+.icon-clock-b:before { content: '\e948'; } /* '' */
+.icon-clock-s:before { content: '\e949'; } /* '' */
+.icon-clock-v-s:before { content: '\e94a'; } /* '' */
+.icon-di:before { content: '\e94b'; } /* '' */
+.icon-ellipsis-v:before { content: '\e94c'; } /* '' */
+.icon-ellipsis-v-s:before { content: '\e94d'; } /* '' */
+.icon-email:before { content: '\e94e'; } /* '' */
+.icon-email-s:before { content: '\e94f'; } /* '' */
+.icon-e-medicamentos:before { content: '\e950'; } /* '' */
+.icon-e-medicamentos-s:before { content: '\e951'; } /* '' */
+.icon-exclamacion:before { content: '\e952'; } /* '' */
+.icon-exclamacion-s:before { content: '\e953'; } /* '' */
+.icon-help:before { content: '\e954'; } /* '' */
+.icon-help-s:before { content: '\e955'; } /* '' */
+.icon-home:before { content: '\e956'; } /* '' */
+.icon-home-s:before { content: '\e957'; } /* '' */
+.icon-iconos:before { content: '\e958'; } /* '' */
+.icon-iconos-s:before { content: '\e959'; } /* '' */
+.icon-presentacion:before { content: '\e95a'; } /* '' */
+.icon-word:before { content: '\e95b'; } /* '' */
+.icon-camara-foto:before { content: '\e95c'; } /* '' */
+.icon-video:before { content: '\e95d'; } /* '' */
+.icon-foto:before { content: '\e95e'; } /* '' */
+.icon-bacteria-s-v:before { content: '\e95f'; } /* '' */
+.icon-cama-s:before { content: '\e960'; } /* '' */
+.icon-gps:before { content: '\e961'; } /* '' */
+.icon-gps-s:before { content: '\e962'; } /* '' */
+.icon-gps-s-v:before { content: '\e963'; } /* '' */
+.icon-gps-v:before { content: '\e964'; } /* '' */
+.icon-silla-rueda-s:before { content: '\e965'; } /* '' */
+.icon-maletin-medico:before { content: '\e966'; } /* '' */
+.icon-maletin-medico-s:before { content: '\e967'; } /* '' */
+.icon-silla-rueda-s-1:before { content: '\e968'; } /* '' */
+.icon-silla-rueda-s-v:before { content: '\e969'; } /* '' */
+.icon-cama:before { content: '\e96a'; } /* '' */
+.icon-bacteria-s:before { content: '\e96b'; } /* '' */
+.icon-ci:before { content: '\e96c'; } /* '' */
+.icon-ci-s:before { content: '\e96d'; } /* '' */
+.icon-ambulancia:before { content: '\e96e'; } /* '' */
+.icon-ambulancia-s:before { content: '\e96f'; } /* '' */
+.icon-manos:before { content: '\e970'; } /* '' */
+.icon-lampara:before { content: '\e971'; } /* '' */
+.icon-lampara-s:before { content: '\e972'; } /* '' */
+.icon-form-inputs:before { content: '\e973'; } /* '' */
+.icon-grupos:before { content: '\e974'; } /* '' */
+.icon-grupos-s:before { content: '\e975'; } /* '' */
+.icon-tablas:before { content: '\e976'; } /* '' */
+.icon-balance:before { content: '\e977'; } /* '' */
+.icon-cards:before { content: '\e978'; } /* '' */
+.icon-cards-s:before { content: '\e979'; } /* '' */
+.icon-balance-v:before { content: '\e97a'; } /* '' */
+.icon-grid:before { content: '\e97b'; } /* '' */
+.icon-ojo-cerrado:before { content: '\e97d'; } /* '' */
+.icon-numeros-s:before { content: '\e97f'; } /* '' */
+.icon-arroba:before { content: '\e980'; } /* '' */
+.icon-arroba-s:before { content: '\e981'; } /* '' */
+.icon-password-v:before { content: '\e982'; } /* '' */
+.icon-password-v-s:before { content: '\e983'; } /* '' */
+.icon-numeros-v:before { content: '\e984'; } /* '' */
+.icon-password:before { content: '\e985'; } /* '' */
+.icon-password-s:before { content: '\e986'; } /* '' */
+.icon-tooltip-s:before { content: '\e987'; } /* '' */
+.icon-tooltip:before { content: '\e988'; } /* '' */
+.icon-code-s:before { content: '\e989'; } /* '' */
+.icon-code:before { content: '\e98a'; } /* '' */
+.icon-ciudad:before { content: '\e98b'; } /* '' */
+.icon-tierra:before { content: '\e98c'; } /* '' */
+.icon-tierra-s:before { content: '\e98d'; } /* '' */
+.icon-ciudad-s:before { content: '\e98e'; } /* '' */
+.icon-edificios-s:before { content: '\e98f'; } /* '' */
+.icon-edificios:before { content: '\e990'; } /* '' */
+.icon-twitter:before { content: '\e991'; } /* '' */
+.icon-twitter-s:before { content: '\e992'; } /* '' */
+.icon-light-filtro:before { content: '\e993'; } /* '' */
+.icon-regular-filtro:before { content: '\e994'; } /* '' */
+.icon-instagram-s:before { content: '\e995'; } /* '' */
+.icon-instagram:before { content: '\e996'; } /* '' */
+.icon-whatsapp:before { content: '\e997'; } /* '' */
+.icon-whatsapp-s:before { content: '\e998'; } /* '' */
+.icon-directorio-s:before { content: '\e999'; } /* '' */
+.icon-directorio:before { content: '\e99a'; } /* '' */
+.icon-organigrama:before { content: '\e99b'; } /* '' */
+.icon-engranaje-s:before { content: '\e99c'; } /* '' */
+.icon-engranaje:before { content: '\e99d'; } /* '' */
+.icon-acceso-directo:before { content: '\e99e'; } /* '' */
+.icon-arrow-up-v:before { content: '\e9a1'; } /* '' */
+.icon-arrow-down-v:before { content: '\e9a2'; } /* '' */
+.icon-arrow-left-v:before { content: '\e9a3'; } /* '' */
+.icon-arrow-right-v:before { content: '\e9a4'; } /* '' */
+.icon-arrow-up-s-v:before { content: '\e9a5'; } /* '' */
+.icon-arrow-down-s-v:before { content: '\e9a6'; } /* '' */
+.icon-arrow-left-s-v:before { content: '\e9a7'; } /* '' */
+.icon-arrow-right-s-v:before { content: '\e9a8'; } /* '' */
+.icon-add-document:before { content: '\e9a9'; } /* '' */
+.icon-add-document-s:before { content: '\e9aa'; } /* '' */
+.icon-pdf-download-s:before { content: '\e9ab'; } /* '' */
+.icon-pdf-download:before { content: '\e9ac'; } /* '' */
+.icon-parameters-s:before { content: '\e9ad'; } /* '' */
+.icon-parameters-c:before { content: '\e9ae'; } /* '' */
+.icon-parameters:before { content: '\e9af'; } /* '' */
+.icon-parameters-add:before { content: '\e9b0'; } /* '' */
+.icon-movements:before { content: '\e9b1'; } /* '' */
+.icon-inventory-add:before { content: '\e9b2'; } /* '' */
+.icon-inventory:before { content: '\e9b3'; } /* '' */
+.icon-mi-perfil-s:before { content: '\e9b4'; } /* '' */
+.icon-mi-perfil:before { content: '\e9b5'; } /* '' */
+.icon-farmacia:before { content: '\e9b6'; } /* '' */
+.icon-shop:before { content: '\e9b7'; } /* '' */
+.icon-report:before { content: '\e9b8'; } /* '' */
+.icon-report-add:before { content: '\e9b9'; } /* '' */
+.icon-dispensacion-med-s:before { content: '\e9ba'; } /* '' */
+.icon-dispensacion-med:before { content: '\e9bb'; } /* '' */
+.icon-star-v-s:before { content: '\e9bc'; } /* '' */
+.icon-star:before { content: '\e9bd'; } /* '' */
+.icon-star-v:before { content: '\e9be'; } /* '' */
+.icon-star-s:before { content: '\e9bf'; } /* '' */
+.icon-heart-v-s:before { content: '\e9c0'; } /* '' */
+.icon-heart:before { content: '\e9c1'; } /* '' */
+.icon-team:before { content: '\e9c2'; } /* '' */
+.icon-team-s:before { content: '\e9c3'; } /* '' */
+.icon-team-v-s:before { content: '\e9c4'; } /* '' */
+.icon-align-center-s:before { content: '\e9c5'; } /* '' */
+.icon-align-left-s:before { content: '\e9c6'; } /* '' */
+.icon-align-right-s:before { content: '\e9c7'; } /* '' */
+.icon-align-left:before { content: '\e9c8'; } /* '' */
+.icon-align-right:before { content: '\e9c9'; } /* '' */
+.icon-align-center:before { content: '\e9ca'; } /* '' */
+.icon-align-justify:before { content: '\e9cb'; } /* '' */
+.icon-comments-dots-s:before { content: '\e9cc'; } /* '' */
+.icon-comments:before { content: '\e9cd'; } /* '' */
+.icon-comments-dots:before { content: '\e9ce'; } /* '' */
+.icon-comments-s:before { content: '\e9cf'; } /* '' */
+.icon-folder-bell:before { content: '\e9d0'; } /* '' */
+.icon-folder-bell-s:before { content: '\e9d1'; } /* '' */
+.icon-file-upload-s:before { content: '\e9d4'; } /* '' */
+.icon-file:before { content: '\e9d5'; } /* '' */
+.icon-file-s:before { content: '\e9d6'; } /* '' */
+.icon-heart-s:before { content: '\e9d7'; } /* '' */
+.icon-laptop-medical:before { content: '\e9d8'; } /* '' */
+.icon-chart-cake:before { content: '\e9d9'; } /* '' */
+.icon-laptop:before { content: '\e9da'; } /* '' */
+.icon-laptop-code:before { content: '\e9db'; } /* '' */
+.icon-chart-bar:before { content: '\e9dc'; } /* '' */
+.icon-chart-cake-s:before { content: '\e9dd'; } /* '' */
+.icon-chart-line:before { content: '\e9de'; } /* '' */
+.icon-align-justify-s:before { content: '\e9df'; } /* '' */
+.icon-folder-open:before { content: '\e9e0'; } /* '' */
+.icon-folder-open-s:before { content: '\e9e1'; } /* '' */
+.icon-folder-s:before { content: '\e9e2'; } /* '' */
+.icon-file-download-s:before { content: '\e9e3'; } /* '' */
+.icon-folder:before { content: '\e9e4'; } /* '' */
+.icon-file-download:before { content: '\e9e5'; } /* '' */
+.icon-file-upload:before { content: '\e9e6'; } /* '' */
+.icon-chart-area:before { content: '\e9e7'; } /* '' */
+.icon-entry:before { content: '\e9e8'; } /* '' */
+.icon-exit:before { content: '\e9e9'; } /* '' */
+.icon-thermometer-full:before { content: '\e9ea'; } /* '' */
+.icon-thermometer-half:before { content: '\e9eb'; } /* '' */
+.icon-zoom-out:before { content: '\e9ec'; } /* '' */
+.icon-teclado:before { content: '\e9ed'; } /* '' */
+.icon-teclado-s:before { content: '\e9f8'; } /* '' */
+.icon-zoom-in:before { content: '\e9f9'; } /* '' */
+.icon-headphones:before { content: '\e9fa'; } /* '' */
+.icon-headset:before { content: '\e9fb'; } /* '' */
+.icon-calculadora:before { content: '\e9fc'; } /* '' */
+.icon-calculadora-s:before { content: '\e9fd'; } /* '' */
+.icon-url:before { content: '\e9fe'; } /* '' */
+.icon-url-v2:before { content: '\e9ff'; } /* '' */
+.icon-task-new:before { content: '\ea01'; } /* '' */
+.icon-tasks:before { content: '\ea02'; } /* '' */
+.icon-edit:before { content: '\ea03'; } /* '' */
+.icon-save-s:before { content: '\ea04'; } /* '' */
+.icon-save:before { content: '\ea05'; } /* '' */
+.icon-save-v2:before { content: '\ea06'; } /* '' */
+.icon-save-v2-s:before { content: '\ea07'; } /* '' */
+.icon-lock-open:before { content: '\ea08'; } /* '' */
+.icon-hammer:before { content: '\ea09'; } /* '' */
+.icon-hammer-s:before { content: '\ea0a'; } /* '' */
+.icon-lock:before { content: '\ea0b'; } /* '' */
+.icon-briefcase-s:before { content: '\ea0c'; } /* '' */
+.icon-briefcase:before { content: '\ea0d'; } /* '' */
+.icon-glasses:before { content: '\ea0e'; } /* '' */
+.icon-book-medical:before { content: '\ea0f'; } /* '' */
+.icon-book-medical-s:before { content: '\ea10'; } /* '' */
+.icon-balance-scale-left:before { content: '\ea11'; } /* '' */
+.icon-balance-scale-right:before { content: '\ea12'; } /* '' */
+.icon-blind:before { content: '\ea13'; } /* '' */
+.icon-shop-1:before { content: '\ea17'; } /* '' */
+.icon-movements-v2:before { content: '\ea2d'; } /* '' */
+.icon-report-1:before { content: '\ea2e'; } /* '' */
+.icon-report-add-1:before { content: '\ea2f'; } /* '' */
+.icon-report-control-v:before { content: '\ea30'; } /* '' */
+.icon-movements-v:before { content: '\ea31'; } /* '' */
+.icon-prescription:before { content: '\ea32'; } /* '' */
+.icon-prescription-add:before { content: '\ea33'; } /* '' */
+.icon-pills-bottle:before { content: '\ea34'; } /* '' */
+.icon-pills-hand:before { content: '\ea35'; } /* '' */
+.icon-dispensacion-v2:before { content: '\ea36'; } /* '' */
+.icon-dispensacion-v3:before { content: '\ea37'; } /* '' */
+.icon-archive-v:before { content: '\ea38'; } /* '' */
+.icon-archive-v-s:before { content: '\ea3a'; } /* '' */
+.icon-archive:before { content: '\ea3b'; } /* '' */
+.icon-sticky-header:before { content: '\ea3c'; } /* '' */
+.icon-dispensacion:before { content: '\ea3d'; } /* '' */
+.icon-dispensaciones:before { content: '\ea3e'; } /* '' */
+.icon-dispensaciones-v:before { content: '\ea3f'; } /* '' */
+.icon-prescription-add-v:before { content: '\ea40'; } /* '' */
+.icon-dispensacion-v:before { content: '\ea41'; } /* '' */
+.icon-prescription-v:before { content: '\ea42'; } /* '' */
+.icon-report-control:before { content: '\ea43'; } /* '' */
+.icon-world-s:before { content: '\ea48'; } /* '' */
+.icon-world-v:before { content: '\ea49'; } /* '' */
+.icon-world-v-s:before { content: '\ea4a'; } /* '' */
+.icon-world:before { content: '\ea4b'; } /* '' */
+.icon-bubble:before { content: '\ea4c'; } /* '' */
+.icon-bubble-s:before { content: '\ea4d'; } /* '' */
+.icon-bubble-speech:before { content: '\ea4e'; } /* '' */
+.icon-bubble-speech-s:before { content: '\ea50'; } /* '' */
+.icon-add-time-alarm:before { content: '\ea51'; } /* '' */
+.icon-time-alarm:before { content: '\ea53'; } /* '' */
+.icon-pdf-s:before { content: '\ea5e'; } /* '' */
+.icon-pdf:before { content: '\ea5f'; } /* '' */
+.icon-copy:before { content: '\ea78'; } /* '' */
+.icon-copy-s:before { content: '\ea79'; } /* '' */
+.icon-video-rebobinar:before { content: '\ea7c'; } /* '' */
+.icon-video-avanzar:before { content: '\ea7d'; } /* '' */
+.icon-video-play:before { content: '\ea7e'; } /* '' */
+.icon-video-stop:before { content: '\ea7f'; } /* '' */
+.icon-altavoz-s:before { content: '\ea80'; } /* '' */
+.icon-user-cerrar-s:before { content: '\ea81'; } /* '' */
+.icon-grafica-barras:before { content: '\ea82'; } /* '' */
+.icon-exclamacion-triangulo-s:before { content: '\ea83'; } /* '' */
+.icon-caja:before { content: '\ea84'; } /* '' */
+.icon-etiqueta-s:before { content: '\ea85'; } /* '' */
+.icon-monitor:before { content: '\ea86'; } /* '' */
+.icon-pizarra-notas:before { content: '\ea87'; } /* '' */
+.icon-briefcase-v:before { content: '\ea88'; } /* '' */
+.icon-impresora:before { content: '\ea89'; } /* '' */
+.icon-herramientas:before { content: '\ea8a'; } /* '' */
+.icon-youtube:before { content: '\eaaa'; } /* '' */
+.icon-arrow-v-right:before { content: '\eaac'; } /* '' */
+.icon-arrow-v-down:before { content: '\eaad'; } /* '' */
+.icon-arrow-v-left:before { content: '\eaae'; } /* '' */
+.icon-arrow-v-up:before { content: '\eaaf'; } /* '' */
+.icon-salud-bucal:before { content: '\eabc'; } /* '' */
+.icon-manos-s:before { content: '\eabd'; } /* '' */
+.icon-violencia-de-genero:before { content: '\eabe'; } /* '' */
+.icon-archive-v2:before { content: '\eb4f'; } /* '' */
+.icon-alarm-s:before { content: '\eb99'; } /* '' */
+.icon-alarm-v:before { content: '\eb9a'; } /* '' */
+.icon-alarm-v-s:before { content: '\eb9b'; } /* '' */
+.icon-add-alarm-s:before { content: '\eb9c'; } /* '' */
+.icon-alarm-off:before { content: '\eb9d'; } /* '' */
+.icon-alarm-off-s:before { content: '\eb9e'; } /* '' */
+.icon-alarm:before { content: '\eb9f'; } /* '' */

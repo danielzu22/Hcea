@@ -1,0 +1,59 @@
+// Paleta de Colores
+$color-primary: #0056b3;
+$color-secondary: #6c757d;
+$color-success: #28a745;
+$color-danger: #dc3545;
+$color-warning: #ffc107;
+$color-info: #17a2b8;
+$color-light: #f8f9fa;
+$color-dark: #343a40;
+$color-background: #ffffff;
+$color-text: #333333;
+
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+
+// Breakpoints
+$breakpoints: (
+    'sm': 576px,
+    'md': 768px,
+    'lg': 992px,
+    'xl': 1200px
+);
+
+// Tipografía
+$font-main: 'Inter', system-ui, sans-serif;
+
+$fw-light: 300;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+
+// Border Radius
+$br-sm: 0.2rem;
+$br-md: 0.25rem;
+$br-lg: 0.3rem;
+
+// Spacing
+$gp-s: 0.5rem;
+$gp-m: 1rem;
+$gp-l: 1.5rem;
+
+// Layout
+$navbar_height: 60px;
+$footer_height: 200px;
+
+// Compatibilidad (Variables Antiguas)
+$primary: $color-primary;
+$primary-dark: #004085;
+$primary_light_1: #cce5ff;
+$primary_light_2: #e6f2ff;
+$secondary: $color-secondary;
+$green: $color-success;
+$gray_300: $gray-300;
+$br_s: $br-sm;
+$bp_sm: 576px;

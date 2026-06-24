@@ -1,0 +1,67 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var.$gp_l;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    border: solid 1px var.$primary;
+    padding: 10px;
+    color: var.$primary;
+    font-family: "Regular";
+    border-radius: var.$br_s;
+    &:focus {
+        outline: none;
+    }
+
+    &::placeholder {
+        color: var.$primary_light_1;
+    }
+
+    &:hover {
+        background-color: var.$gray_200;
+    }
+}
+
+fieldset {
+    padding: 20px;
+    border: solid 1px var.$primary_light_2;
+    legend {
+        font-size: 14px;
+        font-family: "Bold";
+        text-align: left;
+        color: var.$primary;
+    }
+    fieldset {
+        padding: 10px;
+        legend {
+            font-family: "Regular";
+            font-size: 13px;
+        }
+    }
+}
+
+label {
+    display: block;
+    text-align: left;
+    font-size: 13px;
+    color: var.$primary;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    cursor: pointer;
+    +label {
+        cursor: pointer;
+    }
+}

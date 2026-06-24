@@ -1,0 +1,20 @@
+@use "../abstracts/variables"as var;
+@use "../abstracts/mixins"as mix;
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+  font-family: "Regular";
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0;
+  background-color: var.$color-background;
+  font-size: 1.4rem;
+}
+

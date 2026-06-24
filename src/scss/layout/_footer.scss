@@ -1,0 +1,15 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+footer {
+    margin-top: auto;
+    height: var.$footer_height;
+    background-color: white;
+    .container {
+        height: inherit;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
