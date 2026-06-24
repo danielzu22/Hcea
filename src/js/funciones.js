@@ -1,8 +1,13 @@
-document.addEventListener("DOMContentLoaded", function () {
+function initCustomSelects() {
     // Buscar todos los selects nativos con la clase filters-box__select
     const selects = document.querySelectorAll(".filters-box__select");
 
     selects.forEach(select => {
+        // Evitar inicializar dos veces
+        if (select.nextElementSibling && select.nextElementSibling.classList.contains("custom-select")) {
+            return;
+        }
+
         // Ocultar select nativo
         select.style.display = "none";
 
@@ -22,7 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
         trigger.classList.add("custom-select__trigger");
         
         const triggerText = document.createElement("span");
-        triggerText.textContent = select.options[select.selectedIndex].text;
+        // Check if there are options
+        if (select.options.length > 0) {
+            triggerText.textContent = select.options[select.selectedIndex >= 0 ? select.selectedIndex : 0].text;
+        } else {
+            triggerText.textContent = "Seleccionar...";
+        }
         trigger.appendChild(triggerText);
         
         const arrow = document.createElement("div");
@@ -48,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Al hacer click en una opción
             customOption.addEventListener("click", function (e) {
+                e.stopPropagation();
                 // Desmarcar todas
                 const siblings = this.parentNode.querySelectorAll(".custom-select__option");
                 siblings.forEach(sib => sib.classList.remove("selected"));
@@ -70,7 +81,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         // Abrir/cerrar menú al hacer click en el trigger
-        trigger.addEventListener("click", function () {
+        trigger.addEventListener("click", function (e) {
+            e.stopPropagation();
             // Cerrar otros custom selects abiertos
             document.querySelectorAll(".custom-select").forEach(cs => {
                 if (cs !== customSelect) cs.classList.remove("open");
@@ -87,4 +99,11 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     });
-});
+}
+
+// Ejecutar script asegurándose de que el DOM esté listo
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCustomSelects);
+} else {
+    initCustomSelects();
+}
