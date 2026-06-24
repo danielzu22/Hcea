@@ -7,17 +7,23 @@
     <title>SCELEST</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+    <!-- Icon Font -->
+    <link href="icons/css/iconos.css" rel="stylesheet">
 </head>
 
 <body>
 
     <header class="header">
         <div class="container header__container">
-            <!-- Logo a la Izquierda -->
-            <a href="index.php" class="header__logo" aria-label="Logo - Ir a la página de inicio">
-                <img src="images/logo.svg" alt="Logo">
-            </a>
-            
+            <!-- Logo a la Izquierda con título -->
+            <div class="header__brand">
+                <a href="index.php" class="header__logo" aria-label="Logo - Ir a la página de inicio">
+                    <img src="images/logo.svg" alt="Logo">
+                </a>
+                <div class="header__divider"></div>
+                <span class="header__brand-text">Consulta</span>
+            </div>
+
             <!-- Botón Hamburguesa (Móvil) -->
             <button class="header__toggle" id="button_mobile"
                 onclick="toggleClass('menu','button_mobile','header__nav--open')">
@@ -26,13 +32,12 @@
                 <span></span>
                 <span></span>
             </button>
-            
+
             <!-- Links a la Derecha -->
             <nav class="header__nav" id="menu">
-                <a href="index.php" class="header__link header__link--active" aria-current="page">Inicio</a>
-                <a href="seccion.php" class="header__link">Sección</a>
-                <a href="formularios.php" class="header__link">Formularios</a>
-                <a href="listas.php" class="header__link">Listas</a>
+                <a href="#" class="header__link header__link--active" aria-current="page">Inicio</a>
+                <a href="seccion.php" class="header__link">Burgueño Fernando</a>
+                <a href="listas.php" class="header__link"><i class="icon-exit"></i></a>
             </nav>
         </div>
     </header>
