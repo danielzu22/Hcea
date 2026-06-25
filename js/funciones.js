@@ -1,33 +1,29 @@
 function initCustomSelects() {
-    // Buscar todos los selects nativos con la clase filters-box__select
+   
     const selects = document.querySelectorAll(".filters-box__select");
 
     selects.forEach(select => {
-        // Evitar inicializar dos veces
+       
         if (select.nextElementSibling && select.nextElementSibling.classList.contains("custom-select")) {
             return;
         }
 
-        // Ocultar select nativo
         select.style.display = "none";
 
-        // Crear wrapper
         const wrapper = document.createElement("div");
         wrapper.classList.add("custom-select-wrapper");
         select.parentNode.insertBefore(wrapper, select);
         wrapper.appendChild(select);
 
-        // Crear custom select
         const customSelect = document.createElement("div");
         customSelect.classList.add("custom-select");
         wrapper.appendChild(customSelect);
 
-        // Crear trigger (la cajita que se ve por defecto)
         const trigger = document.createElement("div");
         trigger.classList.add("custom-select__trigger");
         
         const triggerText = document.createElement("span");
-        // Check if there are options
+       
         if (select.options.length > 0) {
             triggerText.textContent = select.options[select.selectedIndex >= 0 ? select.selectedIndex : 0].text;
         } else {
@@ -41,12 +37,10 @@ function initCustomSelects() {
         
         customSelect.appendChild(trigger);
 
-        // Crear lista de opciones
         const optionsContainer = document.createElement("div");
         optionsContainer.classList.add("custom-select__options");
         customSelect.appendChild(optionsContainer);
 
-        // Llenar opciones
         Array.from(select.options).forEach(option => {
             const customOption = document.createElement("span");
             customOption.classList.add("custom-select__option");
@@ -56,34 +50,28 @@ function initCustomSelects() {
             customOption.textContent = option.text;
             customOption.setAttribute("data-value", option.value);
 
-            // Al hacer click en una opción
             customOption.addEventListener("click", function (e) {
                 e.stopPropagation();
-                // Desmarcar todas
+               
                 const siblings = this.parentNode.querySelectorAll(".custom-select__option");
                 siblings.forEach(sib => sib.classList.remove("selected"));
-                
-                // Marcar esta
+
                 this.classList.add("selected");
-                
-                // Actualizar texto en trigger
+
                 triggerText.textContent = this.textContent;
-                
-                // Actualizar select nativo
+
                 select.value = this.getAttribute("data-value");
                 select.dispatchEvent(new Event('change'));
 
-                // Cerrar menú
                 customSelect.classList.remove("open");
             });
 
             optionsContainer.appendChild(customOption);
         });
 
-        // Abrir/cerrar menú al hacer click en el trigger
         trigger.addEventListener("click", function (e) {
             e.stopPropagation();
-            // Cerrar otros custom selects abiertos
+           
             document.querySelectorAll(".custom-select").forEach(cs => {
                 if (cs !== customSelect) cs.classList.remove("open");
             });
@@ -91,7 +79,6 @@ function initCustomSelects() {
         });
     });
 
-    // Cerrar si se hace click fuera
     window.addEventListener("click", function (e) {
         if (!e.target.closest(".custom-select")) {
             document.querySelectorAll(".custom-select").forEach(cs => {
@@ -101,7 +88,6 @@ function initCustomSelects() {
     });
 }
 
-// Ejecutar scripts asegurándose de que el DOM esté listo
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function() {
         initCustomSelects();
@@ -116,7 +102,6 @@ if (document.readyState === "loading") {
     initModalCriterios();
 }
 
-// Función para el buscador simulado de interconsultas
 function initAutocomplete() {
     const searchContainer = document.getElementById('interconsulta-search-container');
     const input = document.getElementById('interconsulta-input');
@@ -125,7 +110,6 @@ function initAutocomplete() {
 
     if (!input || !dropdown || !searchContainer) return;
 
-    // Lista de muestra basada en las especialidades de la tabla
     const disciplines = [
         "Cardiología",
         "Cardiología Pediátrica",
@@ -150,8 +134,7 @@ function initAutocomplete() {
             const div = document.createElement('div');
             div.className = 'add-interconsulta__dropdown-item';
             div.textContent = match;
-            
-            // Al hacer click en una sugerencia
+
             div.addEventListener('click', function(e) {
                 e.stopPropagation();
                 input.value = match;
@@ -165,7 +148,6 @@ function initAutocomplete() {
         searchContainer.classList.add('open');
     }
 
-    // Escuchar cuando el usuario escribe
     input.addEventListener('input', function() {
         const val = this.value.trim().toLowerCase();
         
@@ -179,7 +161,6 @@ function initAutocomplete() {
         }
     });
 
-    // Limpiar el input con la crucecita
     clearBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         input.value = '';
@@ -188,7 +169,6 @@ function initAutocomplete() {
         input.focus();
     });
 
-    // Abrir dropdown si hay texto al hacer focus
     input.addEventListener('focus', function() {
         const val = this.value.trim().toLowerCase();
         if (val.length > 0) {
@@ -197,7 +177,6 @@ function initAutocomplete() {
         }
     });
 
-    // Cerrar si se hace click fuera del buscador
     document.addEventListener('click', function(e) {
         if (!searchContainer.contains(e.target)) {
             searchContainer.classList.remove('open');
@@ -205,7 +184,6 @@ function initAutocomplete() {
     });
 }
 
-// Función para manejar la inserción de formularios dinámicos
 function initDynamicForms() {
     const btnAdd = document.getElementById('btn-add-interconsulta');
     const inputSearch = document.getElementById('interconsulta-input');
@@ -229,10 +207,8 @@ function initDynamicForms() {
         specialtyCounter++;
         const currentId = 'specialty-' + specialtyCounter;
 
-        // Mostrar el layout si estaba oculto
         dynamicLayout.style.display = 'flex';
 
-        // 1. Crear el Tab
         const tab = document.createElement('div');
         tab.className = 'vertical-tab';
         tab.setAttribute('data-target', currentId);
@@ -243,12 +219,10 @@ function initDynamicForms() {
             <span class="vertical-tab__text">${specialtyName}</span>
         `;
 
-        // 2. Crear el Formulario
         const form = document.createElement('div');
         form.className = 'specialty-form';
         form.id = currentId;
-        
-        // HTML del formulario igual al mockup
+
         form.innerHTML = `
             <div class="specialty-form__grid">
                 <!-- Fila 1 -->
@@ -336,32 +310,24 @@ function initDynamicForms() {
             </div>
         `;
 
-        // 3. Añadir al DOM
         tabsContainer.appendChild(tab);
         formsContainer.appendChild(form);
 
-        // 4. Lógica de activación
         function activateTab() {
-            // Desactivar todos
+           
             document.querySelectorAll('#dynamic-tabs-container .vertical-tab').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('#dynamic-forms-container .specialty-form').forEach(f => f.classList.remove('active'));
-            
-            // Activar este
+
             tab.classList.add('active');
             form.classList.add('active');
         }
 
         tab.addEventListener('click', activateTab);
 
-        // Activar el nuevo tab recién creado
         activateTab();
 
-        // 5. Inicializar Custom Selects en el nuevo formulario inyectado
-        // Esto asume que initCustomSelects no duplica los wrappers si ya existen, 
-        // pero como es HTML nuevo, es seguro llamarlo.
         initCustomSelects();
 
-        // Escuchar radios de "Primera vez" y "Seguimiento" para abrir el modal
         const radioBtns = form.querySelectorAll('input[type="radio"]');
         radioBtns.forEach(radio => {
             radio.addEventListener('change', function() {
@@ -371,33 +337,26 @@ function initDynamicForms() {
             });
         });
 
-        // 6. Lógica de eliminar
         const deleteBtn = form.querySelector('.specialty-form__btn-delete');
         deleteBtn.addEventListener('click', function() {
-            // Eliminar del DOM
+           
             tab.remove();
             form.remove();
 
-            // Si ya no quedan tabs, ocultar el layout completo
             if (tabsContainer.children.length === 0) {
                 dynamicLayout.style.display = 'none';
             } else {
-                // Activar el primer tab disponible
+               
                 const firstTab = tabsContainer.querySelector('.vertical-tab');
                 if (firstTab) firstTab.click();
             }
         });
 
-        // 7. Limpiar el input de búsqueda después de agregar
         inputSearch.value = '';
         const clearBtn = document.getElementById('interconsulta-clear');
         if (clearBtn) clearBtn.style.display = 'none';
     });
 }
-
-// ==========================================
-// Modal de Criterios de Derivación
-// ==========================================
 
 let modalStates = {};
 let currentEditingFormId = null;
@@ -407,8 +366,7 @@ function openModalCriterios(formId) {
     if (modal) {
         currentEditingFormId = formId;
         const cards = document.querySelectorAll('.criterio-card');
-        
-        // Restaurar estado guardado para este formulario
+
         cards.forEach((card, index) => {
             card.classList.remove('selected');
             if (modalStates[formId] && modalStates[formId].includes(index)) {
@@ -416,7 +374,6 @@ function openModalCriterios(formId) {
             }
         });
 
-        // Disparar evento para actualizar el badge inicial
         modal.dispatchEvent(new Event('modalOpened'));
         modal.style.display = 'flex';
     }
@@ -443,7 +400,7 @@ function initModalCriterios() {
     if(btnConfirm) {
         btnConfirm.addEventListener('click', function() {
             if(currentEditingFormId) {
-                // Guardar estado actual
+               
                 const selectedIndexes = [];
                 cards.forEach((card, index) => {
                     if (card.classList.contains('selected')) {
@@ -451,15 +408,13 @@ function initModalCriterios() {
                     }
                 });
                 modalStates[currentEditingFormId] = selectedIndexes;
-                
-                // Inyectar o actualizar el banner en el formulario
+
                 renderCriterioBanner(currentEditingFormId);
             }
             closeModal();
         });
     }
 
-    // Seleccion múltiple
     cards.forEach(card => {
         card.addEventListener('click', function() {
             this.classList.toggle('selected');
@@ -469,8 +424,7 @@ function initModalCriterios() {
 
     function updateModalStatus() {
         const selectedCount = document.querySelectorAll('.criterio-card.selected').length;
-        
-        // Limpiar clases
+
         badgeStatus.className = 'modal-criterios__badge';
 
         if (selectedCount === 0) {
@@ -478,28 +432,26 @@ function initModalCriterios() {
             badgeStatus.classList.add('badge-none');
         } else if (selectedCount <= 1) {
             badgeStatus.textContent = "Baja";
-            badgeStatus.classList.add('badge-leve'); // Color verde
+            badgeStatus.classList.add('badge-leve');
         } else if (selectedCount <= 3) {
             badgeStatus.textContent = "Media";
-            badgeStatus.classList.add('badge-moderada'); // Color amarillo
+            badgeStatus.classList.add('badge-moderada');
         } else {
             badgeStatus.textContent = "Alta";
-            badgeStatus.classList.add('badge-grave'); // Color rojo
+            badgeStatus.classList.add('badge-grave');
         }
     }
-    
-    // Escuchar cuando se abre para actualizar estado
+
     modal.addEventListener('modalOpened', updateModalStatus);
 }
 
-// Función para renderizar el banner de resultado en el formulario
 function renderCriterioBanner(formId) {
     const container = document.getElementById(`criterio-banner-${formId}`);
     if (!container) return;
     
     const selectedIndexes = modalStates[formId] || [];
     if (selectedIndexes.length === 0) {
-        // Si no hay nada seleccionado, quitar el banner
+       
         container.innerHTML = '';
         return;
     }
@@ -537,19 +489,16 @@ function renderCriterioBanner(formId) {
     `;
 }
 
-// Función global para eliminar el banner
 window.deleteCriterioBanner = function(formId) {
     const container = document.getElementById(`criterio-banner-${formId}`);
     if (container) {
         container.innerHTML = '';
     }
-    
-    // Limpiar estado
+
     if (modalStates[formId]) {
         delete modalStates[formId];
     }
-    
-    // Desmarcar radio buttons
+
     const form = document.getElementById(formId);
     if (form) {
         const radios = form.querySelectorAll('input[type="radio"]');

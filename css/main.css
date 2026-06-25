@@ -332,8 +332,7 @@ footer .container {
 }
 
 /* ==========================================================================
-   SISTEMA DE GRID (Nativo CSS Grid)
-   Un sistema ligero inspirado en Bootstrap, pero sin el peso extra.
+   GRID SYSTEM
    ========================================================================== */
 .container {
   width: 100%;
