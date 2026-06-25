@@ -284,6 +284,7 @@ footer .container {
   text-align: center;
   transition: background-color 0.3s ease;
   font-family: "Inter", system-ui, sans-serif;
+  font-size: 1.15rem;
   gap: 8px;
 }
 .vertical-menu__link:first-child {
