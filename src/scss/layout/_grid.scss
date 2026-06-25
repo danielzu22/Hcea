@@ -10,7 +10,7 @@
 // 1. Contenedor principal
 .container {
   width: 100%;
-  max-width: map.get(var.$breakpoints, 'xl'); // Puedes cambiar a 1200px o usar la variable
+  max-width: map.get(var.$breakpoints, 'xxl'); // Puedes cambiar a 1200px o usar la variable
   margin: 0 auto;
   padding: 0 var.$gp-m; // Padding en los bordes
 }

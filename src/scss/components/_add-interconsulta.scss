@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    padding: 1.2rem 1.5rem;
+    padding: 1.4rem 1.5rem;
     border: 1px solid #F0F0F0;
     border-radius: 8px;
     background-color: #ffffff;
@@ -60,12 +60,12 @@
         border-radius: 5px;
         outline: none;
         font-family: "Inter", sans-serif;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         color: #000000;
         padding: 10px 30px 10px 35px; // Padding izquierdo exacto para evitar que la lupa se solape
         background: #ffffff;
         transition: border-color 0.2s ease;
-        
+
         &::placeholder {
             color: #999999;
         }
@@ -85,7 +85,7 @@
         top: 50%;
         transform: translateY(-50%);
         z-index: 2;
-        
+
         &--left {
             left: 0.8rem;
             // Lupa grisácea claro
@@ -111,7 +111,7 @@
         border-radius: 0 0 5px 5px;
         z-index: 10;
         display: none; // Controlado por JS o clase
-        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
 
     // Mostrar menú al ponerle la clase .open al contenedor __search
@@ -123,7 +123,7 @@
     &__dropdown-item {
         padding: 0.8rem 1rem;
         font-family: var.$font-main;
-        font-size: 1.1rem;
+        font-size: 1.4rem;
         font-weight: var.$fw-bold;
         color: var.$color-brand-blue;
         cursor: pointer;
@@ -142,7 +142,7 @@
         border-color: var.$color-brand-blue;
         border-radius: 5px;
         padding: 10px 1.5rem;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         box-sizing: border-box;
 
         &:hover {

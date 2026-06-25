@@ -28,7 +28,7 @@
 
     &__label {
         font-family: var.$font-main;
-        font-size: 1.1rem; // Fuente más grande
+        font-size: 1.4rem; // Fuente más grande
         font-weight: var.$fw-bold;
         color: var.$color-text;
         margin-bottom: 0.5rem;
@@ -38,8 +38,8 @@
     input.filters-box__input,
     select.filters-box__select {
         font-family: var.$font-main;
-        font-size: 1.1rem; // Fuente más grande
-        padding: 0.8rem 1.2rem; // Más padding
+        font-size: 1.4rem; // Fuente más grande
+        padding: 1rem 1.4rem; // Más padding
         border: 1px solid #ced4da;
         border-radius: 5px; // Bordes a 5px según lo solicitado
         color: var.$color-text;
@@ -68,22 +68,24 @@
         align-items: center;
         // Pequeño ajuste en desktop para alinear bien la altura del botón con los inputs
         margin-bottom: 0; // Removido para igualar estricamente la altura
-        
+
         .btn {
             white-space: nowrap; // Evita que el texto del botón se parta
             background-color: #003CA5;
             border-color: #003CA5;
             padding: 0.8rem 1.2rem; // Mismo padding que los inputs
-            font-size: 1.1rem; // Misma fuente que los inputs
+            font-size: 1.4rem; // Misma fuente que los inputs
             height: 100%; // Asegurar que ocupe el mismo alto
             border-radius: 5px; // Mismo redondeo que los campos
-            
+
             &:hover {
                 filter: brightness(1.1);
             }
         }
     }
-} // FIN de .filters-box
+}
+
+// FIN de .filters-box
 
 // Custom Select Styles (Globales)
 .custom-select-wrapper {
@@ -96,13 +98,13 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    
+
     &__trigger {
         display: flex;
         align-items: center;
         justify-content: space-between;
         font-family: var.$font-main;
-        font-size: 1.1rem;
+        font-size: 1.4rem;
         padding: 0.8rem 1.2rem;
         background-color: #ffffff;
         border: 1px solid #ced4da;
@@ -121,7 +123,8 @@
         height: 10px;
         width: 10px;
 
-        &::before, &::after {
+        &::before,
+        &::after {
             content: "";
             position: absolute;
             bottom: 0px;
@@ -152,7 +155,7 @@
         border: 1px solid var.$color-primary;
         border-top: none;
         border-radius: 0 0 5px 5px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         transition: all 0.2s ease;
         opacity: 0;
         visibility: hidden;
@@ -166,7 +169,7 @@
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
         }
-        
+
         .arrow::before {
             left: -3px;
             transform: rotate(45deg);
@@ -189,7 +192,7 @@
         display: block;
         padding: 0.8rem 1.2rem;
         font-family: var.$font-main;
-        font-size: 1.1rem;
+        font-size: 1.4rem;
         color: #000000;
         cursor: pointer;
         transition: all 0.2s ease;
@@ -203,7 +206,7 @@
             color: #000000;
             font-weight: bold; // Lo ponemos en negrita para distinguirlo un poco
         }
-        
+
         // Para mantener redondeo del último elemento
         &:last-child {
             border-radius: 0 0 5px 5px;

@@ -58,14 +58,14 @@
         border-color: #E5E7EB; // Activa con borde
         border-right-color: #ffffff; // Borde derecho blanco para "borrar" la línea de unión
         z-index: 2; // Para quedar por encima del borde del formulario
-        
+
         .vertical-tab__text {
-            color: #05267D; // Azul en activa
+            color: var.$color-primary; // Azul en activa
         }
 
         .vertical-tab__icon-box {
             background-color: #DBE5F1; // Círculo azul claro en activa
-            
+
             img {
                 // Filtro azul original
                 filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(2250%) hue-rotate(205deg) brightness(96%) contrast(106%);
