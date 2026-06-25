@@ -62,7 +62,7 @@
     &__nav {
         display: flex;
         align-items: center;
-        gap: var.$gp-l;
+        // gap eliminado porque los links ahora tienen padding lateral
         height: 100%;
 
         // Versión Móvil
@@ -88,49 +88,33 @@
         }
     }
 
-    /* ELEMENT: Link */
     &__link {
+        display: flex;
+        align-items: center;
+        height: 100%; // Ocupa todo el alto del cabezal
         font-family: var.$font-main;
         font-weight: var.$fw-medium;
         color: white;
         font-size: 1.6rem;
         text-decoration: none;
-        padding: 0.5rem 0;
+        padding: 0 1.5rem; // Padding lateral para que no quede apretado
         position: relative;
-        transition: color 0.2s ease;
+        transition: background-color 0.2s ease, color 0.2s ease;
 
         i {
             font-size: 2rem;
         }
 
-        // Subrayado animado al hacer hover
-        &::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var.$color-primary;
-            transition: width 0.3s ease;
-        }
-
         &:hover {
-            color: var.$color-primary;
-
-            &::after {
-                width: 100%;
-            }
+            background-color: rgba(0, 0, 0, 0.15); // Fondo un poco más oscurito
+            color: white; // Deja el texto en blanco
         }
 
         /* MODIFIER: Active/Selected Link */
         &--active {
-            color: var.$color-primary;
+            background-color: rgba(0, 0, 0, 0.2); // Más oscuro si está seleccionado
+            color: white;
             font-weight: var.$fw-bold;
-
-            &::after {
-                width: 100%;
-            }
         }
 
         // Estilos de los links en móvil
