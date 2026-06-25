@@ -257,15 +257,15 @@ function initDynamicForms() {
                     <select class="filters-box__select dynamic-select">
                         <option value="" disabled selected>Seleccionar modalidad</option>
                         <option value="presencial">Presencial</option>
-                        <option value="telemedicina">Telemedicina</option>
+                        <option value="tele_asincronica">Tele-interconsulta asincrónica</option>
+                        <option value="tele_sincronica">Tele-interconsulta sincrónica</option>
                     </select>
                 </div>
                 <div class="specialty-form__group">
                     <label>Resolución en:</label>
                     <select class="filters-box__select dynamic-select">
-                        <option value="urgencia">Urgencia</option>
-                        <option value="policlinica">Policlínica</option>
                         <option value="otra" selected>Otra</option>
+                        <option value="propia">Propia</option>
                     </select>
                 </div>
                 <div class="specialty-form__group">
@@ -305,7 +305,6 @@ function initDynamicForms() {
                     <label>Seguimiento cada:</label>
                     <select class="filters-box__select dynamic-select">
                         <option value="" disabled selected>Seleccionar días</option>
-                        <option value="15">15 días</option>
                         <option value="30" selected>30 días</option>
                         <option value="60">60 días</option>
                     </select>
@@ -319,8 +318,7 @@ function initDynamicForms() {
                     <label>Motivo Interconsulta:</label>
                     <select class="filters-box__select dynamic-select">
                         <option value="" disabled selected>Seleccionar motivo</option>
-                        <option value="derivacion">Derivación</option>
-                        <option value="interconsulta">Interconsulta</option>
+                        <option value="arritmia">Arritmia</option>
                     </select>
                 </div>
                 
