@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "../abstracts/variables" as var;
 @use "../abstracts/mixins" as mix;
 
@@ -27,6 +28,7 @@
         text-align: center;
         transition: background-color 0.3s ease;
         font-family: var.$font-main;
+        font-size: 1.15rem; // Fuente un poco más grande
         gap: 8px; // Separación entre icono y texto
 
         &:first-child {
@@ -49,7 +51,7 @@
             background-color: #F18A04 !important;
             
             &:hover {
-                background-color: lighten(#F18A04, 10%) !important;
+                background-color: color.adjust(#F18A04, $lightness: 10%) !important;
             }
         }
 
