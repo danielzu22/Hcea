@@ -11,7 +11,7 @@
     flex-shrink: 0; // Previene que el menú se encoja
     background-color: #159FDB;
     border-radius: 12px; // Bordes redondeados
-    
+
     &__nav {
         display: flex;
         flex-direction: column;
@@ -28,7 +28,7 @@
         text-align: center;
         transition: background-color 0.3s ease;
         font-family: var.$font-main;
-        font-size: 1.15rem; // Fuente un poco más grande
+        font-size: 1.4rem; // Fuente un poco más grande
         gap: 8px; // Separación entre icono y texto
 
         &:first-child {
@@ -49,7 +49,7 @@
 
         &--firmar {
             background-color: #F18A04 !important;
-            
+
             &:hover {
                 background-color: color.adjust(#F18A04, $lightness: 10%) !important;
             }
@@ -61,7 +61,7 @@
         }
 
         span {
-            font-size: 1rem; // Texto más grande
+            font-size: 1.2rem; // Texto más grande
             font-weight: var.$fw-medium;
         }
     }
