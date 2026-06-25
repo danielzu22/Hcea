@@ -297,7 +297,7 @@ function initDynamicForms() {
                 </div>
                 
                 <div class="specialty-form__group specialty-form__textarea-group">
-                    <label>Datos clínicos relevantes:</label>
+                    <label>Observaciones</label>
                     <textarea></textarea>
                 </div>
             </div>
