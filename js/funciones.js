@@ -305,8 +305,8 @@ function initDynamicForms() {
                     <label>Seguimiento cada:</label>
                     <select class="filters-box__select dynamic-select">
                         <option value="" disabled selected>Seleccionar días</option>
+                        <option value="10">10 días</option>
                         <option value="30" selected>30 días</option>
-                        <option value="60">60 días</option>
                     </select>
                 </div>
 
