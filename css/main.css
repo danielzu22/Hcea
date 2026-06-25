@@ -104,7 +104,6 @@ body {
   /* ELEMENT: Divider */
   /* ELEMENT: Brand Text */
   /* ELEMENT: Navigation */
-  /* ELEMENT: Link */
   /* ELEMENT: Toggle Button (Hamburguesa) */
 }
 .header__container {
@@ -143,7 +142,6 @@ body {
 .header__nav {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
   height: 100%;
 }
 @media (max-width: 576px) {
@@ -167,41 +165,30 @@ body {
   }
 }
 .header__link {
+  display: flex;
+  align-items: center;
+  height: 100%;
   font-family: "Inter", system-ui, sans-serif;
   font-weight: 500;
   color: white;
   font-size: 1.6rem;
   text-decoration: none;
-  padding: 0.5rem 0;
+  padding: 0 1.5rem;
   position: relative;
-  transition: color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
   /* MODIFIER: Active/Selected Link */
 }
 .header__link i {
   font-size: 2rem;
 }
-.header__link::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #003CA5;
-  transition: width 0.3s ease;
-}
 .header__link:hover {
-  color: #003CA5;
-}
-.header__link:hover::after {
-  width: 100%;
+  background-color: rgba(0, 0, 0, 0.15);
+  color: white;
 }
 .header__link--active {
-  color: #003CA5;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
   font-weight: 700;
-}
-.header__link--active::after {
-  width: 100%;
 }
 @media (max-width: 576px) {
   .header__link {
