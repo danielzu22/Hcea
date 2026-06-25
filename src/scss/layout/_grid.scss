@@ -3,16 +3,14 @@
 @use "../abstracts/mixins" as mix;
 
 /* ==========================================================================
-   SISTEMA DE GRID (Nativo CSS Grid)
-   Un sistema ligero inspirado en Bootstrap, pero sin el peso extra.
+   GRID SYSTEM
    ========================================================================== */
 
-// 1. Contenedor principal
 .container {
   width: 100%;
-  max-width: map.get(var.$breakpoints, 'xxl'); // Puedes cambiar a 1200px o usar la variable
+  max-width: map.get(var.$breakpoints, 'xxl');
   margin: 0 auto;
-  padding: 0 var.$gp-m; // Padding en los bordes
+  padding: 0 var.$gp-m;
 }
 
 .container-fluid {
@@ -20,33 +18,28 @@
   padding: 0 var.$gp-m;
 }
 
-// 2. Grilla automática y fluida (Ideal para tarjetas)
-// No necesitas columnas explícitas, se ajusta sola.
 .grid-auto {
   display: grid;
   gap: var.$gp-m;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-// 3. Sistema de 12 Columnas (Estilo Bootstrap)
 .row {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: var.$gp-m;
 }
 
-// Clases utilitarias para ocupar columnas (.col-1 a .col-12)
 @for $i from 1 through 12 {
   .col-#{$i} {
     grid-column: span #{$i};
   }
 }
 
-// Ejemplo de media query para hacer las columnas full-width en móvil
 @media (max-width: map.get(var.$breakpoints, 'md')) {
   @for $i from 1 through 12 {
     .col-#{$i} {
-      grid-column: span 12; // En móvil todo ocupa 100%
+      grid-column: span 12;
     }
   }
 }

@@ -8,23 +8,22 @@
 .tabs {
     display: flex;
     gap: 4px;
-    margin-bottom: 0; // Eliminamos el margen para que se unan a la tarjeta
+    margin-bottom: 0;
 }
 
 .tabs__tab {
-    background-color: rgba(255, 255, 255, 0.3); // Blanca con opacidad 30%
+    background-color: rgba(255, 255, 255, 0.3);
     color: #003CA5;
     border: none;
-    padding: 1.5rem 2rem; // Más padding para que las pestañas sean más espaciosas
-    border-radius: 12px 12px 0 0; // Bordes redondeados solo arriba
+    padding: 1.5rem 2rem;
+    border-radius: 12px 12px 0 0;
     font-family: var.$font-main;
     font-weight: var.$fw-bold;
-    font-size: 1.5rem; // Reducido un ~30% desde 2.2rem
-    text-transform: uppercase; // Fuerzo mayúsculas siempre
+    font-size: 1.5rem;
+    text-transform: uppercase;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    
-    // Para que la pestaña activa se fusione con la tarjeta
+
     position: relative;
     top: 1px; 
     z-index: 1;
@@ -35,13 +34,13 @@
 
     &--active {
         background-color: #ffffff;
-        z-index: 3; // Por encima de la tarjeta
+        z-index: 3;
     }
 }
 
 .content-card {
     background-color: #ffffff;
-    border-radius: 0 12px 12px 12px; // El primer borde (top-left) es 0 para unirse a la pestaña activa
+    border-radius: 0 12px 12px 12px;
     padding: 2rem;
     min-height: 500px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);

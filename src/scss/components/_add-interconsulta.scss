@@ -9,7 +9,7 @@
     border-radius: 8px;
     background-color: #ffffff;
     margin-bottom: var.$gp-l;
-    flex-wrap: wrap; // Responsive
+    flex-wrap: wrap;
 
     &__left {
         display: flex;
@@ -21,7 +21,7 @@
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        background-color: #E8F0FE; // Celeste suave
+        background-color: #E8F0FE;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -29,7 +29,7 @@
         img {
             width: 20px;
             height: 20px;
-            // Forzar svg a negro y luego aplicar el color azul #003CA5
+           
             filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(2250%) hue-rotate(205deg) brightness(96%) contrast(106%);
         }
     }
@@ -62,7 +62,7 @@
         font-family: "Inter", sans-serif;
         font-size: 1.4rem;
         color: #000000;
-        padding: 10px 30px 10px 35px; // Padding izquierdo exacto para evitar que la lupa se solape
+        padding: 10px 30px 10px 35px;
         background: #ffffff;
         transition: border-color 0.2s ease;
 
@@ -71,7 +71,6 @@
         }
     }
 
-    // Borde inferior recto cuando se abre el menú
     &.open &__input,
     .open &__input {
         border-bottom-left-radius: 0;
@@ -88,13 +87,13 @@
 
         &--left {
             left: 0.8rem;
-            // Lupa grisácea claro
+           
             filter: brightness(0) saturate(100%) invert(60%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(90%);
         }
 
         &--right {
             right: 0.8rem;
-            // Cruz en color azul corporativo
+           
             filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(2250%) hue-rotate(205deg) brightness(96%) contrast(106%);
             cursor: pointer;
         }
@@ -106,15 +105,14 @@
         left: 0;
         right: 0;
         background-color: #ffffff;
-        border: 1px solid #ced4da; // Borde gris claro en lugar de azul
+        border: 1px solid #ced4da;
         border-top: none;
         border-radius: 0 0 5px 5px;
         z-index: 10;
-        display: none; // Controlado por JS o clase
+        display: none;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
 
-    // Mostrar menú al ponerle la clase .open al contenedor __search
     &.open &__dropdown,
     .open &__dropdown {
         display: block;
@@ -153,7 +151,7 @@
     &__btn-icon {
         width: 16px;
         height: 16px;
-        // Blanco puro para ícono dentro del botón azul
+       
         filter: brightness(0) invert(100%);
     }
 }

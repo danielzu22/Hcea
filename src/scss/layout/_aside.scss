@@ -8,9 +8,9 @@
 
 .vertical-menu {
     width: 120px;
-    flex-shrink: 0; // Previene que el menú se encoja
+    flex-shrink: 0;
     background-color: #159FDB;
-    border-radius: 12px; // Bordes redondeados
+    border-radius: 12px;
 
     &__nav {
         display: flex;
@@ -28,8 +28,8 @@
         text-align: center;
         transition: background-color 0.3s ease;
         font-family: var.$font-main;
-        font-size: 1.4rem; // Fuente un poco más grande
-        gap: 8px; // Separación entre icono y texto
+        font-size: 1.4rem;
+        gap: 8px;
 
         &:first-child {
             border-radius: 12px 12px 0 0;
@@ -40,7 +40,7 @@
         }
 
         &:hover {
-            background-color: rgba(255, 255, 255, 0.15); // Efecto sutil al pasar el mouse
+            background-color: rgba(255, 255, 255, 0.15);
         }
 
         &--active {
@@ -56,12 +56,12 @@
         }
 
         .vertical-menu__icon {
-            width: 42px; // Icono más grande
+            width: 42px;
             height: auto;
         }
 
         span {
-            font-size: 1.2rem; // Texto más grande
+            font-size: 1.2rem;
             font-weight: var.$fw-medium;
         }
     }

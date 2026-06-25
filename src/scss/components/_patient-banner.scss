@@ -8,9 +8,9 @@
 .patient-banner {
     width: 100%;
     background-color: #ffffff;
-    padding: 2rem 0; // Hacer la franja más alta
+    padding: 2rem 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    margin-bottom: 40px; // Separación exacta de 40px con la sección inferior
+    margin-bottom: 40px;
 
     &__inner {
         display: flex;
@@ -20,21 +20,21 @@
         @include mix.responsive(var.$bp_sm) {
             flex-direction: column;
             gap: var.$gp-m;
-            align-items: center; // Centrar en móvil
+            align-items: center;
         }
     }
 
     &__info {
         display: flex;
-        flex-grow: 1; // Ocupar todo el espacio restante hasta los iconos
-        justify-content: center; // Centrar el contenido horizontalmente
-        align-items: center; // Centrado vertical estricto
+        flex-grow: 1;
+        justify-content: center;
+        align-items: center;
         gap: var.$gp-m;
         flex-wrap: wrap;
     }
 
     &__icon {
-        width: 45px; // Icono de usuario ligeramente más chico
+        width: 45px;
         height: auto;
     }
 
@@ -43,14 +43,14 @@
         font-weight: var.$fw-bold;
         color: var.$color-text;
         text-transform: uppercase;
-        font-size: 1.8rem; // Fuente más grande
+        font-size: 1.8rem;
     }
 
     &__data {
         font-family: var.$font-main;
         font-weight: var.$fw-regular;
-        color: var.$color-text; // Color principal (negro)
-        font-size: 1.8rem; // Mismo tamaño que el nombre
+        color: var.$color-text;
+        font-size: 1.8rem;
 
         &::before {
             content: "•";
@@ -74,7 +74,7 @@
         transition: background-color 0.2s ease;
 
         img {
-            width: 45px; // Mismo tamaño que el icono de usuario
+            width: 45px;
             height: auto;
         }
 

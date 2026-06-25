@@ -15,7 +15,7 @@
     &__grid {
         display: flex;
         flex-wrap: wrap;
-        align-items: flex-end; // Para alinear la parte inferior de los inputs con el botón
+        align-items: flex-end;
         gap: var.$gp-m;
     }
 
@@ -28,20 +28,19 @@
 
     &__label {
         font-family: var.$font-main;
-        font-size: 1.4rem; // Fuente más grande
+        font-size: 1.4rem;
         font-weight: var.$fw-bold;
         color: var.$color-text;
         margin-bottom: 0.5rem;
     }
 
-    // Usamos selectores específicos para sobrescribir _formularios.scss si es necesario
     input.filters-box__input,
     select.filters-box__select {
         font-family: var.$font-main;
-        font-size: 1.4rem; // Fuente más grande
-        padding: 1rem 1.4rem; // Más padding
+        font-size: 1.4rem;
+        padding: 1rem 1.4rem;
         border: 1px solid #ced4da;
-        border-radius: 5px; // Bordes a 5px según lo solicitado
+        border-radius: 5px;
         color: var.$color-text;
         width: 100%;
         background-color: #fff;
@@ -52,7 +51,6 @@
             border-color: var.$color-primary;
         }
 
-        // Estilos para el menú desplegable nativo
         option {
             background-color: #ffffff;
             color: #000000;
@@ -60,23 +58,23 @@
     }
 
     &__select {
-        // El select nativo será ocultado por JS y reemplazado
+       
     }
 
     &__action {
         display: flex;
         align-items: center;
-        // Pequeño ajuste en desktop para alinear bien la altura del botón con los inputs
-        margin-bottom: 0; // Removido para igualar estricamente la altura
+       
+        margin-bottom: 0;
 
         .btn {
-            white-space: nowrap; // Evita que el texto del botón se parta
+            white-space: nowrap;
             background-color: #003CA5;
             border-color: #003CA5;
-            padding: 0.8rem 1.2rem; // Mismo padding que los inputs
-            font-size: 1.4rem; // Misma fuente que los inputs
-            height: 100%; // Asegurar que ocupe el mismo alto
-            border-radius: 5px; // Mismo redondeo que los campos
+            padding: 0.8rem 1.2rem;
+            font-size: 1.4rem;
+            height: 100%;
+            border-radius: 5px;
 
             &:hover {
                 filter: brightness(1.1);
@@ -85,9 +83,6 @@
     }
 }
 
-// FIN de .filters-box
-
-// Custom Select Styles (Globales)
 .custom-select-wrapper {
     position: relative;
     user-select: none;
@@ -198,16 +193,15 @@
         transition: all 0.2s ease;
 
         &:hover {
-            background-color: #F0F6FD; // Azul muy clarito en hover
+            background-color: #F0F6FD;
         }
 
         &.selected {
             background-color: #ffffff;
             color: #000000;
-            font-weight: bold; // Lo ponemos en negrita para distinguirlo un poco
+            font-weight: bold;
         }
 
-        // Para mantener redondeo del último elemento
         &:last-child {
             border-radius: 0 0 5px 5px;
         }

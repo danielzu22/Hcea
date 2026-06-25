@@ -9,25 +9,23 @@
 
 .data-table {
     width: 100%;
-    border-collapse: separate; // Cambiado para permitir border-radius
-    border-spacing: 0; // Sin espacio entre celdas
+    border-collapse: separate;
+    border-spacing: 0;
     font-family: var.$font-main;
-    font-size: 1.25rem; // ~30% más grande que 0.95rem
+    font-size: 1.25rem;
 
     th {
-        background-color: var.$color-brand-blue; // Fondo azul
-        color: #ffffff; // Texto blanco
+        background-color: var.$color-brand-blue;
+        color: #ffffff;
         font-weight: var.$fw-bold;
         text-align: left;
         padding: var.$gp-m;
-        white-space: nowrap; // Para que el titulo no se rompa si es posible
+        white-space: nowrap;
 
-        // Border radius a la izquierda (solo arriba) para la primera columna
         &:first-child {
             border-top-left-radius: 10px;
         }
 
-        // Border radius a la derecha (solo arriba) para la última columna
         &:last-child {
             border-top-right-radius: 10px;
         }
@@ -37,28 +35,26 @@
         padding: var.$gp-m;
         border-bottom: 1px solid #F0F0F0;
         vertical-align: middle;
-        color: var.$color-brand-blue; // Todo el texto del body en azul
+        color: var.$color-brand-blue;
     }
 
     tbody tr {
         transition: background-color 0.2s ease;
-        
-        // Color para filas pares
+
         &:nth-child(even) {
             background-color: #F0F6FD;
         }
 
         &:hover {
-            background-color: var.$gray-200; // Oscurecer un poco más en hover
+            background-color: var.$gray-200;
         }
     }
 }
 
-// Botones de acción en tabla
 .action-btn {
     background-color: #ffffff;
-    border: 1px solid #C9DBF7; // Borde celeste
-    border-radius: 8px; // Bordes redondeados
+    border: 1px solid #C9DBF7;
+    border-radius: 8px;
     padding: 0.4rem;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -70,7 +66,7 @@
     img {
         width: 18px;
         height: auto;
-        // Los SVGs son blancos nativamente. Primero los hacemos negros (brightness 0) y luego aplicamos el filtro azul (#003CA5)
+       
         filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(2250%) hue-rotate(205deg) brightness(96%) contrast(106%);
     }
 
@@ -83,27 +79,26 @@
     }
 }
 
-// Píldoras de estado (Status Pills)
 .status-pill {
     display: inline-flex;
     align-items: center;
     padding: 0.4rem 0.8rem;
-    border-radius: 20px; // Todas con esquina redondeada
+    border-radius: 20px;
     font-weight: var.$fw-bold;
-    font-size: 1.1rem; // Texto aún más grande
+    font-size: 1.1rem;
     gap: 0.5rem;
     white-space: nowrap;
 
     img {
-        width: 16px; // Tamaño original para la mayoría
+        width: 16px;
         height: auto;
     }
 
     &--pendiente {
         background-color: #FEF3DC;
-        color: #C36817; // Naranja más oscuro para mejor contraste
+        color: #C36817;
         img {
-            // Convierte el SVG negro a #C36817
+           
             filter: invert(47%) sepia(87%) saturate(1837%) hue-rotate(354deg) brightness(94%) contrast(92%); 
         }
     }
@@ -112,8 +107,8 @@
         background-color: #DCDCDC;
         color: #6B6B6B;
         img {
-            width: 11px; // Achicado solo para Cerrar_bold
-            // Convierte el SVG a #6B6B6B
+            width: 11px;
+           
             filter: invert(41%) sepia(2%) saturate(0%) hue-rotate(31deg) brightness(98%) contrast(85%); 
         }
     }
@@ -122,7 +117,7 @@
         background-color: #FFEBEB;
         color: #E14A4A;
         img {
-            // Convierte el SVG a #E14A4A
+           
             filter: invert(36%) sepia(91%) saturate(1112%) hue-rotate(320deg) brightness(93%) contrast(98%); 
         }
     }
@@ -131,7 +126,7 @@
         background-color: #2CA95C;
         color: #ffffff;
         img {
-            // El SVG Chequeado.svg ya es blanco, no necesita filtro
+           
             filter: none;
         }
     }
@@ -140,13 +135,12 @@
         background-color: #E8F9EC;
         color: #2CA95C;
         img {
-            // Convierte el SVG a #2CA95C
+           
             filter: invert(53%) sepia(81%) saturate(399%) hue-rotate(97deg) brightness(87%) contrast(83%); 
         }
     }
 }
 
-// Paginación
 .pagination {
     display: flex;
     justify-content: center;

@@ -6,25 +6,23 @@
 
 .dynamic-layout {
     display: flex;
-    gap: 0; // Quitado para que las pestañas se peguen al formulario
+    gap: 0;
     align-items: flex-start;
     margin-top: 2rem;
 
-    // Columna izquierda (Tabs Verticales)
     &__sidebar {
         width: 250px;
         flex-shrink: 0;
         display: flex;
         flex-direction: column;
-        gap: 0.5rem; // Espacio vertical entre pestañas
+        gap: 0.5rem;
     }
 
-    // Columna derecha (Contenido/Formulario)
     &__content {
         flex: 1;
-        min-width: 0; // Evitar overflow en flex
+        min-width: 0;
         border: 1px solid #E5E7EB;
-        border-radius: 0 8px 8px 8px; // Esquina superior izquierda recta para fusionar mejor
+        border-radius: 0 8px 8px 8px;
         padding: 2rem;
         background-color: #ffffff;
         position: relative;
@@ -40,34 +38,34 @@
     align-items: center;
     gap: 1rem;
     padding: 1rem 1.5rem;
-    border-radius: 8px 0 0 8px; // Sin redondeo a la derecha
-    background-color: #F5F6F7; // Fondo inactivo según especificación
+    border-radius: 8px 0 0 8px;
+    background-color: #F5F6F7;
     cursor: pointer;
-    border: 1px solid transparent; // Inactivas sin borde
-    margin-right: -1px; // Para tapar el borde izquierdo del formulario
+    border: 1px solid transparent;
+    margin-right: -1px;
     position: relative;
     z-index: 0;
     transition: all 0.2s ease;
 
     &:hover {
-        background-color: #E5E7EB; // Hover un poco más oscuro
+        background-color: #E5E7EB;
     }
 
     &.active {
-        background-color: #ffffff; // Fondo blanco
-        border-color: #E5E7EB; // Activa con borde
-        border-right-color: #ffffff; // Borde derecho blanco para "borrar" la línea de unión
-        z-index: 2; // Para quedar por encima del borde del formulario
+        background-color: #ffffff;
+        border-color: #E5E7EB;
+        border-right-color: #ffffff;
+        z-index: 2;
 
         .vertical-tab__text {
-            color: var.$color-primary; // Azul en activa
+            color: var.$color-primary;
         }
 
         .vertical-tab__icon-box {
-            background-color: #DBE5F1; // Círculo azul claro en activa
+            background-color: #DBE5F1;
 
             img {
-                // Filtro azul original
+               
                 filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(2250%) hue-rotate(205deg) brightness(96%) contrast(106%);
             }
         }
@@ -77,7 +75,7 @@
         width: 24px;
         height: 24px;
         border-radius: 50%;
-        background-color: #DEDEDF; // Círculo gris en inactiva
+        background-color: #DEDEDF;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -86,7 +84,7 @@
         img {
             width: 14px;
             height: 14px;
-            // Filtro para generar un gris #646C79 en inactiva
+           
             filter: brightness(0) invert(44%) sepia(12%) saturate(468%) hue-rotate(182deg) brightness(91%) contrast(86%);
             transition: all 0.2s ease;
         }
@@ -95,7 +93,7 @@
     &__text {
         font-family: var.$font-main;
         font-weight: var.$fw-bold;
-        color: #646C79; // Gris en inactiva
+        color: #646C79;
         font-size: 1.4rem;
         transition: color 0.2s ease;
     }
@@ -105,7 +103,7 @@
    BLOCK: Specialty Form Grid
    ========================================================================== */
 .specialty-form {
-    display: none; // Solo se muestra cuando tiene clase .active
+    display: none;
 
     &.active {
         display: block;
@@ -126,7 +124,7 @@
 
     &__grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr); // 4 columnas
+        grid-template-columns: repeat(4, 1fr);
         gap: 1.5rem;
         margin-bottom: 2rem;
     }
@@ -140,15 +138,14 @@
             font-family: var.$font-main;
             font-weight: var.$fw-bold;
             color: var.$color-brand-blue;
-            font-size: 1.25rem; // Aumentado 30%
+            font-size: 1.25rem;
         }
 
-        // Para inputs tipo text o custom selects creados antes
         input[type="text"] {
             border-radius: 5px;
             border: 1px solid var.$color-brand-blue;
             padding: 0.6rem 1rem;
-            font-size: 1.3rem; // Aumentado 30%
+            font-size: 1.3rem;
             outline: none;
             font-family: var.$font-main;
         }
@@ -160,7 +157,7 @@
             border: 1px solid #ced4da;
             padding: 1rem;
             font-family: var.$font-main;
-            font-size: 1.3rem; // Aumentado 30%
+            font-size: 1.3rem;
             resize: vertical;
             outline: none;
 
@@ -169,7 +166,6 @@
             }
         }
 
-        // Sobrescribir tamaños de custom-select cuando están dentro de este form
         .custom-select__trigger {
             font-size: 1.3rem;
             padding: 1.2rem 1.6rem;
@@ -180,7 +176,6 @@
         }
     }
 
-    // Configuración de celdas que ocupan múltiples columnas
     .span-2 {
         grid-column: span 2;
     }
@@ -190,10 +185,9 @@
     }
 
     &__textarea-group {
-        grid-column: 3 / 5; // Ocupa las ultimas 2 columnas
+        grid-column: 3 / 5;
     }
 
-    // Botones tipo Radio
     &__radio-group {
         display: flex;
         gap: 1rem;
@@ -209,18 +203,18 @@
         flex: 1;
         cursor: pointer;
         font-family: var.$font-main;
-        font-size: 1.3rem; // Aumentado 30%
+        font-size: 1.3rem;
         color: var.$color-text;
         transition: all 0.2s ease;
 
         input[type="radio"] {
-            display: none; // Ocultar radio nativo
+            display: none;
         }
 
         .radio-custom {
             width: 20px;
             height: 20px;
-            border-radius: 5px; // En el mockup parecen ser checkboxes o radios redondeados
+            border-radius: 5px;
             border: 2px solid var.$color-brand-blue;
             display: flex;
             align-items: center;
@@ -231,7 +225,7 @@
                 display: block;
                 width: 10px;
                 height: 10px;
-                background-color: transparent; // Para el tick mark u otro
+                background-color: transparent;
                 border-radius: 2px;
             }
         }
@@ -239,7 +233,6 @@
         input[type="radio"]:checked+.radio-custom {
             background-color: var.$color-brand-blue;
 
-            // Dibujar checkmark usando CSS borders si es necesario
             &::after {
                 width: 5px;
                 height: 10px;
@@ -251,7 +244,6 @@
         }
     }
 
-    // Botón Eliminar
     &__footer {
         display: flex;
         justify-content: flex-end;
@@ -335,17 +327,14 @@
             color: #1e8a37;
         }
 
-        // Verde
         .status-media {
             color: #a07b0b;
         }
 
-        // Amarillo/Naranja
         .status-alta {
             color: #aa2432;
         }
 
-        // Rojo
     }
 
     &__actions {
@@ -389,7 +378,7 @@
             color: #a52734;
 
             img {
-                // Filtro rojo oscuro approx
+               
                 filter: invert(36%) sepia(91%) saturate(1112%) hue-rotate(320deg) brightness(93%) contrast(98%);
             }
 

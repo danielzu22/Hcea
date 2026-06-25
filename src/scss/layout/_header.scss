@@ -10,8 +10,8 @@
     width: 100%;
     height: var.$navbar_height;
     background-color: #159FDB;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); // Sombra sutil
-    position: sticky; // Para que se quede arriba al hacer scroll
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
     top: 0;
     z-index: 1000;
 
@@ -19,7 +19,7 @@
         height: 100%;
         display: flex;
         align-items: center;
-        justify-content: space-between; // Logo izquierda, Nav derecha
+        justify-content: space-between;
     }
 
     /* ELEMENT: Brand Container */
@@ -27,7 +27,7 @@
         display: flex;
         align-items: center;
         height: 100%;
-        gap: var.$gp-m; // Separación entre logo, línea y texto
+        gap: var.$gp-m;
     }
 
     /* ELEMENT: Logo */
@@ -37,14 +37,14 @@
         text-decoration: none;
 
         img {
-            height: calc(#{var.$navbar_height} * 0.6); // Escala proporcional al navbar
+            height: calc(#{var.$navbar_height} * 0.6);
         }
     }
 
     /* ELEMENT: Divider */
     &__divider {
         width: 2px;
-        height: calc(#{var.$navbar_height} * 0.5); // 50% de la altura del cabezal
+        height: calc(#{var.$navbar_height} * 0.5);
         background-color: #ffffff;
         border-radius: 2px;
     }
@@ -62,10 +62,9 @@
     &__nav {
         display: flex;
         align-items: center;
-        // gap eliminado porque los links ahora tienen padding lateral
+       
         height: 100%;
 
-        // Versión Móvil
         @include mix.responsive(var.$bp_sm) {
             position: fixed;
             top: var.$navbar_height;
@@ -81,7 +80,6 @@
             transition: transform 0.3s ease-in-out;
             box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
 
-            // Modifier: Cuando el menú está abierto
             &--open {
                 transform: translateX(0);
             }
@@ -91,13 +89,13 @@
     &__link {
         display: flex;
         align-items: center;
-        height: 100%; // Ocupa todo el alto del cabezal
+        height: 100%;
         font-family: var.$font-main;
         font-weight: var.$fw-medium;
         color: white;
         font-size: 1.6rem;
         text-decoration: none;
-        padding: 0 1.5rem; // Padding lateral para que no quede apretado
+        padding: 0 1.5rem;
         position: relative;
         transition: background-color 0.2s ease, color 0.2s ease;
 
@@ -106,18 +104,17 @@
         }
 
         &:hover {
-            background-color: rgba(0, 0, 0, 0.15); // Fondo un poco más oscurito
-            color: white; // Deja el texto en blanco
+            background-color: rgba(0, 0, 0, 0.15);
+            color: white;
         }
 
         /* MODIFIER: Active/Selected Link */
         &--active {
-            background-color: rgba(0, 0, 0, 0.2); // Más oscuro si está seleccionado
+            background-color: rgba(0, 0, 0, 0.2);
             color: white;
             font-weight: var.$fw-bold;
         }
 
-        // Estilos de los links en móvil
         @include mix.responsive(var.$bp_sm) {
             color: white;
             font-size: 1.25rem;
@@ -129,10 +126,8 @@
                 display: none;
             }
 
-            // Quitamos la raya en móvil
-
             &:hover {
-                background-color: color.adjust(#0056b3, $lightness: -10%); // primary-dark
+                background-color: color.adjust(#0056b3, $lightness: -10%);
                 color: white;
             }
 
@@ -145,7 +140,7 @@
 
     /* ELEMENT: Toggle Button (Hamburguesa) */
     &__toggle {
-        display: none; // Oculto en escritorio
+        display: none;
         flex-direction: column;
         justify-content: space-around;
         width: 30px;
@@ -170,7 +165,6 @@
             transform-origin: 1px;
         }
 
-        // Animación de X cuando está abierto
         &.header__nav--open {
             span:first-child {
                 transform: rotate(45deg);
