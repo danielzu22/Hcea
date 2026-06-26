@@ -281,6 +281,11 @@ function initDynamicForms() {
                         <option value="" disabled selected>Seleccionar días</option>
                         <option value="10">10 días</option>
                         <option value="30" selected>30 días</option>
+                        <option value="60">2 meses</option>
+                        <option value="90">3 meses</option>
+                        <option value="180">6 meses</option>
+                        <option value="360">12 meses</option>
+                        <option value="720">24 meses</option>
                     </select>
                 </div>
 
