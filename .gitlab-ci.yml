@@ -1,0 +1,18 @@
+image: node:20
+
+cache:
+  paths:
+    - node_modules/
+
+pages:
+  stage: deploy
+  script:
+    - npm install
+    - npx grunt build
+    - mkdir -p public
+    - cp -R dist/* public/
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "master" || $CI_COMMIT_BRANCH == "main"
