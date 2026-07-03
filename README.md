@@ -1,8 +1,6 @@
 # Hcea - Prototipo de Interfaz
 
-> **🌐 Ver demostración en vivo:**
-> - **Servidor Institucional (GitLab Pages):** [http://design-ui.gitlab.ed-libertad.asse/hcea/](http://design-ui.gitlab.ed-libertad.asse/hcea/)
-> - **Servidor GitHub Pages:** [https://danielzu22.github.io/Hcea/index.html](https://danielzu22.github.io/Hcea/index.html)
+> **🌐 Ver demostración en vivo (GitHub Pages):** [https://danielzu22.github.io/Hcea/index.html](https://danielzu22.github.io/Hcea/index.html)
 
 Este proyecto es una maquetación en HTML y CSS (SASS) creada como muestra de funcionamiento para una interfaz de usuario. Utiliza una arquitectura basada en componentes (parciales HTML), metodología BEM y compilación automática mediante Grunt.
 
