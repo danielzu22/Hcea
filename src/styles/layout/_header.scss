@@ -1,0 +1,184 @@
+@use "sass:color";
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+/* ==========================================================================
+   BLOCK: Header
+   ========================================================================== */
+
+.header {
+    width: 100%;
+    height: var.$navbar_height;
+    background-color: var.$color-brand-blue;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    &__container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* ELEMENT: Brand Container */
+    &__brand {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        gap: var.$gp-m;
+    }
+
+    /* ELEMENT: Logo */
+    &__logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+
+        img {
+            height: calc(#{var.$navbar_height} * 0.42);
+            width: auto;
+        }
+    }
+
+    /* ELEMENT: Divider */
+    &__divider {
+        width: 2px;
+        height: calc(#{var.$navbar_height} * 0.5);
+        background-color: #ffffff;
+        border-radius: 2px;
+    }
+
+    /* ELEMENT: Brand Text */
+    &__brand-text {
+        color: #ffffff;
+        font-family: var.$font-main;
+        font-weight: var.$fw-regular;
+        font-size: 2.6rem;
+        letter-spacing: 0.5px;
+    }
+
+    /* ELEMENT: Navigation */
+    &__nav {
+        display: flex;
+        align-items: center;
+       
+        height: 100%;
+
+        @include mix.responsive(var.$bp_sm) {
+            position: fixed;
+            top: var.$navbar_height;
+            bottom: 0;
+            right: 0;
+            width: 80vw;
+            max-width: 300px;
+            background-color: var.$color-primary;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding-top: var.$gp-l;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+
+            &--open {
+                transform: translateX(0);
+            }
+        }
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        font-family: var.$font-main;
+        font-weight: var.$fw-medium;
+        color: white;
+        font-size: 1.6rem;
+        text-decoration: none;
+        padding: 0 1.5rem;
+        position: relative;
+        transition: background-color 0.2s ease, color 0.2s ease;
+
+        i {
+            font-size: 2rem;
+        }
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.15);
+            color: white;
+        }
+
+        /* MODIFIER: Active/Selected Link */
+        &--active {
+            background-color: rgba(0, 0, 0, 0.2);
+            color: white;
+            font-weight: var.$fw-bold;
+        }
+
+        @include mix.responsive(var.$bp_sm) {
+            color: white;
+            font-size: 1.25rem;
+            width: 100%;
+            text-align: center;
+            padding: 1rem 0;
+
+            &::after {
+                display: none;
+            }
+
+            &:hover {
+                background-color: color.adjust(#0056b3, $lightness: -10%);
+                color: white;
+            }
+
+            &--active {
+                background-color: white;
+                color: var.$color-primary;
+            }
+        }
+    }
+
+    /* ELEMENT: Toggle Button (Hamburguesa) */
+    &__toggle {
+        display: none;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 24px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+
+        @include mix.responsive(var.$bp_sm) {
+            display: flex;
+        }
+
+        span {
+            width: 100%;
+            height: 3px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+
+        &.header__nav--open {
+            span:first-child {
+                transform: rotate(45deg);
+            }
+
+            span:nth-child(2),
+            span:nth-child(3) {
+                opacity: 0;
+            }
+
+            span:last-child {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}

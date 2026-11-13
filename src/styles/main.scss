@@ -1,0 +1,36 @@
+// 1. Abstracts
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
+
+// 2. Base
+@use 'base/reset';
+@use 'base/fonts';
+@use 'base/base';
+
+// 3. Layout
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/aside';
+@use 'layout/section';
+@use 'layout/grid';
+
+// 4. Components
+@use 'components/buttons';
+@use 'components/formularios';
+@use 'components/tablas';
+@use 'components/patient-banner';
+@use 'components/tabs';
+@use 'components/filters';
+@use 'components/add-interconsulta';
+@use 'components/interconsulta-forms';
+@use 'components/modal-criterios';
+@use 'components/edicion';
+@use 'components/portal';
+@use 'components/interdisciplinaria';
+@use 'components/boton-inicio';
+
+// 5. Utilities
+@use 'utilities/varios';
+
+// 6. Ajustes responsive (deben ir al final para poder sobrescribir)
+@use 'layout/responsive';

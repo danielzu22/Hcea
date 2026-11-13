@@ -1,0 +1,141 @@
+@use "../abstracts/variables" as var;
+
+/* ==========================================================================
+   Ajustes responsive
+   El diseño original de HCEA estaba pensado para escritorio; estas reglas
+   evitan desbordes en el portal y en las muestras sin tocar los estilos base.
+   ========================================================================== */
+
+body {
+    overflow-x: clip;
+}
+
+.main-content {
+    min-width: 0;
+}
+
+@media (max-width: 1200px) {
+    .main-layout {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .main-layout {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .vertical-menu {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .vertical-menu__nav {
+        flex-direction: row;
+    }
+
+    .vertical-menu__link {
+        flex: 1 0 auto;
+        min-width: 104px;
+        border-radius: 10px;
+    }
+
+    .vertical-menu__link:first-child,
+    .vertical-menu__link:last-child {
+        border-radius: 10px;
+    }
+
+    .dynamic-layout {
+        flex-direction: column;
+    }
+
+    .dynamic-layout__sidebar {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 0.4rem;
+    }
+
+    .vertical-tab {
+        border-radius: 8px;
+        margin-right: 0;
+    }
+
+    .specialty-form__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .specialty-form .span-4,
+    .specialty-form__textarea-group {
+        grid-column: 1 / -1;
+    }
+
+    .ci-page-head {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-criterios__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portal__title {
+        font-size: 2.6rem;
+    }
+
+    .tabs {
+        flex-wrap: wrap;
+    }
+
+    .tabs__tab {
+        font-size: 1.2rem;
+        padding: 1rem 1.2rem;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .data-table {
+        font-size: 1.1rem;
+
+        th,
+        td {
+            padding: 0.8rem 1.2rem;
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .content-card {
+        padding: 1.2rem;
+    }
+
+    .filters-box {
+        padding: 1rem;
+    }
+
+    .specialty-form__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .specialty-form .span-2 {
+        grid-column: auto;
+    }
+
+    .ci-form-row {
+        flex-direction: column;
+    }
+
+    .ci-form-row .custom-select-wrapper {
+        width: 100%;
+    }
+
+    .ci-summary {
+        grid-template-columns: 1fr 1fr;
+        padding: 1.4rem;
+    }
+
+    .ci-detail {
+        gap: 1.2rem;
+    }
+}

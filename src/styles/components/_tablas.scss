@@ -1,0 +1,222 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: var.$gp-l;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: var.$font-main;
+    font-size: 1.25rem;
+
+    th {
+        background-color: var.$color-brand-blue;
+        color: #ffffff;
+        font-weight: var.$fw-bold;
+        text-align: left;
+        padding: var.$gp-m 1.6rem;
+        white-space: nowrap;
+
+        &:first-child {
+            border-top-left-radius: 10px;
+        }
+
+        &:last-child {
+            border-top-right-radius: 10px;
+        }
+    }
+
+    td {
+        padding: var.$gp-m 1.6rem;
+        // Bordes entre filas más claros
+        border-bottom: 1px solid #EEF3FA;
+        vertical-align: middle;
+        color: var.$color-brand-blue;
+
+        // Botones de texto dentro de la grilla (ej.: "Integrantes")
+        .btn.tabla-accion {
+            vertical-align: middle;
+        }
+    }
+
+    // Hover de las filas en azul claro (antes gris). Solo en tbody: el thead
+    // no debe tomar el efecto.
+    tbody tr {
+        transition: background-color 0.2s ease;
+
+        &:nth-child(even) {
+            background-color: #F0F6FD;
+        }
+
+        &:hover {
+            background-color: #DCE9FB;
+        }
+    }
+
+    // Sin efecto hover en el encabezado (Ni en la fila ni en las celdas)
+    thead tr,
+    thead tr:hover,
+    thead tr:nth-child(even),
+    thead tr:hover > th,
+    thead th:hover {
+        background-color: var.$color-brand-blue;
+        transition: none;
+    }
+}
+
+.action-btn {
+    background-color: #ffffff;
+    border: 1px solid #C9DBF7;
+    border-radius: 8px;
+    padding: 0.4rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+    height: 28px;
+    box-sizing: border-box;
+
+    img {
+        width: 15px;
+        height: auto;
+       
+        filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(2250%) hue-rotate(205deg) brightness(96%) contrast(106%);
+    }
+
+    // Íconos Lucide dentro del botón: heredan el azul corporativo
+    svg {
+        display: block;
+        width: 15px;
+        height: 15px;
+        color: #003CA5;
+    }
+
+    &:hover {
+        background-color: #f1f5fa;
+    }
+    
+    &:last-child {
+        margin-right: 0;
+    }
+
+    // Variante de texto: mismo alto y borde clarito que los botones con ícono
+    &--texto {
+        height: 28px;
+        padding: 0 1.2rem;
+        margin-right: 0;
+        font-family: var.$font-main;
+        font-size: 1.2rem;
+        font-weight: var.$fw-semibold;
+        color: var.$color-brand-blue;
+        white-space: nowrap;
+    }
+}
+
+/* Contenedor de acciones de una fila: alinea en vertical los botones */
+.acciones-fila {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .action-btn {
+        margin-right: 0;
+    }
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-weight: var.$fw-bold;
+    font-size: 1.1rem;
+    gap: 0.5rem;
+    white-space: nowrap;
+
+    img {
+        width: 16px;
+        height: auto;
+    }
+
+    &--pendiente {
+        background-color: #FEF3DC;
+        color: #C36817;
+        img {
+           
+            filter: invert(47%) sepia(87%) saturate(1837%) hue-rotate(354deg) brightness(94%) contrast(92%); 
+        }
+    }
+
+    &--cancelado {
+        background-color: #DCDCDC;
+        color: #6B6B6B;
+        img {
+            width: 11px;
+           
+            filter: invert(41%) sepia(2%) saturate(0%) hue-rotate(31deg) brightness(98%) contrast(85%); 
+        }
+    }
+
+    &--inasistencia {
+        background-color: #FFEBEB;
+        color: #E14A4A;
+        img {
+           
+            filter: invert(36%) sepia(91%) saturate(1112%) hue-rotate(320deg) brightness(93%) contrast(98%); 
+        }
+    }
+
+    &--cumplido {
+        background-color: #2CA95C;
+        color: #ffffff;
+        img {
+           
+            filter: none;
+        }
+    }
+
+    &--coordinada {
+        background-color: #E8F9EC;
+        color: #2CA95C;
+        img {
+           
+            filter: invert(53%) sepia(81%) saturate(399%) hue-rotate(97deg) brightness(87%) contrast(83%); 
+        }
+    }
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: var.$gp-l;
+    gap: 0.5rem;
+
+    &__btn {
+        background: transparent;
+        border: 1px solid var.$color-brand-blue;
+        color: var.$color-brand-blue;
+        border-radius: var.$br-sm;
+        padding: 0.5rem 0.8rem;
+        cursor: pointer;
+        font-family: var.$font-main;
+        font-weight: var.$fw-bold;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background-color: var.$color-brand-blue;
+            color: #ffffff;
+        }
+
+        &--active {
+            background-color: var.$color-brand-blue;
+            color: #ffffff;
+        }
+    }
+}

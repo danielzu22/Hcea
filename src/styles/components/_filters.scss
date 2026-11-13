@@ -1,0 +1,238 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+/* ==========================================================================
+   BLOCK: Filters Box
+   ========================================================================== */
+
+.filters-box {
+    border: 1px solid #F0F0F0;
+    border-radius: 12px;
+    padding: var.$gp-l;
+    background-color: #ffffff;
+    margin-bottom: var.$gp-l;
+
+    &__grid {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        gap: var.$gp-m;
+    }
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 150px;
+    }
+
+    &__label {
+        font-family: var.$font-main;
+        font-size: 1.4rem;
+        font-weight: var.$fw-bold;
+        color: var.$color-text;
+        margin-bottom: 0.5rem;
+    }
+
+    input.filters-box__input,
+    select.filters-box__select {
+        font-family: var.$font-main;
+        font-size: 1.4rem;
+        padding: 1rem 1.4rem;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        color: var.$color-text;
+        width: 100%;
+        background-color: #fff;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+            outline: none;
+            border-color: var.$color-primary;
+        }
+
+        option {
+            background-color: #ffffff;
+            color: #000000;
+        }
+    }
+
+    &__select {
+       
+    }
+
+    &__action {
+        display: flex;
+        align-items: center;
+       
+        margin-bottom: 0;
+
+        .btn {
+            white-space: nowrap;
+            background-color: #003CA5;
+            border-color: #003CA5;
+            padding: 0.8rem 1.2rem;
+            font-size: 1.4rem;
+            height: 100%;
+            border-radius: 5px;
+
+            &:hover {
+                filter: brightness(1.1);
+            }
+        }
+    }
+}
+
+.custom-select-wrapper {
+    position: relative;
+    user-select: none;
+    width: 100%;
+}
+
+.custom-select {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &__trigger {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: var.$font-main;
+        font-size: 1.4rem;
+        padding: 0.8rem 1.2rem;
+        background-color: #ffffff;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        color: var.$color-text;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+            border-color: var.$color-primary;
+        }
+    }
+
+    .arrow {
+        position: relative;
+        height: 10px;
+        width: 10px;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0px;
+            width: 0.15rem;
+            height: 100%;
+            transition: all 0.2s;
+            background-color: var.$color-text;
+        }
+
+        &::before {
+            left: -3px;
+            transform: rotate(-45deg);
+        }
+
+        &::after {
+            left: 3px;
+            transform: rotate(45deg);
+        }
+    }
+
+    &__options {
+        position: absolute;
+        display: block;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+        border: 1px solid var.$color-primary;
+        border-top: none;
+        border-radius: 0 0 5px 5px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        z-index: 10;
+    }
+
+    &.open {
+        .custom-select__trigger {
+            border-color: var.$color-primary;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .arrow::before {
+            left: -3px;
+            transform: rotate(45deg);
+        }
+
+        .arrow::after {
+            left: 3px;
+            transform: rotate(-45deg);
+        }
+
+        .custom-select__options {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: all;
+        }
+    }
+
+    /* La lista se abre hacia arriba cuando no hay espacio debajo */
+    &--arriba {
+        .custom-select__options {
+            top: auto;
+            bottom: 100%;
+            border-top: 1px solid var.$color-primary;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        &.open .custom-select__trigger {
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        &.open .arrow::before {
+            left: -3px;
+            transform: rotate(-45deg);
+        }
+
+        &.open .arrow::after {
+            left: 3px;
+            transform: rotate(45deg);
+        }
+    }
+
+    &__option {
+        position: relative;
+        display: block;
+        padding: 0.8rem 1.2rem;
+        font-family: var.$font-main;
+        font-size: 1.4rem;
+        color: #000000;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background-color: #F0F6FD;
+        }
+
+        &.selected {
+            background-color: #ffffff;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        &:last-child {
+            border-radius: 0 0 5px 5px;
+        }
+    }
+}

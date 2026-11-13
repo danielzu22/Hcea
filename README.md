@@ -1,52 +1,106 @@
-# Hcea - Prototipo de Interfaz
+# HCEA · Muestras de interfaz
 
-> **🌐 Ver demostración en vivo (GitHub Pages):** [https://danielzu22.github.io/Hcea/index.html](https://danielzu22.github.io/Hcea/index.html)
+Maquetación navegable de pantallas de la historia clínica electrónica. Cada muestra funciona con una
+**base de datos simulada** en el navegador: se pueden crear, editar y eliminar registros, y los
+cambios sobreviven al refresh.
 
-Este proyecto es una maquetación en HTML y CSS (SASS) creada como muestra de funcionamiento para una interfaz de usuario. Utiliza una arquitectura basada en componentes (parciales HTML), metodología BEM y compilación automática mediante Grunt.
+> **Demo:** [https://danielzu22.github.io/Hcea/](https://danielzu22.github.io/Hcea/)
 
-## 🚀 Tecnologías Utilizadas
+## Capturas
 
-- **HTML5**: Estructura semántica con sistema de plantillas (Grunt Bake).
-- **SASS (SCSS)**: Preprocesador CSS organizado mediante el Patrón 7-1 y metodología BEM.
-- **JavaScript**: Lógica de interacción para la interfaz.
-- **Grunt**: Automatización de tareas (compilación de SASS, minificación, unión de HTML y recarga automática).
+| Portal de muestras | Histórico de interconsultas |
+| --- | --- |
+| ![Portal](docs/capturas/portal.png) | ![Histórico](docs/capturas/interconsultas-historico.png) |
 
-## 📁 Estructura del Proyecto
+| Alta de interconsulta | Detalle de consulta interdisciplinaria |
+| --- | --- |
+| ![Alta](docs/capturas/interconsultas-alta.png) | ![Detalle](docs/capturas/interdisciplinaria-detalle.png) |
 
-- `src/` - Código fuente en desarrollo.
-  - `scss/` - Archivos de estilos organizados por módulos.
-  - `js/` - Scripts para la interactividad de la interfaz.
-  - `images/`, `icons/`, `fonts/` - Recursos estáticos, gráficos y tipográficos.
-  - `index.html`, `_header.html`, `_footer.html` - Vistas principales y componentes parciales.
-- `dist/` *(generado automáticamente)* - Archivos listos y optimizados para producción.
+## Stack
 
-## ⚙️ Instalación y Entorno de Desarrollo
+- **React 18** + **Vite** (sin TypeScript, sin librería de estado externa).
+- **react-router-dom** con `HashRouter`: las rutas funcionan en cualquier hosting estático.
+- **lucide-react** para los íconos de interfaz (botón flotante de inicio).
+- **Sass** con arquitectura 7-1 y metodología BEM (los estilos originales no se reescribieron).
+- Mismo enfoque que `itc.cortex.demo`: semillas en `src/data/*.js` y stores propios con
+  `useSyncExternalStore` en `src/store/*.js`. La diferencia es que acá el estado se persiste en
+  `localStorage`.
 
-1. **Instalar dependencias**:
-   Asegúrate de tener Node.js instalado. Abre la terminal en la raíz del proyecto y ejecuta:
-   ```bash
-   npm install
-   ```
+## Puesta en marcha
 
-2. **Iniciar el entorno de desarrollo**:
-   Para compilar los archivos SCSS, unir los parciales HTML y mantener el proyecto en modo observación (watch) para detectar los cambios en tiempo real:
-   ```bash
-   npx grunt
-   ```
+```bash
+npm install
+npm run dev       # http://localhost:5190
+npm run build     # genera dist/
+npm run preview   # http://localhost:5191 (sirve la build)
+npm run deploy    # publica dist/ en la rama gh-pages
+```
 
-## 🔄 Comandos Rápidos de Git
+> El puerto 5190 es exclusivo de este proyecto (`strictPort`). Así no se cruza con
+> `itc.cortex.demo` ni con otros Vite que usen el 5173.
 
-Cuando termines tu sesión de trabajo o tengas un avance estable:
+## Rutas
 
-1. **Prepara tus archivos modificados**:
-   ```bash
-   git add .
-   ```
-2. **Guarda el progreso con un mensaje descriptivo**:
-   ```bash
-   git commit -m "Descripción de la interfaz o componente que trabajé"
-   ```
-3. **Sube los cambios al repositorio**:
-   ```bash
-   git push
-   ```
+| Ruta | Pantalla |
+| --- | --- |
+| `#/` | Portal de muestras (índice) |
+| `#/interconsultas` | Histórico de interconsultas (filtros, paginación, edición) |
+| `#/interconsultas/nueva` | Alta de interconsultas por especialidad + criterios de derivación |
+| `#/interdisciplinaria` | Listado de consultas (una fila por consulta, con equipo y estado) |
+| `#/interdisciplinaria/:id/equipo` | Equipo asignado a la consulta (agregar/quitar integrantes) |
+| `#/interdisciplinaria/:id/seguimiento` | Registro y firma por integrante (ingreso, firma, estado) |
+| `#/interdisciplinaria/equipos` | Equipos de trabajo (grupos de especialistas personales del convocante) |
+| `#/interdisciplinaria/nueva` | Alta de un caso con disciplinas convocadas |
+| `#/interdisciplinaria/:id` | Detalle: equipo, acuerdos y estado del caso |
+
+## Base de datos simulada
+
+No hay backend. El estado completo vive en memoria y se guarda en `localStorage` con la clave
+`hcea.demo.v1` (versión `1`, ver `src/data/seed.js`).
+
+- **Sincronización**: si hay dos pestañas abiertas, los cambios se replican por el evento `storage`.
+- **Volver a las semillas**: desde la consola del navegador,
+  `localStorage.removeItem('hcea.demo.v1')` y recargar.
+
+Archivos:
+
+- `src/data/seed.js` — semillas (paciente, 7 interconsultas, 3 consultas interdisciplinarias).
+- `src/data/catalogos.js` — catálogos fijos (disciplinas, modalidades, estados, criterios, etc.).
+- `src/store/db.js` — motor: suscripción, persistencia y generación de ids.
+- `src/store/interconsultas.js` — acciones de interconsultas (alta, edición, estado, baja).
+- `src/store/interdisciplinaria.js` — acciones de casos, participantes y acuerdos.
+
+Los componentes leen con `usarDb()` y escriben llamando a las acciones; nunca mutan el estado a mano.
+
+## Estructura
+
+```
+src/
+├─ assets/            íconos SVG, logos asse, fuentes Inter e icon-font
+├─ components/
+│  ├─ layout/         Header, PatientBanner, VerticalMenu, SampleShell
+│  ├─ ui/             Icon, Select, Modal, ConfirmModal, Pagination, StatusPill, TabsMuestra, BotonInicio
+│  └─ interconsultas/ Filtros, TablaHistorico, ModalEdicion, Buscador, FormEspecialidad, ModalCriterios
+├─ data/              catálogos y semillas
+├─ lib/               utilidades de fecha
+├─ pages/             Portal + muestras (interconsultas, interdisciplinaria)
+├─ store/             base simulada y acciones
+├─ styles/            SCSS 7-1 (abstracts, base, layout, components, utilities)
+├─ App.jsx            rutas
+└─ main.jsx           entrada (HashRouter)
+```
+
+## Cómo agregar una muestra nueva
+
+1. Agregá las semillas en `src/data/` y, si aplica, un store en `src/store/`.
+2. Creá los componentes en `src/components/<muestra>/` reutilizando `SampleShell` y los componentes de `ui/`.
+3. Creá la página en `src/pages/<muestra>/` y sumá la ruta en `src/App.jsx`.
+4. Sumá la tarjeta en el array `MUESTRAS` de `src/pages/Portal.jsx`.
+5. Si hace falta CSS nuevo, creá el parcial en `src/styles/components/` y agregalo a `src/styles/main.scss`.
+
+## Migración desde Grunt
+
+El proyecto original (Grunt + `grunt-bake` + `funciones.js`) quedó archivado en `_legacy/` como
+referencia visual y de contenido: `_legacy/src` (HTML, SCSS, JS, assets), `_legacy/dist` (build
+anterior), `_legacy/Gruntfile.js` y el `package.json` original. Cuando la migración esté validada
+se puede borrar esa carpeta.

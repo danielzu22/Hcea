@@ -1,0 +1,230 @@
+@use "../abstracts/variables" as var;
+
+/* ==========================================================================
+   Utilidades de formularios y estados vacíos
+   Compartido por el modal de edición y el alta multi-disciplina.
+   ========================================================================== */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+}
+
+.form-grid__full {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 640px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    label {
+        font-family: var.$font-main;
+        font-weight: var.$fw-bold;
+        color: var.$color-brand-blue;
+        font-size: 1.25rem;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 1.3rem;
+        padding: 0.9rem 1.1rem;
+        border-radius: 5px;
+        border: 1px solid #ced4da;
+        color: var.$color-text;
+        font-family: var.$font-main;
+
+        &:focus {
+            outline: none;
+            border-color: var.$color-brand-blue;
+        }
+    }
+
+    textarea {
+        min-height: 90px;
+        resize: vertical;
+    }
+
+    &__hint {
+        font-size: 1.1rem;
+        color: #64748b;
+    }
+
+    &__error {
+        font-size: 1.15rem;
+        font-weight: var.$fw-semibold;
+        color: #c0392b;
+    }
+}
+
+.specialty-form__error {
+    font-size: 1.15rem;
+    font-weight: var.$fw-semibold;
+    color: #c0392b;
+}
+
+.dynamic-layout__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid #F0F0F0;
+}
+
+.dynamic-layout__actions-info {
+    margin-right: auto;
+    font-size: 1.2rem;
+    color: #64748b;
+}
+
+.empty-state {
+    padding: 4rem 2rem;
+    text-align: center;
+    color: #64748b;
+    font-size: 1.4rem;
+
+    &__title {
+        font-size: 1.7rem;
+        font-weight: var.$fw-bold;
+        color: var.$color-brand-blue;
+        margin-bottom: 0.6rem;
+    }
+
+    &__hint {
+        font-size: 1.3rem;
+    }
+}
+
+.text-muted {
+    color: #64748b;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Ajustes para elementos que en el HTML original eran <div>/<span> y acá
+   son <button> (accesibilidad con teclado).
+   -------------------------------------------------------------------------- */
+
+button.custom-select__trigger,
+button.custom-select__option {
+    width: 100%;
+    text-align: left;
+    font-family: var.$font-main;
+}
+
+button.custom-select__trigger {
+    font-size: 1.4rem;
+}
+
+button.custom-select__option {
+    font-size: 1.4rem;
+}
+
+button.criterio-card {
+    width: 100%;
+    text-align: left;
+    font: inherit;
+}
+
+button.vertical-tab {
+    width: 100%;
+    text-align: left;
+    font: inherit;
+}
+
+button.custom-select__trigger:focus-visible,
+button.criterio-card:focus-visible,
+button.vertical-tab:focus-visible {
+    outline: 2px solid var.$color-primary;
+    outline-offset: 2px;
+}
+
+.add-interconsulta__clear {
+    position: absolute;
+    top: 50%;
+    right: 0.8rem;
+    transform: translateY(-50%);
+    padding: 0;
+    line-height: 0;
+    background: transparent;
+    border: 0;
+    z-index: 3;
+
+    .add-interconsulta__input-icon {
+        position: static;
+        transform: none;
+    }
+}
+
+.pagination__btn:disabled,
+.pagination span.pagination__btn {
+    opacity: 0.4;
+    cursor: default;
+    pointer-events: none;
+}
+
+.action-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.modal-criterios__btn--danger {
+    background-color: #c0392b;
+    border: 1px solid #c0392b;
+    color: #ffffff;
+
+    &:hover {
+        filter: brightness(1.08);
+    }
+}
+
+/* Modales altos (por ejemplo, equipos de trabajo): se les da más alto al
+   cuerpo para que los formularios entren sin scroll incómodo. */
+
+.ci-page-head__actions {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.ci-form-row .custom-select-wrapper {
+    flex: 1;
+    min-width: 140px;
+}
+
+/* El bloque .filters-box__action fuerza el fondo azul de los botones; el
+   botón "Limpiar" (outline) necesita recuperar su variante. */
+.filters-box__action .btn--outline {
+    background-color: transparent;
+    border-color: var.$color-primary;
+    color: var.$color-primary;
+
+    &:hover {
+        background-color: var.$color-primary;
+        color: #ffffff;
+    }
+}

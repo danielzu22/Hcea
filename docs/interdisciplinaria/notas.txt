@@ -1,0 +1,8 @@
+En el menu de usuario crear grupos de INTERDISCIPLINARIA o sino una pestaña nueva en INTERDISCIPLINARIA
+
+Ahi pude crear grupos, editarlos y eliminarlos.
+
+* Solo usuarios Convocantes
+
+
+* Y EN la pestana ordenes(la principal) se asigna los grupos a las ordenes, dobnde se ven los estados.

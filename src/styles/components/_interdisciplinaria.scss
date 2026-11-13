@@ -1,0 +1,1046 @@
+@use "../abstracts/variables" as var;
+
+/* ==========================================================================
+   BLOCK: Consulta Interdisciplinaria
+   ========================================================================== */
+
+.ci-page-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+
+    .btn {
+        font-size: 1.3rem;
+        padding: 0.9rem 1.5rem;
+    }
+}
+
+.ci-title {
+    font-size: 2.2rem;
+    font-weight: var.$fw-bold;
+    color: var.$color-brand-blue;
+}
+
+.ci-subtitle {
+    font-size: 1.3rem;
+    color: #51607a;
+    margin-top: 0.4rem;
+}
+
+.ci-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    background-color: #E8F0FE;
+    color: var.$color-brand-blue;
+    font-size: 1.1rem;
+    font-weight: var.$fw-semibold;
+    margin: 0 0.3rem 0.3rem 0;
+}
+
+.ci-state {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: var.$fw-bold;
+    white-space: nowrap;
+
+    &--pendiente {
+        background-color: #FEF3DC;
+        color: #c36817;
+    }
+
+    &--en_curso {
+        background-color: #E8F0FE;
+        color: var.$color-brand-blue;
+    }
+
+    &--en_atencion {
+        background-color: #E8F0FE;
+        color: var.$color-brand-blue;
+    }
+
+    &--firmado {
+        background-color: #E8F9EC;
+        color: #1e8a37;
+    }
+
+    &--cerrada {
+        background-color: #E8F9EC;
+        color: #1e8a37;
+    }
+}
+
+.ci-prioridad {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 1.1rem;
+    font-weight: var.$fw-bold;
+
+    &::before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background-color: currentColor;
+    }
+
+    &--baja {
+        color: #1e8a37;
+    }
+
+    &--media {
+        color: #b1650a;
+    }
+
+    &--alta {
+        color: #c0392b;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Detalle
+   -------------------------------------------------------------------------- */
+
+.ci-detail {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+@media (max-width: 992px) {
+    .ci-detail {
+        grid-template-columns: 1fr;
+    }
+}
+
+.ci-panel {
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 2rem;
+
+    &__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #F0F0F0;
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: var.$fw-bold;
+        color: var.$color-brand-blue;
+    }
+
+    &__count {
+        font-size: 1.2rem;
+        color: #64748b;
+    }
+
+    .btn {
+        font-size: 1.3rem;
+        padding: 0.9rem 1.5rem;
+    }
+}
+
+.ci-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.2rem;
+    padding: 1.8rem 2rem;
+    background-color: #F7FAFF;
+    border: 1px solid #E1EAF7;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+
+    &__label {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        color: #64748b;
+        margin-bottom: 0.4rem;
+    }
+
+    &__value {
+        font-size: 1.5rem;
+        font-weight: var.$fw-bold;
+        color: var.$color-brand-blue;
+    }
+}
+
+.ci-list {
+    list-style: none;
+    display: grid;
+    gap: 0.8rem;
+    margin: 0 0 1.5rem;
+}
+
+.ci-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    border: 1px solid #EEF2F7;
+    border-radius: 8px;
+    background-color: #FBFDFF;
+
+    &__main {
+        min-width: 0;
+    }
+
+    &__title {
+        font-size: 1.35rem;
+        font-weight: var.$fw-semibold;
+        color: #25324a;
+        overflow-wrap: anywhere;
+    }
+
+    &__meta {
+        font-size: 1.15rem;
+        color: #64748b;
+        margin-top: 0.3rem;
+    }
+
+    &__delete {
+        flex-shrink: 0;
+        background-color: #ffffff;
+        border: 1px solid #E5E7EB;
+        border-radius: 6px;
+        padding: 0.4rem;
+        display: inline-flex;
+
+        img {
+            width: 14px;
+            height: 14px;
+            filter: brightness(0) saturate(100%) invert(36%) sepia(91%) saturate(1112%) hue-rotate(320deg) brightness(93%) contrast(98%);
+        }
+
+        &:hover {
+            background-color: #FFF1F1;
+            border-color: #F5C6CB;
+        }
+    }
+
+    &__side {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        flex-shrink: 0;
+    }
+}
+
+.tabla-accion {
+    font-size: 1.2rem;
+    padding: 0.5rem 1.4rem;
+    border-radius: 6px;
+    white-space: nowrap;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Equipos de trabajo (grupos de especialistas del convocante)
+   -------------------------------------------------------------------------- */
+
+.ci-item__nombre-input {
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 0.3rem 0.6rem;
+    font-family: var.$font-main;
+    font-size: 1.35rem;
+    font-weight: var.$fw-semibold;
+    color: #25324a;
+    background-color: transparent;
+
+    &::placeholder {
+        font-weight: var.$fw-regular;
+        color: #94a3b8;
+    }
+
+    &:hover {
+        border-color: #E5E7EB;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: var.$color-brand-blue;
+        background-color: #ffffff;
+    }
+}
+
+.equipo-alta-integrante {
+    padding-top: 1.2rem;
+    border-top: 1px dashed #E5E7EB;
+}
+
+/* Los modales no tienen la grilla 4 columnas de .specialty-form, así que los
+   selects necesitan un ancho propio (si no, el texto se corta). */
+.modal-criterios {
+    /* El select abierto se superpone al resto del formulario en vez de quedar
+       recortado por el contenedor del modal. */
+    .custom-select.open {
+        position: relative;
+        z-index: 20;
+    }
+
+    .ci-item {
+        overflow: visible;
+    }
+
+    .ci-item__main input[type="text"] {
+        width: 100%;
+        border: 1px solid #ced4da;
+        background-color: #ffffff;
+        border-radius: 5px;
+        padding: 0.9rem 1.1rem;
+        font-family: var.$font-main;
+        font-size: 1.3rem;
+        color: var.$color-text;
+
+        &:focus {
+            outline: none;
+            border-color: var.$color-brand-blue;
+        }
+    }
+
+    .custom-select-wrapper {
+        width: auto;
+        flex: 1;
+        min-width: 170px;
+    }
+
+    .custom-select__trigger {
+        font-size: 1.3rem;
+        padding: 0.9rem 1.1rem;
+        white-space: nowrap;
+    }
+
+    .custom-select__option {
+        font-size: 1.3rem;
+        white-space: nowrap;
+    }
+}
+
+.ci-form-inline {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding-top: 1.2rem;
+    border-top: 1px dashed #E5E7EB;
+
+    textarea {
+        min-height: 70px;
+        resize: vertical;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Filas expandibles con tabla de detalle (patrón del UI kit ITC Nexus)
+   Fila visible + fila hermana con un único <td colspan>. El detalle se abre
+   con la técnica grid 0fr -> 1fr, sin medir alturas en JS, y usa un solo color
+   de fondo, con los mismos paddings que la tabla madre (heredados de td/th).
+   -------------------------------------------------------------------------- */
+
+.tabla-expandible {
+    tbody tr.fila-expandible > td {
+        vertical-align: middle;
+    }
+
+    // La columna de acciones se ajusta a su contenido (los botones no se
+    // reparten el espacio sobrante)
+    tbody tr.fila-expandible > td:last-child {
+        width: 1%;
+        white-space: nowrap;
+        text-align: right;
+    }
+
+    .acciones-fila {
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+    }
+
+    tbody tr.fila-expandible.is-expanded > td {
+        border-bottom: none;
+    }
+
+    // La fila de detalle no aporta padding ni fondo propios: todo lo dibuja el
+    // panel interno. Sin alternancia de fondo.
+    tbody tr.fila-detalle,
+    tbody tr.fila-detalle:nth-child(even) {
+        background-color: transparent;
+    }
+
+    tbody tr.fila-detalle > td {
+        padding: 0;
+        border-bottom: none;
+        background-color: transparent;
+        height: auto;
+        color: var.$color-text;
+    }
+}
+
+// Botón desplegable: mismo alto y borde que las acciones con ícono
+.action-btn--expandir {
+    gap: 0.6rem;
+    padding: 0 1rem;
+}
+
+.fila-expandible__chevron {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var.$color-brand-blue;
+    transition: transform 0.2s ease;
+
+    svg {
+        display: block;
+    }
+}
+
+.action-btn--expandir[aria-expanded="true"] .fila-expandible__chevron {
+    transform: rotate(90deg);
+}
+
+// Con la fila abierta, el botón toma como fondo el color de su borde
+.action-btn--expandir[aria-expanded="true"] {
+    background-color: #C9DBF7;
+    border-color: #C9DBF7;
+
+    &:hover {
+        background-color: #B9D2F5;
+        border-color: #B9D2F5;
+    }
+}
+
+.fila-detalle__inner {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    visibility: hidden;
+    transition: grid-template-rows 0.24s ease, visibility 0s linear 0.24s;
+}
+
+.fila-detalle.is-open .fila-detalle__inner {
+    grid-template-rows: 1fr;
+    visibility: visible;
+    transition: grid-template-rows 0.24s ease, visibility 0s;
+}
+
+.fila-detalle__content {
+    min-height: 0;
+    overflow: hidden;
+}
+
+// Un solo color de fondo para todo el bloque expandido (un paso más oscuro
+// que el gris-azulado de las filas alternadas de la tabla madre).
+$fondo-detalle: #E4ECF8;
+$borde-detalle: rgba(0, 60, 165, 0.18);
+$borde-fila-detalle: rgba(0, 60, 165, 0.09);
+
+.fila-detalle__panel {
+    background-color: $fondo-detalle;
+}
+
+.fila-detalle__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+    // Mismo padding lateral que las celdas de la tabla (10px 16px)
+    padding: var.$gp-m 1.6rem;
+    background-color: transparent;
+    // Separador inferior: el mismo borde que tenía el thead de la tabla
+    border-bottom: 1px solid $borde-detalle;
+}
+
+.fila-detalle__titulo {
+    margin: 0;
+    font-family: var.$font-main;
+    font-size: 1.25rem;
+    // El reset de base fuerza `font-weight: unset !important` en h1-h4, así
+    // que el bold necesita ser importante también.
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    color: var.$color-brand-blue;
+}
+
+.btn-agregar-integrante {
+    font-size: 1.2rem;
+    padding: 0.6rem 1.2rem;
+    gap: 0.6rem;
+}
+
+// Tabla anidada: mismo fondo que el panel (sin fondo propio en el thead) y
+// celdas con el mismo padding que la tabla madre (10px 16px).
+.tabla-detalle {
+    background-color: $fondo-detalle;
+    font-size: 1.25rem;
+
+    // Sin thead: nombre y disciplina van en la misma celda.
+    td {
+        padding: var.$gp-m 1.6rem;
+        // Borde entre filas más claro
+        border-bottom: 1px solid $borde-fila-detalle;
+        color: #25324a;
+    }
+
+    // La última fila cierra contra el fondo del panel, sin línea suelta
+    tbody tr:last-child td {
+        border-bottom: 0;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: transparent;
+    }
+
+    // Hover en azul claro, solo en filas de datos
+    tbody > tr:hover {
+        background-color: #DCE9FB;
+    }
+
+    .action-btn {
+        height: 28px;
+        padding: 0 0.5rem;
+    }
+
+    // Columna de la acción: ancho según su contenido, alineada a la derecha
+    td:last-child {
+        width: 1%;
+        white-space: nowrap;
+        text-align: right;
+    }
+}
+
+// Celda del equipo: icono de team + nombre
+.equipo-celda {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    min-width: 0;
+}
+
+.equipo-avatar {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background-color: #E4ECF8;
+    color: var.$color-brand-blue;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        display: block;
+    }
+}
+
+// Celda del integrante: icono de usuario + nombre + disciplina
+.integrante-celda {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-width: 0;
+}
+
+.integrante-avatar {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: #DBE7F7;
+    color: var.$color-brand-blue;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        display: block;
+    }
+}
+
+// Nombre y apellido con la disciplina entre paréntesis y en gris
+.integrante-nombre {
+    font-weight: var.$fw-semibold;
+    color: #25324a;
+}
+
+.integrante-disciplina {
+    margin-left: 0.5rem;
+    color: #64748b;
+}
+
+// Popup "Agregar integrantes": buscador con autocompletado (mismo estilo que
+// "Agregar interconsulta") + filtro por disciplina
+.buscador-integrantes {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    flex-wrap: wrap;
+
+    // Se reutilizan las clases .add-interconsulta__search/input/dropdown, que
+    // en ese bloque dependen de un contenedor flex; acá se ajustan al popup.
+    &__campo {
+        flex: 1;
+        min-width: 240px;
+
+        .add-interconsulta__input[type='text'] {
+            width: 100%;
+            border: 1px solid var.$color-brand-blue;
+            border-radius: 5px;
+            padding: 10px 30px 10px 35px;
+            font-family: var.$font-main;
+            font-size: 1.3rem;
+            color: #000000;
+            background-color: #ffffff;
+
+            &::placeholder {
+                color: #999999;
+            }
+        }
+
+        .add-interconsulta__input-icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        .add-interconsulta__dropdown {
+            z-index: 30;
+        }
+    }
+
+    &__filtro {
+        width: 220px;
+
+        // El desplegable de disciplinas se dibuja por encima del body del modal
+        .custom-select.open {
+            position: relative;
+            z-index: 40;
+        }
+
+        .custom-select__options {
+            max-height: 260px;
+            overflow-y: auto;
+        }
+    }
+
+    .custom-select-wrapper {
+        width: 100%;
+    }
+}
+
+.add-interconsulta__dropdown-item.is-disabled {
+    color: #94a3b8;
+    cursor: default;
+
+    &:hover {
+        background-color: transparent;
+    }
+}
+
+// Lista pendiente del popup "Agregar integrantes" (selección antes de confirmar)
+.seleccion-integrantes {
+    margin-top: 1.6rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid $borde-detalle;
+
+    .fila-detalle__titulo {
+        margin-bottom: 0.8rem;
+    }
+
+    &__vacio {
+        margin: 0;
+        padding: 1.2rem;
+        font-size: 1.2rem;
+        color: #64748b;
+        background-color: $fondo-detalle;
+        border-radius: 8px;
+    }
+
+    .tabla-detalle {
+        background-color: transparent;
+
+        th {
+            border-bottom-width: 1px;
+        }
+    }
+}
+
+// Disciplina del profesional a la derecha de cada sugerencia
+.add-interconsulta__dropdown-detalle {
+    float: right;
+    font-weight: var.$fw-regular;
+    font-size: 1.2rem;
+    color: #64748b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fila-detalle__inner {
+        transition: none;
+    }
+}
+.ci-form-row {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+
+    select,
+    input {
+        flex: 1;
+        min-width: 140px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Selector de disciplinas (alta)
+   -------------------------------------------------------------------------- */
+
+.ci-disciplinas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.ci-disciplina {
+    border: 1px solid #ced4da;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 0.8rem 1.2rem;
+    font-family: var.$font-main;
+    font-size: 1.3rem;
+    color: var.$color-text;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: var.$color-brand-blue;
+    }
+
+    &.selected {
+        background-color: #E8F0FE;
+        border-color: var.$color-brand-blue;
+        color: var.$color-brand-blue;
+        font-weight: var.$fw-bold;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Consultas interdisciplinarias: fila por consulta, badges y breadcrumb
+   -------------------------------------------------------------------------- */
+
+.consulta-paciente {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+
+    &__nombre {
+        font-weight: var.$fw-semibold;
+        color: #25324a;
+    }
+
+    &__doc {
+        font-size: 1.1rem;
+        color: #64748b;
+    }
+}
+
+.equipo-nombre-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 6px;
+    background-color: #d6e5f5;
+    font-size: 1.15rem;
+    font-weight: var.$fw-semibold;
+    color: var.$color-brand-blue;
+
+    svg {
+        flex-shrink: 0;
+        color: var.$color-brand-blue;
+    }
+
+    // En la columna EQUIPO es un botón: abre el popup de equipo
+    &--btn {
+        border: 1px solid transparent;
+        cursor: pointer;
+        font-family: inherit;
+        line-height: 1.5;
+        text-align: left;
+
+        &:hover {
+            background-color: #E4ECF8;
+            border-color: #C9DBF7;
+        }
+    }
+}
+
+// Popup "Equipo de la consulta": opciones mínimas
+.equipo-consulta-actual {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.equipo-consulta-selector {
+    width: 100%;
+    max-width: 32rem;
+
+    .custom-select-wrapper {
+        width: 100%;
+    }
+}
+
+.consulta-progreso {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 1.1rem;
+    color: #64748b;
+}
+
+// Acciones de la columna Equipo: badge + cambiar + quitar
+.equipo-celda-acciones {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: nowrap;
+
+    .action-btn {
+        margin-right: 0;
+    }
+}
+
+// Nombre del equipo: badge de ancho fijo para que cambiar/quitar queden alineados
+.equipo-celda-acciones .equipo-nombre-chip {
+    display: inline-flex;
+    align-items: center;
+    width: 22rem;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Badge del botón Equipo cuando la consulta no tiene equipo
+.badge-sin-asignar {
+    margin-left: 0.6rem;
+    padding: 0.15rem 0.7rem;
+    border-radius: 20px;
+    background-color: #FEF3DC;
+    color: #c36817;
+    font-size: 1rem;
+    font-weight: var.$fw-bold;
+}
+
+// Contador de firmas del botón Seguimiento
+.accion-seguimiento,
+.accion-equipo {
+    gap: 0.6rem;
+}
+
+.badge-progreso {
+    margin-left: 0.2rem;
+    padding: 0.15rem 0.7rem;
+    border-radius: 20px;
+    background-color: #EEF3FA;
+    color: #64748b;
+    font-size: 1rem;
+    font-weight: var.$fw-bold;
+
+    &--en_curso {
+        background-color: #E8F0FE;
+        color: var.$color-brand-blue;
+    }
+
+    &--finalizada {
+        background-color: #E8F9EC;
+        color: #1e8a37;
+    }
+}
+
+.accion-equipo,
+.accion-seguimiento {
+    display: inline-flex;
+    align-items: center;
+}
+
+// Breadcrumb de las vistas internas
+.ci-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.6rem;
+    font-family: var.$font-main;
+    font-size: 1.25rem;
+
+    &__link {
+        color: var.$color-brand-blue;
+        font-weight: var.$fw-semibold;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__sep {
+        display: inline-flex;
+        color: #94a3b8;
+    }
+
+    &__actual {
+        color: #25324a;
+        font-weight: var.$fw-bold;
+    }
+}
+
+// Tabla de consultas: Fecha 10% / Paciente 20% / Equipo 35% / Estado 35%
+.tabla-consultas {
+    table-layout: fixed;
+
+    th:nth-child(1),
+    td:nth-child(1) {
+        width: 10%;
+    }
+
+    th:nth-child(2),
+    td:nth-child(2) {
+        width: 20%;
+    }
+
+    th:nth-child(3),
+    td:nth-child(3) {
+        width: 35%;
+    }
+
+    th:nth-child(4),
+    td:nth-child(4) {
+        width: 35%;
+    }
+
+    // El nombre del equipo y los badges no desbordan la celda
+    .equipo-celda-acciones {
+        flex-wrap: wrap;
+    }
+}
+
+// Resumen del caso en las vistas internas
+.ci-resumen-consulta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.2rem;
+    padding: 1.4rem 1.6rem;
+    margin-bottom: 1.6rem;
+    background-color: #F7FAFF;
+    border: 1px solid #E1EAF7;
+    border-radius: 10px;
+
+    &__label {
+        display: block;
+        font-size: 1.05rem;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        color: #64748b;
+        margin-bottom: 0.3rem;
+    }
+
+    &__valor {
+        font-size: 1.35rem;
+        font-weight: var.$fw-semibold;
+        color: var.$color-brand-blue;
+    }
+}
+
+// Selector de equipo guardado en la vista Equipo de la consulta
+.ci-asignar-equipo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.6rem;
+    padding: 1.2rem 1.4rem;
+    background-color: #F7FAFF;
+    border: 1px solid #E1EAF7;
+    border-radius: 10px;
+
+    .form-field__label {
+        margin-bottom: 0;
+    }
+
+    .custom-select-wrapper {
+        width: 100%;
+        max-width: 38rem;
+    }
+}
+
+// Sugerencias del buscador de integrantes en la vista Equipo
+.sugerencias-equipo {
+    list-style: none;
+    margin: 0;
+    display: grid;
+    gap: 0.4rem;
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border: 1px solid #E1EAF7;
+        border-radius: 8px;
+        background-color: #ffffff;
+        font-family: var.$font-main;
+        font-size: 1.25rem;
+        color: #25324a;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #F0F6FD;
+            border-color: #C9DBF7;
+        }
+    }
+
+    &__meta {
+        color: #64748b;
+        font-size: 1.15rem;
+    }
+}
+
+.tabla-seguimiento {
+    &__fecha {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #475569;
+
+        svg {
+            color: #94a3b8;
+        }
+
+        &--ok {
+            color: #1e8a37;
+
+            svg {
+                color: #1e8a37;
+            }
+        }
+    }
+}
